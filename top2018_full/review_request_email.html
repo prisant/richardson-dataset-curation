@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<!--
+  HOW TO USE THIS EMAIL TEMPLATE:
+  1. Open this file in your web browser
+  2. Ctrl+A (select all), Ctrl+C (copy)
+  3. Paste into Gmail compose window
+  4. Formatting and paragraphs will be preserved
+  5. LINKS WILL NOT BE CLICKABLE after paste — you must manually
+     add them: highlight each URL, press Ctrl+K in Gmail, and
+     the URL will auto-populate in the link dialog
+-->
+<body style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #333;">
+
+<p>Hi,</p>
+
+<p>I'd appreciate your feedback on a new Ramachandran analysis focused database built from the top2018Full 70% Homology Residue Level filtered dataset.</p>
+
+<p><strong>What it contains:</strong> Per-residue backbone geometry (phi, psi, omega, tau), sidechain torsion (chi1), Ramachandran classifications, and DSSP secondary structure for 2,405,322 quality-filtered protein residues from 12,125 chains in 11,843 high-resolution protein structures. The source data is the Richardson Lab top2018 dataset (Williams et al., 2021, full-filtered, 70% homology).</p>
+
+<p><strong>What's new:</strong> The measurements are computed on "ersatz" full-structure PDB files that preserve multi-chain context for correct DSSP secondary structure assignments &mdash; something the original single-chain pruned files cannot provide. NQH sidechain flip corrections from Reduce are applied using the three-point hinge rotation method, matching the published Zenodo coordinates. Fragment-aware post-filtering ensures no measurement depends on coordinates from quality-filtered residues.</p>
+
+<p><strong>Links:</strong></p>
+<ul>
+<li>Zenodo dataset: <a href="https://doi.org/10.5281/zenodo.19029946">https://doi.org/10.5281/zenodo.19029946</a></li>
+<li>Pipeline code and documentation: <a href="https://github.com/prisant/richardson-dataset-curation">https://github.com/prisant/richardson-dataset-curation</a></li>
+<li>Measurement tool: <a href="https://github.com/prisant/pydangle-biopython">https://github.com/prisant/pydangle-biopython</a></li>
+</ul>
+
+<p>The Zenodo deposit includes a detailed issues document (top2018_issues.md) describing every problem encountered during preparation and how it was resolved. The pipeline is fully reproducible from publicly available sources.</p>
+
+<p>I'd welcome any comments on the methodology, the data, or the documentation.</p>
+
+<p>Best regards,<br>
+Michael</p>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 # pydangle top2018: Per-residue geometric measurements and classifications for 12,125 high-quality protein chains
 
-**Zenodo DOI:** [10.5281/zenodo.19032221](https://doi.org/10.5281/zenodo.19032221) (v1.0.2) | [all versions](https://doi.org/10.5281/zenodo.19029946)
+**Zenodo:** [doi:10.5281/zenodo.19029946](https://doi.org/10.5281/zenodo.19029946)
 
 ## Summary
 
@@ -76,7 +76,7 @@ Null values indicate the measurement could not be computed (e.g., phi requires t
 - Cis peptide bonds: 5,902 (0.29%), of which 5,154 are Pro (5.0% of all Pro)
 - DSSP: H 31.4%, E 23.5%, C 18.1%, T 10.9%, S 8.2%, G 4.0%, P 2.0%, B 1.4%, I 0.6%
 
-See [top2018_analysis.md](top2018_analysis.md) for the full statistical report and [ISSUES.md](ISSUES.md) for preparation details.
+See [top2018_analysis.md](top2018_analysis.md) for the full statistical report and [top2018_issues.md](top2018_issues.md) for preparation details.
 
 ## Files
 

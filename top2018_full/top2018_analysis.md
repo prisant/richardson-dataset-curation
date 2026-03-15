@@ -31,7 +31,7 @@ additional entries required remapping: 4ct3 chain D was renamed to RCSB
 chain E, and 5tvo chain A residues were renumbered with a +315 offset.
 Three entries (5kve\_L, 4oe9\_B, 3wwL\_A) have 7 total residues absent
 from the current RCSB structures due to remediation (0.0003% of the
-dataset). See [ISSUES.md](ISSUES.md) §8 for full details.
+dataset). See [top2018_issues.md](top2018_issues.md) §8 for full details.
 
 ## Residue Composition
 
@@ -124,7 +124,7 @@ dataset). See [ISSUES.md](ISSUES.md) §8 for full details.
 
 Missing values for phi/psi/omega/is_cis reflect fragment boundaries where
 the neighboring residue was quality-filtered and its coordinates are not
-used (see [ISSUES.md](ISSUES.md) §9). Missing chi1 values are for glycine
+used (see [top2018_issues.md](top2018_issues.md) §9). Missing chi1 values are for glycine
 (no sidechain) and residues with incomplete sidechain atoms. Missing
 rama_category values occur where either phi or psi is unavailable. The 10
 missing tau values and 14,630 missing dssp values are from structures

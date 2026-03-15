@@ -238,6 +238,6 @@
   [1] The output contains 12,126 unique (file, chain) combinations.
       This may differ from the source chain list count
       if RCSB PDB remediation renamed or split chains
-      relative to the original dataset. See ISSUES.md
+      relative to the original dataset. See top2018_issues.md
       for per-entry details.
 
