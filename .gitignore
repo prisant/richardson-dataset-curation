@@ -1,0 +1,20 @@
+# Dataset directories (too large for git)
+top2018_pdbs_full_filtered_hom70/
+top2018_pdbs_mc_filtered_hom70/
+
+# Data products (distributed via Zenodo, not git)
+*.jsonl
+*.jsonl.gz
+
+# Intermediate pipeline outputs
+*_raw.jsonl
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editor backups
+*~
+*.swp

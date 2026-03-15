@@ -1,0 +1,3 @@
+# Exact versions used for the top2018_full dataset (2026-03-15)
+pydangle-biopython==0.5.1
+biopython>=1.83
