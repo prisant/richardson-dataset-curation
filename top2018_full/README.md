@@ -4,7 +4,7 @@
 
 ## Summary
 
-This dataset contains per-residue backbone and sidechain geometric measurements, Ramachandran classifications, and DSSP secondary structure assignments for 2,355,814 quality-filtered protein residues from 11,843 high-resolution, low-redundancy protein chains.
+This dataset contains per-residue backbone and sidechain geometric measurements, Ramachandran classifications, and DSSP secondary structure assignments for 2,405,322 quality-filtered protein residues from 12,125 quality-filtered chains in 11,843 high-resolution, low-redundancy protein structures.
 
 The measurements were computed using [pydangle-biopython](https://github.com/prisant/pydangle-biopython) v0.5.1, a Python reimagining of the Richardson Lab's Java Dangle tool, with BioPython as the structure-parsing backend.
 
@@ -68,12 +68,15 @@ Null values indicate the measurement could not be computed (e.g., phi requires t
 
 ## Dataset statistics
 
-- Total residues: 2,355,814
-- Unique structures: 11,842
+- Total residues: 2,405,322
+- Unique structures: 11,843
+- Quality-filtered chains: 12,125 (256 structures contribute multiple chains)
 - Standard amino acids: 20 types represented
-- Ramachandran categories: General 68.6%, IleVal 14.1%, Gly 8.8%, TransPro 4.7%, PrePro 3.7%, CisPro 0.3%
-- Cis peptide bonds: 5,787 (0.29%), of which 5,059 are Pro (5.0% of all Pro)
-- DSSP: H 31.4%, E 23.5%, C 18.1%, T 10.9%, S 8.2%, G 3.9%, P 2.0%, B 1.4%, I 0.6%
+- Ramachandran categories: General 68.6%, IleVal 14.0%, Gly 8.8%, TransPro 4.7%, PrePro 3.7%, CisPro 0.3%
+- Cis peptide bonds: 5,902 (0.29%), of which 5,154 are Pro (5.0% of all Pro)
+- DSSP: H 31.4%, E 23.5%, C 18.1%, T 10.9%, S 8.2%, G 4.0%, P 2.0%, B 1.4%, I 0.6%
+
+See [top2018_analysis.md](top2018_analysis.md) for the full statistical report and [ISSUES.md](ISSUES.md) for preparation details.
 
 ## Files
 

@@ -9,15 +9,15 @@ title: >-
 description: >-
   Per-residue backbone geometry (phi, psi, omega, tau), sidechain torsion
   (chi1), Ramachandran classifications, and DSSP secondary structure for
-  2,355,814 quality-filtered protein residues from 11,843 high-resolution,
-  low-redundancy protein chains. Computed using pydangle-biopython v0.5.1
-  on "ersatz" full-structure PDB files that preserve multi-chain context
-  for correct DSSP assignments. Source data from the Richardson Lab top2018
-  dataset (Williams et al., 2021, doi:10.1002/pro.4239), full-filtered,
-  70% homology, 60% completeness. See README.md for full methodology and
-  reproduction instructions.
+  2,405,322 quality-filtered protein residues from 12,125 chains in 11,843
+  high-resolution, low-redundancy protein structures. Computed using
+  pydangle-biopython v0.5.1 on "ersatz" full-structure PDB files that
+  preserve multi-chain context for correct DSSP assignments. Source data
+  from the Richardson Lab top2018 dataset (Williams et al., 2021,
+  doi:10.1002/pro.4239), full-filtered, 70% homology, 60% completeness.
+  See README.md for full methodology and ISSUES.md for preparation details.
 
-version: "1.0.2"
+version: "1.0.3"
 license: cc-by-4.0
 
 creators:

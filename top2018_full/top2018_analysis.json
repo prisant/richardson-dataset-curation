@@ -1,11 +1,10 @@
-Loading top2018_full_ersatz.jsonl...
-Loaded 2,355,814 records.
-Analyzing...
 {
   "overview": {
-    "total_residues": 2355814,
-    "unique_files": 11842,
-    "standard_residues": 2355814,
+    "total_residues": 2405322,
+    "unique_structures": 11843,
+    "unique_chains": 12126,
+    "multi_chain_structures": 256,
+    "standard_residues": 2405322,
     "nonstandard_residues": 0,
     "mapped_residues": {
       "MSE": {
@@ -18,358 +17,358 @@ Analyzing...
   "residue_composition": [
     {
       "resname": "ALA",
-      "count": 239152,
-      "fraction": 0.101516,
-      "percent": 10.1516,
+      "count": 244156,
+      "fraction": 0.101507,
+      "percent": 10.1507,
       "is_standard": true
     },
     {
       "resname": "LEU",
-      "count": 228737,
-      "fraction": 0.097095,
-      "percent": 9.7095,
+      "count": 233250,
+      "fraction": 0.096972,
+      "percent": 9.6972,
       "is_standard": true
     },
     {
       "resname": "GLY",
-      "count": 212779,
-      "fraction": 0.090321,
-      "percent": 9.0321,
+      "count": 217285,
+      "fraction": 0.090335,
+      "percent": 9.0335,
       "is_standard": true
     },
     {
       "resname": "VAL",
-      "count": 189688,
-      "fraction": 0.080519,
-      "percent": 8.0519,
+      "count": 193595,
+      "fraction": 0.080486,
+      "percent": 8.0486,
       "is_standard": true
     },
     {
       "resname": "THR",
-      "count": 143977,
-      "fraction": 0.061116,
-      "percent": 6.1116,
+      "count": 147063,
+      "fraction": 0.061141,
+      "percent": 6.1141,
       "is_standard": true
     },
     {
       "resname": "SER",
-      "count": 142383,
-      "fraction": 0.060439,
-      "percent": 6.0439,
+      "count": 145478,
+      "fraction": 0.060482,
+      "percent": 6.0482,
       "is_standard": true
     },
     {
       "resname": "ILE",
-      "count": 142039,
-      "fraction": 0.060293,
-      "percent": 6.0293,
+      "count": 144935,
+      "fraction": 0.060256,
+      "percent": 6.0256,
       "is_standard": true
     },
     {
       "resname": "ASP",
-      "count": 135007,
-      "fraction": 0.057308,
-      "percent": 5.7308,
+      "count": 137763,
+      "fraction": 0.057274,
+      "percent": 5.7274,
       "is_standard": true
     },
     {
       "resname": "PRO",
-      "count": 120858,
-      "fraction": 0.051302,
-      "percent": 5.1302,
+      "count": 123406,
+      "fraction": 0.051305,
+      "percent": 5.1305,
       "is_standard": true
     },
     {
       "resname": "PHE",
-      "count": 107467,
-      "fraction": 0.045618,
-      "percent": 4.5618,
+      "count": 109593,
+      "fraction": 0.045563,
+      "percent": 4.5563,
       "is_standard": true
     },
     {
       "resname": "GLU",
-      "count": 106297,
-      "fraction": 0.045121,
-      "percent": 4.5121,
+      "count": 108437,
+      "fraction": 0.045082,
+      "percent": 4.5082,
       "is_standard": true
     },
     {
       "resname": "ASN",
-      "count": 100980,
-      "fraction": 0.042864,
-      "percent": 4.2864,
+      "count": 103009,
+      "fraction": 0.042825,
+      "percent": 4.2825,
       "is_standard": true
     },
     {
       "resname": "TYR",
-      "count": 92689,
-      "fraction": 0.039345,
-      "percent": 3.9345,
+      "count": 94688,
+      "fraction": 0.039366,
+      "percent": 3.9366,
       "is_standard": true
     },
     {
       "resname": "ARG",
-      "count": 90323,
-      "fraction": 0.03834,
-      "percent": 3.834,
+      "count": 92343,
+      "fraction": 0.038391,
+      "percent": 3.8391,
       "is_standard": true
     },
     {
       "resname": "LYS",
-      "count": 70783,
-      "fraction": 0.030046,
-      "percent": 3.0046,
+      "count": 72214,
+      "fraction": 0.030023,
+      "percent": 3.0023,
       "is_standard": true
     },
     {
       "resname": "GLN",
-      "count": 70466,
-      "fraction": 0.029912,
-      "percent": 2.9912,
+      "count": 71950,
+      "fraction": 0.029913,
+      "percent": 2.9913,
       "is_standard": true
     },
     {
       "resname": "HIS",
-      "count": 56007,
-      "fraction": 0.023774,
-      "percent": 2.3774,
+      "count": 57177,
+      "fraction": 0.023771,
+      "percent": 2.3771,
       "is_standard": true
     },
     {
       "resname": "TRP",
-      "count": 38796,
-      "fraction": 0.016468,
-      "percent": 1.6468,
+      "count": 39718,
+      "fraction": 0.016513,
+      "percent": 1.6513,
       "is_standard": true
     },
     {
       "resname": "MET",
-      "count": 36521,
-      "fraction": 0.015502,
-      "percent": 1.5502,
+      "count": 37543,
+      "fraction": 0.015608,
+      "percent": 1.5608,
       "is_standard": true
     },
     {
       "resname": "CYS",
-      "count": 30865,
-      "fraction": 0.013102,
-      "percent": 1.3102,
+      "count": 31719,
+      "fraction": 0.013187,
+      "percent": 1.3187,
       "is_standard": true
     }
   ],
   "rama_category": {
     "overall": {
       "General": {
-        "count": 1160689,
-        "percent": 68.5487
+        "count": 1185578,
+        "percent": 68.5567
       },
       "IleVal": {
-        "count": 237902,
-        "percent": 14.0502
+        "count": 242781,
+        "percent": 14.0389
       },
       "Gly": {
-        "count": 148538,
-        "percent": 8.7724
+        "count": 151712,
+        "percent": 8.7728
       },
       "TransPro": {
-        "count": 79156,
-        "percent": 4.6748
+        "count": 80908,
+        "percent": 4.6785
       },
       "PrePro": {
-        "count": 62460,
-        "percent": 3.6888
+        "count": 63787,
+        "percent": 3.6885
       },
       "CisPro": {
-        "count": 4488,
-        "percent": 0.2651
+        "count": 4574,
+        "percent": 0.2645
       }
     },
     "by_residue_type": {
       "ALA": {
         "General": {
-          "count": 162514,
-          "percent": 95.8536
+          "count": 165941,
+          "percent": 95.8532
         },
         "PrePro": {
-          "count": 7030,
-          "percent": 4.1464
+          "count": 7179,
+          "percent": 4.1468
         }
       },
       "ARG": {
         "General": {
-          "count": 63541,
-          "percent": 95.2239
+          "count": 64994,
+          "percent": 95.2419
         },
         "PrePro": {
-          "count": 3187,
-          "percent": 4.7761
+          "count": 3247,
+          "percent": 4.7581
         }
       },
       "ASN": {
         "General": {
-          "count": 69090,
-          "percent": 93.7246
+          "count": 70485,
+          "percent": 93.7163
         },
         "PrePro": {
-          "count": 4626,
-          "percent": 6.2754
+          "count": 4726,
+          "percent": 6.2837
         }
       },
       "ASP": {
         "General": {
-          "count": 93728,
-          "percent": 94.2302
+          "count": 95664,
+          "percent": 94.2215
         },
         "PrePro": {
-          "count": 5739,
-          "percent": 5.7698
+          "count": 5867,
+          "percent": 5.7785
         }
       },
       "CYS": {
         "General": {
-          "count": 20997,
-          "percent": 94.2372
+          "count": 21596,
+          "percent": 94.2111
         },
         "PrePro": {
-          "count": 1284,
-          "percent": 5.7628
+          "count": 1327,
+          "percent": 5.7889
         }
       },
       "GLN": {
         "General": {
-          "count": 49452,
-          "percent": 95.2337
+          "count": 50499,
+          "percent": 95.2452
         },
         "PrePro": {
-          "count": 2475,
-          "percent": 4.7663
+          "count": 2521,
+          "percent": 4.7548
         }
       },
       "GLU": {
         "General": {
-          "count": 75171,
-          "percent": 96.0762
+          "count": 76771,
+          "percent": 96.1031
         },
         "PrePro": {
-          "count": 3070,
-          "percent": 3.9238
+          "count": 3113,
+          "percent": 3.8969
         }
       },
       "GLY": {
         "Gly": {
-          "count": 148538,
+          "count": 151712,
           "percent": 100.0
         }
       },
       "HIS": {
         "General": {
-          "count": 38489,
-          "percent": 93.5948
+          "count": 39308,
+          "percent": 93.5816
         },
         "PrePro": {
-          "count": 2634,
-          "percent": 6.4052
+          "count": 2696,
+          "percent": 6.4184
         }
       },
       "ILE": {
         "IleVal": {
-          "count": 101987,
+          "count": 104071,
           "percent": 100.0
         }
       },
       "LEU": {
         "General": {
-          "count": 152439,
-          "percent": 94.6238
+          "count": 155514,
+          "percent": 94.6202
         },
         "PrePro": {
-          "count": 8661,
-          "percent": 5.3762
+          "count": 8842,
+          "percent": 5.3798
         }
       },
       "LYS": {
         "General": {
-          "count": 49688,
-          "percent": 95.3064
+          "count": 50705,
+          "percent": 95.2958
         },
         "PrePro": {
-          "count": 2447,
-          "percent": 4.6936
+          "count": 2503,
+          "percent": 4.7042
         }
       },
       "MET": {
         "General": {
-          "count": 25382,
-          "percent": 95.1492
+          "count": 26101,
+          "percent": 95.1203
         },
         "PrePro": {
-          "count": 1294,
-          "percent": 4.8508
+          "count": 1339,
+          "percent": 4.8797
         }
       },
       "PHE": {
         "General": {
-          "count": 73509,
-          "percent": 95.1166
+          "count": 74993,
+          "percent": 95.1277
         },
         "PrePro": {
-          "count": 3774,
-          "percent": 4.8834
+          "count": 3841,
+          "percent": 4.8723
         }
       },
       "PRO": {
         "TransPro": {
-          "count": 79156,
-          "percent": 94.6344
+          "count": 80908,
+          "percent": 94.6492
         },
         "CisPro": {
-          "count": 4488,
-          "percent": 5.3656
+          "count": 4574,
+          "percent": 5.3508
         }
       },
       "SER": {
         "General": {
-          "count": 96849,
-          "percent": 94.8579
+          "count": 98964,
+          "percent": 94.8613
         },
         "PrePro": {
-          "count": 5250,
-          "percent": 5.1421
+          "count": 5361,
+          "percent": 5.1387
         }
       },
       "THR": {
         "General": {
-          "count": 98643,
-          "percent": 94.0702
+          "count": 100773,
+          "percent": 94.074
         },
         "PrePro": {
-          "count": 6218,
-          "percent": 5.9298
+          "count": 6348,
+          "percent": 5.926
         }
       },
       "TRP": {
         "General": {
-          "count": 26857,
-          "percent": 95.6787
+          "count": 27525,
+          "percent": 95.7058
         },
         "PrePro": {
-          "count": 1213,
-          "percent": 4.3213
+          "count": 1235,
+          "percent": 4.2942
         }
       },
       "TYR": {
         "General": {
-          "count": 64340,
-          "percent": 94.7598
+          "count": 65745,
+          "percent": 94.7512
         },
         "PrePro": {
-          "count": 3558,
-          "percent": 5.2402
+          "count": 3642,
+          "percent": 5.2488
         }
       },
       "VAL": {
         "IleVal": {
-          "count": 135915,
+          "count": 138710,
           "percent": 100.0
         }
       }
@@ -377,175 +376,175 @@ Analyzing...
   },
   "cis_peptide": {
     "overall": {
-      "cis": 5787,
-      "total": 1985309,
-      "percent": 0.2915
+      "cis": 5902,
+      "total": 2027346,
+      "percent": 0.2911
     },
     "proline": {
-      "cis": 5059,
-      "total": 101368,
-      "percent": 4.9907
+      "cis": 5154,
+      "total": 103564,
+      "percent": 4.9766
     },
     "non_proline": {
-      "cis": 728,
-      "total": 1883941,
-      "percent": 0.0386
+      "cis": 748,
+      "total": 1923782,
+      "percent": 0.0389
     },
     "by_residue_type": {
       "ALA": {
         "cis": 42,
-        "total": 200275,
-        "percent": 0.021
+        "total": 204492,
+        "percent": 0.0205
       },
       "LEU": {
         "cis": 41,
-        "total": 191461,
-        "percent": 0.0214
+        "total": 195306,
+        "percent": 0.021
       },
       "GLY": {
-        "cis": 81,
-        "total": 175694,
-        "percent": 0.0461
+        "cis": 82,
+        "total": 179381,
+        "percent": 0.0457
       },
       "VAL": {
-        "cis": 31,
-        "total": 159191,
-        "percent": 0.0195
+        "cis": 33,
+        "total": 162476,
+        "percent": 0.0203
       },
       "THR": {
         "cis": 66,
-        "total": 121836,
-        "percent": 0.0542
+        "total": 124462,
+        "percent": 0.053
       },
       "SER": {
-        "cis": 91,
-        "total": 120075,
-        "percent": 0.0758
+        "cis": 96,
+        "total": 122705,
+        "percent": 0.0782
       },
       "ILE": {
-        "cis": 23,
-        "total": 119437,
-        "percent": 0.0193
+        "cis": 24,
+        "total": 121873,
+        "percent": 0.0197
       },
       "ASP": {
-        "cis": 60,
-        "total": 114951,
-        "percent": 0.0522
+        "cis": 64,
+        "total": 117291,
+        "percent": 0.0546
       },
       "PRO": {
-        "cis": 5059,
-        "total": 101368,
-        "percent": 4.9907
+        "cis": 5154,
+        "total": 103564,
+        "percent": 4.9766
       },
       "PHE": {
-        "cis": 40,
-        "total": 90828,
-        "percent": 0.044
+        "cis": 42,
+        "total": 92645,
+        "percent": 0.0453
       },
       "GLU": {
         "cis": 35,
-        "total": 90650,
-        "percent": 0.0386
+        "total": 92543,
+        "percent": 0.0378
       },
       "ASN": {
         "cis": 41,
-        "total": 85213,
-        "percent": 0.0481
+        "total": 86914,
+        "percent": 0.0472
       },
       "TYR": {
-        "cis": 52,
-        "total": 78688,
-        "percent": 0.0661
+        "cis": 56,
+        "total": 80393,
+        "percent": 0.0697
       },
       "ARG": {
         "cis": 11,
-        "total": 77387,
-        "percent": 0.0142
+        "total": 79142,
+        "percent": 0.0139
       },
       "LYS": {
         "cis": 20,
-        "total": 60693,
-        "percent": 0.033
+        "total": 61924,
+        "percent": 0.0323
       },
       "GLN": {
         "cis": 15,
-        "total": 60174,
-        "percent": 0.0249
+        "total": 61438,
+        "percent": 0.0244
       },
       "HIS": {
-        "cis": 37,
-        "total": 47406,
-        "percent": 0.078
+        "cis": 38,
+        "total": 48409,
+        "percent": 0.0785
       },
       "TRP": {
         "cis": 17,
-        "total": 32726,
-        "percent": 0.0519
+        "total": 33511,
+        "percent": 0.0507
       },
       "MET": {
         "cis": 14,
-        "total": 31060,
-        "percent": 0.0451
+        "total": 31941,
+        "percent": 0.0438
       },
       "CYS": {
         "cis": 11,
-        "total": 26196,
-        "percent": 0.042
+        "total": 26936,
+        "percent": 0.0408
       }
     },
     "by_dssp": {
       "H": {
         "cis": 11,
-        "total": 619648,
-        "percent": 0.0018
+        "total": 633025,
+        "percent": 0.0017
       },
       "E": {
-        "cis": 276,
-        "total": 475727,
-        "percent": 0.058
+        "cis": 280,
+        "total": 484686,
+        "percent": 0.0578
       },
       "C": {
-        "cis": 1097,
-        "total": 349404,
-        "percent": 0.314
+        "cis": 1115,
+        "total": 356698,
+        "percent": 0.3126
       },
       "T": {
-        "cis": 1776,
-        "total": 213817,
-        "percent": 0.8306
+        "cis": 1810,
+        "total": 218459,
+        "percent": 0.8285
       },
       "S": {
-        "cis": 2446,
-        "total": 161199,
-        "percent": 1.5174
+        "cis": 2501,
+        "total": 164567,
+        "percent": 1.5197
       },
       "G": {
         "cis": 0,
-        "total": 77292,
+        "total": 78986,
         "percent": 0.0
       },
       "P": {
-        "cis": 125,
-        "total": 37786,
-        "percent": 0.3308
+        "cis": 127,
+        "total": 38635,
+        "percent": 0.3287
       },
       "B": {
         "cis": 1,
-        "total": 27003,
-        "percent": 0.0037
+        "total": 27606,
+        "percent": 0.0036
       },
       "I": {
         "cis": 30,
-        "total": 12137,
-        "percent": 0.2472
+        "total": 12436,
+        "percent": 0.2412
       }
     }
   },
   "chirality": {
     "overall": {
-      "L": 2142891,
+      "L": 2187890,
       "D": 0,
-      "total": 2142891,
+      "total": 2187890,
       "D_percent": 0.0
     },
     "by_residue_type": {}
@@ -553,265 +552,265 @@ Analyzing...
   "dssp": {
     "overall": {
       "H": {
-        "count": 735685,
-        "percent": 31.4086
+        "count": 751368,
+        "percent": 31.4289
       },
       "E": {
-        "count": 550611,
-        "percent": 23.5072
+        "count": 561006,
+        "percent": 23.4663
       },
       "C": {
-        "count": 424317,
-        "percent": 18.1153
+        "count": 433111,
+        "percent": 18.1166
       },
       "T": {
-        "count": 256055,
-        "percent": 10.9317
+        "count": 261519,
+        "percent": 10.9391
       },
       "S": {
-        "count": 191479,
-        "percent": 8.1748
+        "count": 195465,
+        "percent": 8.1761
       },
       "G": {
-        "count": 92377,
-        "percent": 3.9438
+        "count": 94383,
+        "percent": 3.9479
       },
       "P": {
-        "count": 46139,
-        "percent": 1.9698
+        "count": 47148,
+        "percent": 1.9721
       },
       "B": {
-        "count": 31572,
-        "percent": 1.3479
+        "count": 32270,
+        "percent": 1.3498
       },
       "I": {
-        "count": 14073,
-        "percent": 0.6008
+        "count": 14422,
+        "percent": 0.6033
       }
     },
     "by_rama_category": {
       "CisPro": {
         "S": {
-          "count": 2080,
-          "percent": 46.522
+          "count": 2129,
+          "percent": 46.7398
         },
         "T": {
-          "count": 1442,
-          "percent": 32.2523
+          "count": 1467,
+          "percent": 32.2064
         },
         "C": {
-          "count": 667,
-          "percent": 14.9184
+          "count": 674,
+          "percent": 14.7969
         },
         "E": {
-          "count": 148,
-          "percent": 3.3102
+          "count": 149,
+          "percent": 3.2711
         },
         "P": {
-          "count": 105,
-          "percent": 2.3485
+          "count": 107,
+          "percent": 2.3491
         },
         "I": {
           "count": 19,
-          "percent": 0.425
+          "percent": 0.4171
         },
         "H": {
           "count": 9,
-          "percent": 0.2013
+          "percent": 0.1976
         },
         "B": {
           "count": 1,
-          "percent": 0.0224
+          "percent": 0.022
         }
       },
       "General": {
         "H": {
-          "count": 412665,
-          "percent": 35.7545
+          "count": 421590,
+          "percent": 35.7733
         },
         "E": {
-          "count": 277159,
-          "percent": 24.0138
+          "count": 282473,
+          "percent": 23.9688
         },
         "C": {
-          "count": 177416,
-          "percent": 15.3718
+          "count": 181210,
+          "percent": 15.3763
         },
         "T": {
-          "count": 117472,
-          "percent": 10.1781
+          "count": 120070,
+          "percent": 10.1883
         },
         "S": {
-          "count": 81524,
-          "percent": 7.0635
+          "count": 83254,
+          "percent": 7.0644
         },
         "G": {
-          "count": 50746,
-          "percent": 4.3968
+          "count": 51860,
+          "percent": 4.4005
         },
         "B": {
-          "count": 15989,
-          "percent": 1.3853
+          "count": 16379,
+          "percent": 1.3898
         },
         "P": {
-          "count": 13247,
-          "percent": 1.1478
+          "count": 13528,
+          "percent": 1.1479
         },
         "I": {
-          "count": 7946,
-          "percent": 0.6885
+          "count": 8141,
+          "percent": 0.6908
         }
       },
       "Gly": {
         "T": {
-          "count": 40311,
-          "percent": 27.2995
+          "count": 41156,
+          "percent": 27.3028
         },
         "C": {
-          "count": 29575,
-          "percent": 20.0288
+          "count": 30173,
+          "percent": 20.0167
         },
         "E": {
-          "count": 23891,
-          "percent": 16.1795
+          "count": 24361,
+          "percent": 16.161
         },
         "S": {
-          "count": 23479,
-          "percent": 15.9005
+          "count": 23981,
+          "percent": 15.909
         },
         "H": {
-          "count": 22350,
-          "percent": 15.1359
+          "count": 22833,
+          "percent": 15.1474
         },
         "G": {
-          "count": 4891,
-          "percent": 3.3123
+          "count": 5004,
+          "percent": 3.3196
         },
         "B": {
-          "count": 1651,
-          "percent": 1.1181
+          "count": 1671,
+          "percent": 1.1085
         },
         "P": {
-          "count": 891,
-          "percent": 0.6034
+          "count": 927,
+          "percent": 0.615
         },
         "I": {
-          "count": 623,
-          "percent": 0.4219
+          "count": 633,
+          "percent": 0.4199
         }
       },
       "IleVal": {
         "E": {
-          "count": 103007,
-          "percent": 43.5415
+          "count": 104807,
+          "percent": 43.428
         },
         "H": {
-          "count": 70666,
-          "percent": 29.8708
+          "count": 72277,
+          "percent": 29.9488
         },
         "C": {
-          "count": 29646,
-          "percent": 12.5315
+          "count": 30268,
+          "percent": 12.5419
         },
         "S": {
-          "count": 11120,
-          "percent": 4.7005
+          "count": 11367,
+          "percent": 4.7101
         },
         "T": {
-          "count": 8855,
-          "percent": 3.743
+          "count": 9052,
+          "percent": 3.7508
         },
         "G": {
-          "count": 4340,
-          "percent": 1.8345
+          "count": 4444,
+          "percent": 1.8414
         },
         "B": {
-          "count": 4027,
-          "percent": 1.7022
+          "count": 4092,
+          "percent": 1.6956
         },
         "P": {
-          "count": 3139,
-          "percent": 1.3269
+          "count": 3214,
+          "percent": 1.3318
         },
         "I": {
-          "count": 1772,
-          "percent": 0.749
+          "count": 1814,
+          "percent": 0.7517
         }
       },
       "PrePro": {
         "C": {
-          "count": 28251,
-          "percent": 45.4906
+          "count": 28867,
+          "percent": 45.5258
         },
         "S": {
-          "count": 13444,
-          "percent": 21.6479
+          "count": 13713,
+          "percent": 21.6266
         },
         "E": {
-          "count": 7677,
-          "percent": 12.3617
+          "count": 7832,
+          "percent": 12.3518
         },
         "P": {
-          "count": 5414,
-          "percent": 8.7178
+          "count": 5535,
+          "percent": 8.7292
         },
         "H": {
-          "count": 3924,
-          "percent": 6.3185
+          "count": 4005,
+          "percent": 6.3162
         },
         "T": {
-          "count": 1524,
-          "percent": 2.454
+          "count": 1550,
+          "percent": 2.4445
         },
         "G": {
-          "count": 956,
-          "percent": 1.5394
+          "count": 970,
+          "percent": 1.5298
         },
         "B": {
-          "count": 875,
-          "percent": 1.4089
+          "count": 897,
+          "percent": 1.4146
         },
         "I": {
-          "count": 38,
-          "percent": 0.0612
+          "count": 39,
+          "percent": 0.0615
         }
       },
       "TransPro": {
         "C": {
-          "count": 24215,
-          "percent": 30.7691
+          "count": 24722,
+          "percent": 30.7407
         },
         "T": {
-          "count": 14171,
-          "percent": 18.0066
+          "count": 14508,
+          "percent": 18.0401
         },
         "H": {
-          "count": 11915,
-          "percent": 15.14
+          "count": 12165,
+          "percent": 15.1266
         },
         "P": {
-          "count": 8397,
-          "percent": 10.6698
+          "count": 8590,
+          "percent": 10.6813
         },
         "E": {
-          "count": 8258,
-          "percent": 10.4931
+          "count": 8422,
+          "percent": 10.4724
         },
         "S": {
-          "count": 5957,
-          "percent": 7.5693
+          "count": 6095,
+          "percent": 7.5789
         },
         "G": {
-          "count": 4680,
-          "percent": 5.9467
+          "count": 4784,
+          "percent": 5.9487
         },
         "B": {
-          "count": 1045,
-          "percent": 1.3278
+          "count": 1073,
+          "percent": 1.3342
         },
         "I": {
-          "count": 61,
-          "percent": 0.0775
+          "count": 62,
+          "percent": 0.0771
         }
       }
     }
@@ -819,241 +818,241 @@ Analyzing...
   "geometry": {
     "overall": {
       "phi": {
-        "n": 1985306,
-        "mean": -76.731,
-        "std": 51.847
+        "n": 2027343,
+        "mean": -76.715,
+        "std": 51.845
       },
       "psi": {
-        "n": 1985352,
-        "mean": 41.912,
-        "std": 89.676
+        "n": 2027390,
+        "mean": 41.853,
+        "std": 89.67
       },
       "omega": {
-        "n": 1985309,
-        "mean": 25.917,
-        "std": 173.721
+        "n": 2027346,
+        "mean": 25.866,
+        "std": 173.731
       },
       "tau": {
-        "n": 2355804,
-        "mean": 111.152,
-        "std": 2.529
+        "n": 2405312,
+        "mean": 111.153,
+        "std": 2.531
       },
       "chi1": {
-        "n": 1896721,
-        "mean": -24.472,
-        "std": 105.793
+        "n": 1936652,
+        "mean": -24.477,
+        "std": 105.79
       }
     },
     "by_rama_category": {
       "CisPro": {
         "phi": {
-          "n": 4488,
-          "mean": -80.714,
-          "std": 11.094
+          "n": 4574,
+          "mean": -80.682,
+          "std": 11.089
         },
         "psi": {
-          "n": 4488,
-          "mean": 91.692,
-          "std": 85.638
+          "n": 4574,
+          "mean": 91.544,
+          "std": 86.005
         },
         "omega": {
-          "n": 4488,
-          "mean": 0.996,
-          "std": 6.084
+          "n": 4574,
+          "mean": 0.999,
+          "std": 6.096
         },
         "tau": {
-          "n": 4488,
+          "n": 4574,
           "mean": 113.314,
-          "std": 2.44
+          "std": 2.439
         },
         "chi1": {
-          "n": 4488,
-          "mean": 26.218,
-          "std": 16.365
+          "n": 4574,
+          "mean": 26.154,
+          "std": 16.442
         }
       },
       "General": {
         "phi": {
-          "n": 1160670,
-          "mean": -83.92,
-          "std": 38.064
+          "n": 1185559,
+          "mean": -83.904,
+          "std": 38.073
         },
         "psi": {
-          "n": 1160679,
-          "mean": 37.556,
-          "std": 86.6
+          "n": 1185568,
+          "mean": 37.493,
+          "std": 86.597
         },
         "omega": {
-          "n": 1160670,
-          "mean": 26.069,
-          "std": 173.938
+          "n": 1185559,
+          "mean": 26.001,
+          "std": 173.95
         },
         "tau": {
-          "n": 1160689,
-          "mean": 111.078,
-          "std": 2.325
+          "n": 1185578,
+          "mean": 111.079,
+          "std": 2.327
         },
         "chi1": {
-          "n": 994453,
-          "mean": -34.057,
-          "std": 102.772
+          "n": 1015883,
+          "mean": -34.07,
+          "std": 102.763
         }
       },
       "Gly": {
         "phi": {
-          "n": 148536,
-          "mean": 5.16,
-          "std": 97.619
+          "n": 151710,
+          "mean": 5.148,
+          "std": 97.601
         },
         "psi": {
-          "n": 148534,
-          "mean": -0.368,
-          "std": 103.884
+          "n": 151708,
+          "mean": -0.294,
+          "std": 103.861
         },
         "omega": {
-          "n": 148536,
-          "mean": 37.248,
-          "std": 171.919
+          "n": 151710,
+          "mean": 37.223,
+          "std": 171.928
         },
         "tau": {
-          "n": 148538,
-          "mean": 113.213,
+          "n": 151712,
+          "mean": 113.215,
           "std": 2.585
         }
       },
       "IleVal": {
         "phi": {
-          "n": 237899,
-          "mean": -94.71,
-          "std": 29.159
+          "n": 242778,
+          "mean": -94.661,
+          "std": 29.175
         },
         "psi": {
-          "n": 237901,
-          "mean": 61.837,
-          "std": 84.63
+          "n": 242780,
+          "mean": 61.665,
+          "std": 84.671
         },
         "omega": {
-          "n": 237899,
-          "mean": 37.046,
-          "std": 171.702
+          "n": 242778,
+          "mean": 37.088,
+          "std": 171.694
         },
         "tau": {
-          "n": 237902,
-          "mean": 109.706,
+          "n": 242781,
+          "mean": 109.708,
           "std": 2.344
         },
         "chi1": {
-          "n": 237874,
-          "mean": 9.435,
-          "std": 126.681
+          "n": 242752,
+          "mean": 9.47,
+          "std": 126.664
         }
       },
       "PrePro": {
         "phi": {
-          "n": 62459,
-          "mean": -95.686,
-          "std": 40.276
+          "n": 63786,
+          "mean": -95.656,
+          "std": 40.325
         },
         "psi": {
-          "n": 62460,
-          "mean": 111.896,
-          "std": 58.244
+          "n": 63787,
+          "mean": 111.861,
+          "std": 58.237
         },
         "omega": {
-          "n": 62459,
-          "mean": 10.238,
-          "std": 174.898
+          "n": 63786,
+          "mean": 10.079,
+          "std": 174.912
         },
         "tau": {
-          "n": 62460,
+          "n": 63787,
           "mean": 110.05,
-          "std": 2.531
+          "std": 2.534
         },
         "chi1": {
-          "n": 55277,
-          "mean": -45.768,
-          "std": 103.097
+          "n": 56451,
+          "mean": -45.735,
+          "std": 103.146
         }
       },
       "TransPro": {
         "phi": {
-          "n": 79156,
-          "mean": -65.262,
-          "std": 9.752
+          "n": 80908,
+          "mean": -65.267,
+          "std": 9.751
         },
         "psi": {
-          "n": 79156,
-          "mean": 70.934,
-          "std": 86.231
+          "n": 80908,
+          "mean": 70.913,
+          "std": 86.264
         },
         "omega": {
-          "n": 79156,
-          "mean": 3.203,
-          "std": 175.798
+          "n": 80908,
+          "mean": 3.169,
+          "std": 175.799
         },
         "tau": {
-          "n": 79156,
-          "mean": 112.775,
-          "std": 2.191
+          "n": 80908,
+          "mean": 112.776,
+          "std": 2.194
         },
         "chi1": {
-          "n": 79155,
-          "mean": -0.645,
-          "std": 25.874
+          "n": 80907,
+          "mean": -0.624,
+          "std": 25.879
         }
       }
     },
     "omega_deviation_trans": {
-      "n": 1979522,
-      "mean": 4.142,
-      "std": 3.821
+      "n": 2021444,
+      "mean": 4.14,
+      "std": 3.823
     }
   },
   "data_completeness": {
     "phi": {
-      "present": 1985306,
-      "missing": 370508,
-      "percent_present": 84.2726
+      "present": 2027343,
+      "missing": 377979,
+      "percent_present": 84.2857
     },
     "psi": {
-      "present": 1985352,
-      "missing": 370462,
-      "percent_present": 84.2746
+      "present": 2027390,
+      "missing": 377932,
+      "percent_present": 84.2877
     },
     "omega": {
-      "present": 1985309,
-      "missing": 370505,
-      "percent_present": 84.2727
+      "present": 2027346,
+      "missing": 377976,
+      "percent_present": 84.2858
     },
     "tau": {
-      "present": 2355804,
+      "present": 2405312,
       "missing": 10,
       "percent_present": 99.9996
     },
     "chi1": {
-      "present": 1896721,
-      "missing": 459093,
-      "percent_present": 80.5123
+      "present": 1936652,
+      "missing": 468670,
+      "percent_present": 80.5153
     },
     "is_cis": {
-      "present": 1985309,
-      "missing": 370505,
-      "percent_present": 84.2727
+      "present": 2027346,
+      "missing": 377976,
+      "percent_present": 84.2858
     },
     "is_left": {
-      "present": 2142891,
-      "missing": 212923,
-      "percent_present": 90.9618
+      "present": 2187890,
+      "missing": 217432,
+      "percent_present": 90.9604
     },
     "dssp": {
-      "present": 2342308,
-      "missing": 13506,
-      "percent_present": 99.4267
+      "present": 2390692,
+      "missing": 14630,
+      "percent_present": 99.3918
     },
     "rama_category": {
-      "present": 1693233,
-      "missing": 662581,
-      "percent_present": 71.8746
+      "present": 1729340,
+      "missing": 675982,
+      "percent_present": 71.8964
     }
   }
 }
