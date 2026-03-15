@@ -1,5 +1,7 @@
 # pydangle top2018: Per-residue geometric measurements and classifications for 12,125 high-quality protein chains
 
+**Zenodo DOI:** [10.5281/zenodo.19029947](https://doi.org/10.5281/zenodo.19029947)
+
 ## Summary
 
 This dataset contains per-residue backbone and sidechain geometric measurements, Ramachandran classifications, and DSSP secondary structure assignments for 2,355,814 quality-filtered protein residues from 11,843 high-resolution, low-redundancy protein chains.

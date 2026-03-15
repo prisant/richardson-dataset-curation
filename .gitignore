@@ -8,7 +8,10 @@ top2018_pdbs_mc_filtered_hom70/
 
 # Intermediate pipeline outputs
 *_raw.jsonl
-*.log
+*_ersatz.log
+
+# Zenodo upload staging directories
+zenodo_upload/
 
 # Python
 __pycache__/
