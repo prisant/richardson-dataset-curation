@@ -1,5 +1,7 @@
 # pydangle top2018 MC: Per-residue backbone geometry for 13,677 mainchain-filtered protein chains
 
+**Zenodo DOI:** [10.5281/zenodo.19040026](https://doi.org/10.5281/zenodo.19040026)
+
 ## Summary
 
 This dataset contains per-residue backbone geometric measurements, Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 2,963,303 quality-filtered protein residues from 13,677 mainchain-filtered chains in 13,308 high-resolution, low-redundancy protein structures.
