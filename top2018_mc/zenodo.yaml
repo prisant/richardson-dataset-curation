@@ -1,0 +1,85 @@
+# Zenodo metadata for top2018 MC-filtered dataset
+# Used by: python pipeline/publish_to_zenodo.py top2018_mc/
+
+title: >-
+  pydangle top2018 MC: Per-residue backbone geometry for 13,677
+  mainchain-filtered protein chains
+
+description: >-
+  Per-residue backbone geometry (phi, psi, omega, tau), Ramachandran
+  classifications at four granularities (6/5/4/3-class), DSSP secondary
+  structure, peptide bond type, and chirality for 2,963,303
+  quality-filtered protein residues from 13,677 chains in 13,308
+  high-resolution, low-redundancy protein structures. Computed using
+  pydangle-biopython v0.5.1 on "ersatz" full-structure PDB files with
+  NQH flip corrections from Reduce 4.16. Source data from the Richardson
+  Lab top2018 dataset (Williams et al., 2021, doi:10.1002/pro.4239),
+  mainchain-filtered, 70% homology, 60% completeness.
+  See README.md for full methodology.
+
+version: "1.0.0"
+license: cc-by-4.0
+
+creators:
+  - name: "Prisant, Michael"
+    orcid: ""  # fill in your ORCID
+    affiliation: "Prisant Scientific, Durham, NC"
+
+contributors:
+  - name: "Prisant, Michael"
+    affiliation: "Prisant Scientific, Durham, NC"
+    type: "Researcher"
+
+keywords:
+  - protein structure
+  - Ramachandran
+  - dihedral angles
+  - DSSP
+  - secondary structure
+  - pydangle
+  - top2018
+  - mainchain quality
+
+subjects:
+  - term: "Protein Conformation"
+    scheme: "MeSH"
+  - term: "Protein Structure, Secondary"
+    scheme: "MeSH"
+  - term: "Amino Acids"
+    scheme: "MeSH"
+  - term: "Models, Molecular"
+    scheme: "MeSH"
+  - term: "Databases, Protein"
+    scheme: "MeSH"
+  - term: "Crystallography, X-Ray"
+    scheme: "MeSH"
+
+related_identifiers:
+  - identifier: "10.5281/zenodo.5115233"
+    relation: "isDerivedFrom"
+    resource_type: "dataset"
+    scheme: "doi"
+  - identifier: "10.5281/zenodo.19029946"
+    relation: "isSupplementedBy"
+    resource_type: "dataset"
+    scheme: "doi"
+  - identifier: "10.1002/pro.4239"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.1002/pro.3330"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "https://github.com/prisant/pydangle-biopython"
+    relation: "isCompiledBy"
+    resource_type: "software"
+    scheme: "url"
+  - identifier: "https://github.com/prisant/richardson-dataset-curation"
+    relation: "isDocumentedBy"
+    resource_type: "software"
+    scheme: "url"
+
+references:
+  - "Williams, C. J., Richardson, D. C., & Richardson, J. S. (2021). doi:10.1002/pro.4239"
+  - "Williams, C. J., Headd, J. J., Moriarty, N. W., et al. (2018). doi:10.1002/pro.3330"

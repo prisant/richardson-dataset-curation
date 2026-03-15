@@ -13,6 +13,9 @@ top2018_pdbs_mc_filtered_hom70/
 # Zenodo upload staging directories
 zenodo_upload/
 
+# Archived superseded outputs
+archive/
+
 # Python
 __pycache__/
 *.pyc
