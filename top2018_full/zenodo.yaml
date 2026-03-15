@@ -17,7 +17,7 @@ description: >-
   70% homology, 60% completeness. See README.md for full methodology and
   reproduction instructions.
 
-version: "1.0.1"
+version: "1.0.2"
 license: cc-by-4.0
 
 creators:
