@@ -3,6 +3,7 @@
 **pydangle-biopython version:** 0.5.1
 **Date:** 2026-03-16
 **Quality filter:** Mainchain B-factor ≤ 40 (Word et al. 1999; see Issues for rationale)
+**Measurements:** 15 (backbone geometry, chi1–chi4, Rama classifications, DSSP, peptide bond, chirality)
 
 ## Dataset Overview
 
@@ -59,6 +60,7 @@
 | psi | 17,218 | 216 | 98.76% |
 | omega | 17,218 | 216 | 98.76% |
 | tau | 17,434 | 0 | 100.00% |
+| chi1 | 14,380 | 3,054 | 82.48% |
 | dssp | 17,029 | 405 | 97.68% |
 | rama_category | 17,013 | 421 | 97.59% |
 

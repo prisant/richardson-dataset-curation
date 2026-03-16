@@ -34,7 +34,7 @@ echo ""
 echo "Step 3: Build ersatz PDB files..."
 python ../pipeline/build_ersatz_only.py "$DIR" -j "$JOBS"
 
-# 4. Build B-factor masks (mainchain B <= 30)
+# 4. Build B-factor masks (mainchain B <= 40, matching original Top100 methodology)
 echo ""
 echo "Step 4: Build B-factor masks..."
 python ../pipeline/build_bfactor_masks.py "$DIR" "$CHAIN_LIST" -j "$JOBS" -b 30
@@ -44,7 +44,7 @@ echo ""
 echo "Step 5: Run pydangle..."
 find "$DIR" -name "*_ersatz.pdb" | sort > /tmp/top100_filelist.txt
 pydangle-biopython \
-  -c "phi; psi; omega; tau; rama_category; rama5; rama4; rama3; dssp; peptide_bond; chirality" \
+  -c "phi; psi; omega; tau; chi1; chi2; chi3; chi4; rama_category; rama5; rama4; rama3; dssp; peptide_bond; chirality" \
   -o jsonl -j 4 \
   -f /tmp/top100_filelist.txt \
   > top100_ersatz_raw.jsonl 2> top100_ersatz.log

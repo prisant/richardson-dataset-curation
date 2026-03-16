@@ -117,6 +117,7 @@
        psi      17,218      43.801      90.295
      omega      17,218      19.502     175.810
        tau      17,434     110.729       3.269
+      chi1      14,380     -25.669     103.483
 
   --- By Ramachandran category ---
 
@@ -125,11 +126,13 @@
          psi  N=        50  Mean=   114.334  Std=    69.187
        omega  N=        50  Mean=     1.119  Std=     5.612
          tau  N=        50  Mean=   112.085  Std=     2.863
+        chi1  N=        50  Mean=    24.480  Std=    15.573
   General:
          phi  N=    12,186  Mean=   -84.349  Std=    38.418
          psi  N=    12,185  Mean=    40.867  Std=    86.780
        omega  N=    12,186  Mean=    19.539  Std=   176.081
          tau  N=    12,187  Mean=   110.716  Std=     3.151
+        chi1  N=    10,692  Mean=   -34.343  Std=   100.607
   Gly:
          phi  N=     1,437  Mean=    12.134  Std=    96.740
          psi  N=     1,437  Mean=    -7.447  Std=   105.694
@@ -140,16 +143,19 @@
          psi  N=     2,052  Mean=    62.116  Std=    85.307
        omega  N=     2,051  Mean=    27.640  Std=   174.948
          tau  N=     2,052  Mean=   109.505  Std=     3.058
+        chi1  N=     2,052  Mean=    11.768  Std=   124.333
   PrePro:
          phi  N=       567  Mean=   -98.701  Std=    39.632
          psi  N=       567  Mean=   116.492  Std=    53.420
        omega  N=       567  Mean=     7.609  Std=   177.054
          tau  N=       567  Mean=   109.281  Std=     3.353
+        chi1  N=       513  Mean=   -41.708  Std=   104.368
   TransPro:
          phi  N=       720  Mean=   -64.116  Std=     9.857
          psi  N=       720  Mean=    70.601  Std=    86.294
        omega  N=       720  Mean=    -0.208  Std=   177.142
          tau  N=       720  Mean=   112.268  Std=     3.068
+        chi1  N=       720  Mean=     0.378  Std=    25.237
 
 ======================================================================
   DATA COMPLETENESS
@@ -161,6 +167,7 @@
               psi      17,218         216      98.76%
             omega      17,218         216      98.76%
               tau      17,434           0     100.00%
+             chi1      14,380       3,054      82.48%
              dssp      17,029         405      97.68%
     rama_category      17,013         421      97.59%
 

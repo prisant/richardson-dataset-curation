@@ -39,12 +39,14 @@ Residues are filtered using a mainchain B-factor ≤ 40 criterion, matching the 
 2. **Run Reduce 4.16.250520** for NQH sidechain flip corrections.
 3. **Build ersatz PDB files** by stripping hydrogens and problematic headers.
 4. **Build B-factor masks** with synthetic fragment records.
-5. **Run pydangle-biopython** with 11 measurements.
+5. **Run pydangle-biopython** with 15 measurements (backbone geometry, sidechain torsions chi1–chi4, Ramachandran classifications, DSSP, peptide bond type, chirality).
 6. **Post-filter** to quality-filtered residues.
 
 ## Output format
 
-Same JSONL format as all sibling datasets. Fields: file, model, chain, resnum, ins, resname, phi, psi, omega, tau, rama_category, rama5, rama4, rama3, dssp, peptide_bond, chirality.
+Same JSONL format as all sibling datasets. Fields: file, model, chain, resnum, ins, resname, phi, psi, omega, tau, chi1, chi2, chi3, chi4, rama_category, rama5, rama4, rama3, dssp, peptide_bond, chirality.
+
+Sidechain torsion angles (chi1–chi4) are included for residues that have them. Gly and Ala have no chi angles; shorter sidechains have fewer (e.g., Val has only chi1). This enables the dataset to be used for rotamer analysis as well as Ramachandran analysis, consistent with the Top100's historical role in developing the penultimate rotamer library.
 
 ## Dataset statistics
 
