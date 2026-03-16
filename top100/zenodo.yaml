@@ -9,7 +9,7 @@ title: >-
 description: >-
   Per-residue backbone geometry (phi, psi, omega, tau), Ramachandran
   classifications at four granularities (6/5/4/3-class), DSSP secondary
-  structure, peptide bond type, and chirality for 16,635
+  structure, peptide bond type, and chirality for 17,434
   quality-filtered protein residues from 106 chains in 98
   high-resolution protein structures. Computed using
   pydangle-biopython v0.5.1 on "ersatz" full-structure PDB files with
