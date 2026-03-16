@@ -1,0 +1,804 @@
+{
+  "overview": {
+    "total_residues": 17434,
+    "unique_structures": 98,
+    "unique_chains": 106,
+    "multi_chain_structures": 8,
+    "standard_residues": 17434,
+    "nonstandard_residues": 0,
+    "mapped_residues": {},
+    "nonstandard_types": {}
+  },
+  "residue_composition": [
+    {
+      "resname": "ALA",
+      "count": 1570,
+      "fraction": 0.090054,
+      "percent": 9.0054,
+      "is_standard": true
+    },
+    {
+      "resname": "GLY",
+      "count": 1471,
+      "fraction": 0.084375,
+      "percent": 8.4375,
+      "is_standard": true
+    },
+    {
+      "resname": "LEU",
+      "count": 1343,
+      "fraction": 0.077033,
+      "percent": 7.7033,
+      "is_standard": true
+    },
+    {
+      "resname": "VAL",
+      "count": 1215,
+      "fraction": 0.069691,
+      "percent": 6.9691,
+      "is_standard": true
+    },
+    {
+      "resname": "SER",
+      "count": 1122,
+      "fraction": 0.064357,
+      "percent": 6.4357,
+      "is_standard": true
+    },
+    {
+      "resname": "THR",
+      "count": 1102,
+      "fraction": 0.06321,
+      "percent": 6.321,
+      "is_standard": true
+    },
+    {
+      "resname": "ASP",
+      "count": 1099,
+      "fraction": 0.063038,
+      "percent": 6.3038,
+      "is_standard": true
+    },
+    {
+      "resname": "LYS",
+      "count": 985,
+      "fraction": 0.056499,
+      "percent": 5.6499,
+      "is_standard": true
+    },
+    {
+      "resname": "GLU",
+      "count": 963,
+      "fraction": 0.055237,
+      "percent": 5.5237,
+      "is_standard": true
+    },
+    {
+      "resname": "ILE",
+      "count": 872,
+      "fraction": 0.050017,
+      "percent": 5.0017,
+      "is_standard": true
+    },
+    {
+      "resname": "ASN",
+      "count": 862,
+      "fraction": 0.049444,
+      "percent": 4.9444,
+      "is_standard": true
+    },
+    {
+      "resname": "PRO",
+      "count": 792,
+      "fraction": 0.045428,
+      "percent": 4.5428,
+      "is_standard": true
+    },
+    {
+      "resname": "PHE",
+      "count": 732,
+      "fraction": 0.041987,
+      "percent": 4.1987,
+      "is_standard": true
+    },
+    {
+      "resname": "ARG",
+      "count": 714,
+      "fraction": 0.040954,
+      "percent": 4.0954,
+      "is_standard": true
+    },
+    {
+      "resname": "TYR",
+      "count": 676,
+      "fraction": 0.038775,
+      "percent": 3.8775,
+      "is_standard": true
+    },
+    {
+      "resname": "GLN",
+      "count": 613,
+      "fraction": 0.035161,
+      "percent": 3.5161,
+      "is_standard": true
+    },
+    {
+      "resname": "HIS",
+      "count": 364,
+      "fraction": 0.020879,
+      "percent": 2.0879,
+      "is_standard": true
+    },
+    {
+      "resname": "MET",
+      "count": 340,
+      "fraction": 0.019502,
+      "percent": 1.9502,
+      "is_standard": true
+    },
+    {
+      "resname": "CYS",
+      "count": 325,
+      "fraction": 0.018642,
+      "percent": 1.8642,
+      "is_standard": true
+    },
+    {
+      "resname": "TRP",
+      "count": 274,
+      "fraction": 0.015716,
+      "percent": 1.5716,
+      "is_standard": true
+    }
+  ],
+  "rama_category": {
+    "overall": {
+      "General": {
+        "count": 12187,
+        "percent": 71.6335
+      },
+      "IleVal": {
+        "count": 2052,
+        "percent": 12.0614
+      },
+      "Gly": {
+        "count": 1437,
+        "percent": 8.4465
+      },
+      "TransPro": {
+        "count": 720,
+        "percent": 4.2321
+      },
+      "PrePro": {
+        "count": 567,
+        "percent": 3.3327
+      },
+      "CisPro": {
+        "count": 50,
+        "percent": 0.2939
+      }
+    },
+    "by_residue_type": {
+      "ALA": {
+        "General": {
+          "count": 1482,
+          "percent": 96.4844
+        },
+        "PrePro": {
+          "count": 54,
+          "percent": 3.5156
+        }
+      },
+      "ARG": {
+        "General": {
+          "count": 668,
+          "percent": 96.2536
+        },
+        "PrePro": {
+          "count": 26,
+          "percent": 3.7464
+        }
+      },
+      "ASN": {
+        "General": {
+          "count": 795,
+          "percent": 94.8687
+        },
+        "PrePro": {
+          "count": 43,
+          "percent": 5.1313
+        }
+      },
+      "ASP": {
+        "General": {
+          "count": 1043,
+          "percent": 96.9331
+        },
+        "PrePro": {
+          "count": 33,
+          "percent": 3.0669
+        }
+      },
+      "CYS": {
+        "General": {
+          "count": 290,
+          "percent": 92.6518
+        },
+        "PrePro": {
+          "count": 23,
+          "percent": 7.3482
+        }
+      },
+      "GLN": {
+        "General": {
+          "count": 571,
+          "percent": 95.3255
+        },
+        "PrePro": {
+          "count": 28,
+          "percent": 4.6745
+        }
+      },
+      "GLU": {
+        "General": {
+          "count": 908,
+          "percent": 96.4931
+        },
+        "PrePro": {
+          "count": 33,
+          "percent": 3.5069
+        }
+      },
+      "GLY": {
+        "Gly": {
+          "count": 1437,
+          "percent": 100.0
+        }
+      },
+      "HIS": {
+        "General": {
+          "count": 332,
+          "percent": 93.7853
+        },
+        "PrePro": {
+          "count": 22,
+          "percent": 6.2147
+        }
+      },
+      "ILE": {
+        "IleVal": {
+          "count": 861,
+          "percent": 100.0
+        }
+      },
+      "LEU": {
+        "General": {
+          "count": 1257,
+          "percent": 95.4442
+        },
+        "PrePro": {
+          "count": 60,
+          "percent": 4.5558
+        }
+      },
+      "LYS": {
+        "General": {
+          "count": 907,
+          "percent": 95.3733
+        },
+        "PrePro": {
+          "count": 44,
+          "percent": 4.6267
+        }
+      },
+      "MET": {
+        "General": {
+          "count": 303,
+          "percent": 94.0994
+        },
+        "PrePro": {
+          "count": 19,
+          "percent": 5.9006
+        }
+      },
+      "PHE": {
+        "General": {
+          "count": 686,
+          "percent": 95.8101
+        },
+        "PrePro": {
+          "count": 30,
+          "percent": 4.1899
+        }
+      },
+      "PRO": {
+        "TransPro": {
+          "count": 720,
+          "percent": 93.5065
+        },
+        "CisPro": {
+          "count": 50,
+          "percent": 6.4935
+        }
+      },
+      "SER": {
+        "General": {
+          "count": 1022,
+          "percent": 93.9338
+        },
+        "PrePro": {
+          "count": 66,
+          "percent": 6.0662
+        }
+      },
+      "THR": {
+        "General": {
+          "count": 1021,
+          "percent": 94.537
+        },
+        "PrePro": {
+          "count": 59,
+          "percent": 5.463
+        }
+      },
+      "TRP": {
+        "General": {
+          "count": 265,
+          "percent": 98.513
+        },
+        "PrePro": {
+          "count": 4,
+          "percent": 1.487
+        }
+      },
+      "TYR": {
+        "General": {
+          "count": 637,
+          "percent": 96.5152
+        },
+        "PrePro": {
+          "count": 23,
+          "percent": 3.4848
+        }
+      },
+      "VAL": {
+        "IleVal": {
+          "count": 1191,
+          "percent": 100.0
+        }
+      }
+    }
+  },
+  "dssp": {
+    "overall": {
+      "H": {
+        "count": 4964,
+        "percent": 29.1503
+      },
+      "E": {
+        "count": 3884,
+        "percent": 22.8082
+      },
+      "C": {
+        "count": 3115,
+        "percent": 18.2923
+      },
+      "T": {
+        "count": 2093,
+        "percent": 12.2908
+      },
+      "S": {
+        "count": 1591,
+        "percent": 9.3429
+      },
+      "G": {
+        "count": 686,
+        "percent": 4.0284
+      },
+      "B": {
+        "count": 316,
+        "percent": 1.8557
+      },
+      "P": {
+        "count": 303,
+        "percent": 1.7793
+      },
+      "I": {
+        "count": 77,
+        "percent": 0.4522
+      }
+    },
+    "by_rama_category": {
+      "CisPro": {
+        "S": {
+          "count": 19,
+          "percent": 39.5833
+        },
+        "T": {
+          "count": 18,
+          "percent": 37.5
+        },
+        "C": {
+          "count": 10,
+          "percent": 20.8333
+        },
+        "E": {
+          "count": 1,
+          "percent": 2.0833
+        }
+      },
+      "General": {
+        "H": {
+          "count": 4017,
+          "percent": 33.745
+        },
+        "E": {
+          "count": 2692,
+          "percent": 22.6142
+        },
+        "C": {
+          "count": 1913,
+          "percent": 16.0702
+        },
+        "T": {
+          "count": 1376,
+          "percent": 11.5591
+        },
+        "S": {
+          "count": 957,
+          "percent": 8.0393
+        },
+        "G": {
+          "count": 528,
+          "percent": 4.4355
+        },
+        "B": {
+          "count": 215,
+          "percent": 1.8061
+        },
+        "P": {
+          "count": 143,
+          "percent": 1.2013
+        },
+        "I": {
+          "count": 63,
+          "percent": 0.5292
+        }
+      },
+      "Gly": {
+        "T": {
+          "count": 436,
+          "percent": 30.9439
+        },
+        "S": {
+          "count": 269,
+          "percent": 19.0916
+        },
+        "C": {
+          "count": 241,
+          "percent": 17.1043
+        },
+        "E": {
+          "count": 214,
+          "percent": 15.1881
+        },
+        "H": {
+          "count": 177,
+          "percent": 12.5621
+        },
+        "G": {
+          "count": 43,
+          "percent": 3.0518
+        },
+        "B": {
+          "count": 16,
+          "percent": 1.1356
+        },
+        "P": {
+          "count": 9,
+          "percent": 0.6388
+        },
+        "I": {
+          "count": 4,
+          "percent": 0.2839
+        }
+      },
+      "IleVal": {
+        "E": {
+          "count": 808,
+          "percent": 40.0595
+        },
+        "H": {
+          "count": 611,
+          "percent": 30.2925
+        },
+        "C": {
+          "count": 260,
+          "percent": 12.8904
+        },
+        "S": {
+          "count": 110,
+          "percent": 5.4536
+        },
+        "T": {
+          "count": 82,
+          "percent": 4.0654
+        },
+        "G": {
+          "count": 56,
+          "percent": 2.7764
+        },
+        "B": {
+          "count": 47,
+          "percent": 2.3302
+        },
+        "P": {
+          "count": 33,
+          "percent": 1.6361
+        },
+        "I": {
+          "count": 10,
+          "percent": 0.4958
+        }
+      },
+      "PrePro": {
+        "C": {
+          "count": 251,
+          "percent": 45.8029
+        },
+        "S": {
+          "count": 127,
+          "percent": 23.1752
+        },
+        "E": {
+          "count": 63,
+          "percent": 11.4964
+        },
+        "P": {
+          "count": 44,
+          "percent": 8.0292
+        },
+        "H": {
+          "count": 21,
+          "percent": 3.8321
+        },
+        "T": {
+          "count": 20,
+          "percent": 3.6496
+        },
+        "B": {
+          "count": 15,
+          "percent": 2.7372
+        },
+        "G": {
+          "count": 7,
+          "percent": 1.2774
+        }
+      },
+      "TransPro": {
+        "C": {
+          "count": 219,
+          "percent": 31.3754
+        },
+        "T": {
+          "count": 132,
+          "percent": 18.9112
+        },
+        "H": {
+          "count": 100,
+          "percent": 14.3266
+        },
+        "S": {
+          "count": 70,
+          "percent": 10.0287
+        },
+        "P": {
+          "count": 66,
+          "percent": 9.4556
+        },
+        "E": {
+          "count": 58,
+          "percent": 8.3095
+        },
+        "G": {
+          "count": 41,
+          "percent": 5.8739
+        },
+        "B": {
+          "count": 12,
+          "percent": 1.7192
+        }
+      }
+    }
+  },
+  "geometry": {
+    "overall": {
+      "phi": {
+        "n": 17218,
+        "mean": -77.138,
+        "std": 52.745
+      },
+      "psi": {
+        "n": 17218,
+        "mean": 43.801,
+        "std": 90.295
+      },
+      "omega": {
+        "n": 17218,
+        "mean": 19.502,
+        "std": 175.81
+      },
+      "tau": {
+        "n": 17434,
+        "mean": 110.729,
+        "std": 3.269
+      }
+    },
+    "by_rama_category": {
+      "CisPro": {
+        "phi": {
+          "n": 50,
+          "mean": -81.179,
+          "std": 11.615
+        },
+        "psi": {
+          "n": 50,
+          "mean": 114.334,
+          "std": 69.187
+        },
+        "omega": {
+          "n": 50,
+          "mean": 1.119,
+          "std": 5.612
+        },
+        "tau": {
+          "n": 50,
+          "mean": 112.085,
+          "std": 2.863
+        }
+      },
+      "General": {
+        "phi": {
+          "n": 12186,
+          "mean": -84.349,
+          "std": 38.418
+        },
+        "psi": {
+          "n": 12185,
+          "mean": 40.867,
+          "std": 86.78
+        },
+        "omega": {
+          "n": 12186,
+          "mean": 19.539,
+          "std": 176.081
+        },
+        "tau": {
+          "n": 12187,
+          "mean": 110.716,
+          "std": 3.151
+        }
+      },
+      "Gly": {
+        "phi": {
+          "n": 1437,
+          "mean": 12.134,
+          "std": 96.74
+        },
+        "psi": {
+          "n": 1437,
+          "mean": -7.447,
+          "std": 105.694
+        },
+        "omega": {
+          "n": 1437,
+          "mean": 25.498,
+          "std": 175.474
+        },
+        "tau": {
+          "n": 1437,
+          "mean": 112.497,
+          "std": 3.447
+        }
+      },
+      "IleVal": {
+        "phi": {
+          "n": 2051,
+          "mean": -94.138,
+          "std": 29.297
+        },
+        "psi": {
+          "n": 2052,
+          "mean": 62.116,
+          "std": 85.307
+        },
+        "omega": {
+          "n": 2051,
+          "mean": 27.64,
+          "std": 174.948
+        },
+        "tau": {
+          "n": 2052,
+          "mean": 109.505,
+          "std": 3.058
+        }
+      },
+      "PrePro": {
+        "phi": {
+          "n": 567,
+          "mean": -98.701,
+          "std": 39.632
+        },
+        "psi": {
+          "n": 567,
+          "mean": 116.492,
+          "std": 53.42
+        },
+        "omega": {
+          "n": 567,
+          "mean": 7.609,
+          "std": 177.054
+        },
+        "tau": {
+          "n": 567,
+          "mean": 109.281,
+          "std": 3.353
+        }
+      },
+      "TransPro": {
+        "phi": {
+          "n": 720,
+          "mean": -64.116,
+          "std": 9.857
+        },
+        "psi": {
+          "n": 720,
+          "mean": 70.601,
+          "std": 86.294
+        },
+        "omega": {
+          "n": 720,
+          "mean": -0.208,
+          "std": 177.142
+        },
+        "tau": {
+          "n": 720,
+          "mean": 112.268,
+          "std": 3.068
+        }
+      }
+    }
+  },
+  "data_completeness": {
+    "phi": {
+      "present": 17218,
+      "missing": 216,
+      "percent_present": 98.761
+    },
+    "psi": {
+      "present": 17218,
+      "missing": 216,
+      "percent_present": 98.761
+    },
+    "omega": {
+      "present": 17218,
+      "missing": 216,
+      "percent_present": 98.761
+    },
+    "tau": {
+      "present": 17434,
+      "missing": 0,
+      "percent_present": 100.0
+    },
+    "dssp": {
+      "present": 17029,
+      "missing": 405,
+      "percent_present": 97.677
+    },
+    "rama_category": {
+      "present": 17013,
+      "missing": 421,
+      "percent_present": 97.5852
+    }
+  }
+}
