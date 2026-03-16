@@ -4,7 +4,7 @@
 
 ## Summary
 
-This dataset contains per-residue backbone geometric measurements, Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 1,568,561 quality-filtered protein residues from 7,814 chains in 7,607 high-resolution, low-redundancy protein structures.
+This dataset contains per-residue backbone and sidechain geometric measurements (including chi1–chi4 torsion angles), Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 1,568,561 quality-filtered protein residues from 7,814 chains in 7,607 high-resolution, low-redundancy protein structures.
 
 The measurements were computed using [pydangle-biopython](https://github.com/prisant/pydangle-biopython) v0.5.1, a Python reimagining of the Richardson Lab's Java Dangle tool, with BioPython as the structure-parsing backend.
 
@@ -36,7 +36,7 @@ The Top8000 provides single-chain PDB files. Running DSSP on these isolated chai
 
 4. **Build B-factor masks** from the ersatz files (`build_bfactor_masks.py -b 30`). For each chain in the chain list, identifies residues where all mainchain atoms have B ≤ 30 and generates mask files and synthetic fragment records for contiguous passing regions.
 
-5. **Run pydangle-biopython** on all 7,737 ersatz files with 11 measurements.
+5. **Run pydangle-biopython** on all 7,737 ersatz files with 15 measurements (backbone geometry, chi1–chi4, Rama classifications, DSSP, peptide bond, chirality).
 
 6. **Post-filter** to quality-filtered residues using mask files and synthetic fragment records (`filter_pruned_residues.py -s pruned_bfilt`).
 
