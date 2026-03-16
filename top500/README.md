@@ -5,7 +5,7 @@
 
 ## Summary
 
-This dataset contains per-residue backbone geometric measurements, Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 97,519 quality-filtered protein residues from 514 chains in 492 protein structures.
+This dataset contains per-residue backbone and sidechain geometric measurements (including chi1–chi4 torsion angles), Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 97,519 quality-filtered protein residues from 514 chains in 492 protein structures.
 
 The measurements were computed using [pydangle-biopython](https://github.com/prisant/pydangle-biopython) v0.5.1, a Python reimagining of the Richardson Lab's Java Dangle tool, with BioPython as the structure-parsing backend.
 
@@ -45,7 +45,7 @@ Of 523 chain entries, 9 (1.7%) have zero residues passing this filter. These cha
 2. **Run Reduce 4.16.250520** on each full PDB for NQH sidechain flip corrections.
 3. **Build ersatz PDB files** by stripping hydrogens and problematic headers.
 4. **Build B-factor masks** identifying residues where all mainchain atoms have B ≤ 30, with synthetic fragment records for contiguous passing regions.
-5. **Run pydangle-biopython** on all ersatz files with 11 measurements.
+5. **Run pydangle-biopython** on all ersatz files with 15 measurements (backbone geometry, chi1–chi4, Rama classifications, DSSP, peptide bond, chirality).
 6. **Post-filter** to quality-filtered residues using masks and fragment records.
 
 ## Output format

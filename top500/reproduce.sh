@@ -44,7 +44,7 @@ echo ""
 echo "Step 5: Run pydangle..."
 find "$DIR" -name "*_ersatz.pdb" | sort > /tmp/top500_filelist.txt
 pydangle-biopython \
-  -c "phi; psi; omega; tau; rama_category; rama5; rama4; rama3; dssp; peptide_bond; chirality" \
+  -c "phi; psi; omega; tau; chi1; chi2; chi3; chi4; rama_category; rama5; rama4; rama3; dssp; peptide_bond; chirality" \
   -o jsonl -j 4 \
   -f /tmp/top500_filelist.txt \
   > top500_ersatz_raw.jsonl 2> top500_ersatz.log
