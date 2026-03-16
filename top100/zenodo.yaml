@@ -21,7 +21,7 @@ description: >-
   Top500/Top8000 datasets use the stricter B <= 30 threshold).
   See README.md for full methodology.
 
-version: "1.0.0"
+version: "2.0.0"
 license: cc-by-4.0
 
 creators:
