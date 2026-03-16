@@ -105,6 +105,20 @@ The remarkable consistency of Ramachandran category and DSSP distributions
 across three datasets spanning 20 years and two orders of magnitude in size
 validates both the curation methodology and the measurement pipeline.
 
+## Regression Validation
+
+Phi and psi values validated against the Richardson Lab top500-angles
+archive (2006; dipeptide format with psi on residue i, phi on residue i+1).
+
+| Angle | Matched pairs | < 0.01° | < 1.0° | > 1.0° |
+|-------|-------------:|--------:|-------:|-------:|
+| phi | 36,810 | 99.0% | 99.7% | 103 (0.3%) |
+| psi | 36,809 | 99.0% | 99.7% | 108 (0.3%) |
+
+Large discrepancies concentrated in 1tph (trypsinogen) — alternate
+conformation selection and/or RCSB coordinate remediation since 2005.
+See `top500_issues.md` for details.
+
 ## Software Versions
 
 | Software | Version |

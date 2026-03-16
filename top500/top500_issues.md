@@ -29,6 +29,58 @@ There is no formal published chain list for the Top500 comparable to
 the Top8000's CSV files on GitHub. The kinemage webserver FH file
 collection (500 files) serves as the authoritative source.
 
+## Regression Validation Against Richardson Lab Reference Values
+
+Phi and psi values were validated against the Richardson Lab's
+pre-computed angle data from the top500-angles archive (2006 vintage,
+from kinemage.biochem.duke.edu). The reference data uses a dipeptide
+format where each line reports the phi/psi pair at a peptide bond
+between residues i and i+1: phi belongs to residue i+1, psi to
+residue i.
+
+### Match statistics
+
+| Metric | Value |
+|--------|-------|
+| Reference phi entries | 37,433 |
+| Reference psi entries | 37,433 |
+| Matched phi pairs | 36,810 |
+| Matched psi pairs | 36,809 |
+
+### Phi comparison (36,810 pairs)
+
+| Threshold | Count | Percent |
+|-----------|------:|--------:|
+| \|diff\| < 0.01° | 36,443 | 99.0% |
+| \|diff\| < 1.0° | 36,707 | 99.7% |
+| \|diff\| > 1.0° | 103 | 0.3% |
+
+Mean |diff|: 0.130°. Median |diff|: 0.003°.
+
+### Psi comparison (36,809 pairs)
+
+| Threshold | Count | Percent |
+|-----------|------:|--------:|
+| \|diff\| < 0.01° | 36,453 | 99.0% |
+| \|diff\| < 1.0° | 36,701 | 99.7% |
+| \|diff\| > 1.0° | 108 | 0.3% |
+
+Mean |diff|: 0.241°. Median |diff|: 0.003°.
+
+### Interpretation
+
+99.7% of both phi and psi values agree within 1 degree. The ~100
+large discrepancies per angle are concentrated in a few structures
+(particularly 1tph, trypsinogen) and show ~180° differences
+characteristic of alternate conformation selection. The reference
+data was computed from circa-2005 PDB coordinates; our data uses
+current RCSB coordinates processed with Reduce 4.16.
+
+The slightly lower exact-match rate compared to the top8000 regression
+(99.0% vs 99.9% within 0.01°) likely reflects RCSB coordinate
+remediation over the intervening 20 years between the two dataset
+vintages (top500 from ~2000 vs top8000 from 2011).
+
 ## RCSB Remediation
 
 No chain ID or residue numbering mismatches were detected. All chain

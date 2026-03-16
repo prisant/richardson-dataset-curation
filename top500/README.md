@@ -80,6 +80,10 @@ Each line of the JSONL file is a JSON object with these fields:
 - Chain list entries: 523 (9 excluded due to all-high-B, 1.7%)
 - Compressed size: 2.4 MB
 
+## Regression validation
+
+Phi and psi values were validated against the Richardson Lab's pre-computed angles from the top500-angles archive (2006). Of 36,810 matched phi pairs, 99.7% agree within 1 degree; of 36,809 matched psi pairs, 99.7% agree within 1 degree. The ~100 discrepancies >1 degree per angle are attributable to alternate conformation selection and RCSB coordinate remediation over the 20+ years since the reference data was computed. See `top500_issues.md` for full details.
+
 ## Software versions used
 
 | Software | Version |
