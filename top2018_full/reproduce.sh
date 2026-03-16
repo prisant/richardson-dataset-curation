@@ -111,7 +111,7 @@ echo "=== Step 4: Run pydangle (~1-2 hours at -j 4) ==="
 find "$DATASET_DIR" -name "*_ersatz.pdb" | sort > /tmp/ersatz_filelist.txt
 echo "  $(wc -l < /tmp/ersatz_filelist.txt) ersatz files found"
 pydangle-biopython \
-    -c "phi; psi; omega; tau; chi1; rama_category; dssp; is_cis; is_trans; is_left; is_right" \
+    -c "phi; psi; omega; tau; chi1; chi2; chi3; chi4; rama_category; rama5; rama4; rama3; dssp; peptide_bond; chirality" \
     -o jsonl -j 4 \
     -f /tmp/ersatz_filelist.txt \
     > top2018_ersatz_raw.jsonl 2> top2018_ersatz.log

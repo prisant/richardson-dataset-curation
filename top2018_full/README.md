@@ -4,7 +4,7 @@
 
 ## Summary
 
-This dataset contains per-residue backbone and sidechain geometric measurements, Ramachandran classifications, and DSSP secondary structure assignments for 2,405,322 quality-filtered protein residues from 12,125 quality-filtered chains in 11,843 high-resolution, low-redundancy protein structures.
+This dataset contains per-residue backbone and sidechain geometric measurements (including chi1–chi4 torsion angles), Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 2,405,322 quality-filtered protein residues from 12,125 quality-filtered chains in 11,843 high-resolution, low-redundancy protein structures.
 
 The measurements were computed using [pydangle-biopython](https://github.com/prisant/pydangle-biopython) v0.5.1, a Python reimagining of the Richardson Lab's Java Dangle tool, with BioPython as the structure-parsing backend.
 
@@ -30,7 +30,7 @@ The top2018 provides pruned single-chain PDB files. Running DSSP on these isolat
 
 3. **Build ersatz PDB files** by stripping hydrogens and problematic headers from the Reduce output (`build_ersatz_pdbs.py`). This preserves multi-chain context with correct NQH corrections.
 
-4. **Run pydangle-biopython** on all ersatz files with 11 measurements: `phi; psi; omega; tau; chi1; rama_category; dssp; is_cis; is_trans; is_left; is_right`.
+4. **Run pydangle-biopython** on all ersatz files with 15 measurements: `phi; psi; omega; tau; chi1; chi2; chi3; chi4; rama_category; rama5; rama4; rama3; dssp; peptide_bond; chirality`.
 
 5. **Post-filter** to quality-filtered residues using mask files derived from the pruned PDB files (`filter_pruned_residues.py`). Fragment boundaries from `USER INC` records in the pruned files determine where neighbor-dependent measurements (phi, psi, omega, rama_category, is_cis, is_trans) are set to null, ensuring no measurement depends on coordinates from quality-filtered residues.
 
@@ -57,12 +57,16 @@ Each line of the JSONL file is a JSON object with these fields:
 | `omega` | float/null | Omega peptide bond dihedral (degrees) |
 | `tau` | float/null | N-CA-C bond angle (degrees) |
 | `chi1` | float/null | Chi1 sidechain dihedral (degrees) |
-| `rama_category` | string/null | Ramachandran category (General, Gly, IleVal, TransPro, CisPro, PrePro) |
+| `chi2` | float/null | Chi2 sidechain dihedral (degrees) |
+| `chi3` | float/null | Chi3 sidechain dihedral (degrees) |
+| `chi4` | float/null | Chi4 sidechain dihedral (degrees) |
+| `rama_category` | string/null | 6-class Ramachandran (General, Gly, IleVal, TransPro, CisPro, PrePro) |
+| `rama5` | string/null | 5-class (merges CisPro into TransPro) |
+| `rama4` | string/null | 4-class (also merges PrePro into General) |
+| `rama3` | string/null | 3-class (General, Gly, Pro) |
 | `dssp` | string/null | DSSP secondary structure code |
-| `is_cis` | string/null | "True" if omega within ±30° of 0° |
-| `is_trans` | string/null | "True" if omega within ±30° of ±180° |
-| `is_left` | string/null | "True" if phi > 0° (left-handed) |
-| `is_right` | string/null | "True" if phi < 0° (right-handed) |
+| `peptide_bond` | string/null | "cis", "trans", or "twisted" |
+| `chirality` | string/null | "L" or "D" |
 
 Null values indicate the measurement could not be computed (e.g., phi requires the preceding residue, which may be absent at fragment boundaries).
 
