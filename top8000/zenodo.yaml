@@ -19,7 +19,7 @@ description: >-
   Ramachandran contour methodology.
   See README.md for full methodology and top8000_issues.md for known issues.
 
-version: "1.0.0"
+version: "1.1.0"
 license: cc-by-4.0
 
 creators:

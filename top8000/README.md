@@ -1,6 +1,6 @@
 # pydangle top8000: Per-residue backbone geometry for 7,814 quality-filtered protein chains
 
-**Zenodo DOI:** [10.5281/zenodo.19041232](https://doi.org/10.5281/zenodo.19041232)
+**Zenodo DOI:** [10.5281/zenodo.19049701](https://doi.org/10.5281/zenodo.19049701) (v1.1.0) | [all versions](https://doi.org/10.5281/zenodo.19041232)
 
 ## Summary
 
