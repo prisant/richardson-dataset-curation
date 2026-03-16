@@ -1,6 +1,6 @@
 # pydangle top100: Per-residue backbone geometry for 106 quality-filtered protein chains
 
-**Zenodo DOI:** [10.5281/zenodo.19050635](https://doi.org/10.5281/zenodo.19050635) (v2.0.0) | [all versions](https://doi.org/10.5281/zenodo.19050466)
+**Zenodo DOI:** [10.5281/zenodo.19050954](https://doi.org/10.5281/zenodo.19050954) (v2.0.2) | [all versions](https://doi.org/10.5281/zenodo.19050466)
 **Source:** Richardson Lab Top100 dataset — the original quality-filtered reference
 
 ## Summary
