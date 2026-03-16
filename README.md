@@ -14,7 +14,7 @@ NQH sidechain flip corrections from Reduce.
 
 | Dataset | Source | Status | Zenodo DOI |
 |---------|--------|--------|------------|
-| [top2018_full](top2018_full/) | Full-filtered, 70% homology | Complete | [10.5281/zenodo.19029946](https://doi.org/10.5281/zenodo.19029946) |
+| [top2018_full](top2018_full/) | Full-filtered, 70% homology | Complete | [10.5281/zenodo.19053293](https://doi.org/10.5281/zenodo.19053293) |
 | [top2018_mc](top2018_mc/) | Mainchain-filtered, 70% homology | Complete | [10.5281/zenodo.19040026](https://doi.org/10.5281/zenodo.19040026) |
 | [top8000](top8000/) | Top 8000 chains | Complete | [10.5281/zenodo.19051741](https://doi.org/10.5281/zenodo.19051741) (v2.0.0) |
 | [top500](top500/) | Top 500 chains | Complete | [10.5281/zenodo.19050958](https://doi.org/10.5281/zenodo.19050958) (v2.0.2) |

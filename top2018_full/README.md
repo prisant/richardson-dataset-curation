@@ -1,6 +1,6 @@
 # pydangle top2018: Per-residue geometric measurements and classifications for 12,125 high-quality protein chains
 
-**Zenodo:** [doi:10.5281/zenodo.19029946](https://doi.org/10.5281/zenodo.19029946)
+**Zenodo:** [doi:10.5281/zenodo.19053293](https://doi.org/10.5281/zenodo.19053293)
 
 ## Summary
 
