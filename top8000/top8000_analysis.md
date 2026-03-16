@@ -68,6 +68,20 @@ The higher completeness compared to top2018 MC (97.2% vs 93.5%)
 reflects the simpler B-factor filter producing longer contiguous
 fragments than the multi-criteria Richardson Lab filter.
 
+## Regression Validation
+
+Phi and psi values validated against the Richardson Lab Top8000 rotamer
+reference dataset (Hintze et al., 2016; strict RSCC/map/B-factor filter).
+
+| Angle | Matched pairs | < 0.01° | < 1.0° | > 1.0° |
+|-------|-------------:|--------:|-------:|-------:|
+| phi | 850,224 | 99.94% | 99.95% | 469 (0.06%) |
+| psi | 848,096 | 99.90% | 99.93% | 594 (0.07%) |
+
+869,849 residues matched (88.3% of the 985,200 in the reference set).
+Large discrepancies (>1°) are dominated by ~180° differences from
+alternate conformation selection. See `top8000_issues.md` for details.
+
 ## Software Versions
 
 | Software | Version |

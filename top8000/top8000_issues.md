@@ -46,6 +46,72 @@ track per-chain contributions.
 - 7,607 structures contribute residues (130 structures have all chains excluded)
 - The B ≤ 30 threshold matches the published methodology exactly
 
+## Regression Validation Against Richardson Lab Reference Values
+
+The phi and psi values in this dataset were validated against the
+Richardson Lab's pre-computed angle data from the Top8000 rotamer
+reference dataset (Top8000_filtered_residues_rotarama, available at
+https://github.com/rlabduke/reference_data). That dataset uses the
+stricter rotamer-level filtering (RSCC ≥ 0.7, map σ ≥ 1.1, B < 40)
+from Hintze et al. (2016), so the matched residue set is a subset of
+ours.
+
+### Match statistics
+
+| Metric | Value |
+|--------|-------|
+| Richardson Lab reference residues | 985,200 |
+| Pydangle top8000 residues | 1,567,394 |
+| Matched (both datasets) | 869,849 (88.3% of reference) |
+| Reference-only | 115,351 |
+
+Of the 115,351 reference-only residues: 55,014 are from 449 structures
+in the SFbest chain list that are not in our best_hom70 list (different
+chain lists); 60,337 are from structures we have but the residue did not
+appear in our output (different filtering criteria or fragment boundary
+definitions).
+
+### Phi comparison (850,224 pairs with both values non-null)
+
+| Threshold | Count | Percent |
+|-----------|------:|--------:|
+| \|diff\| < 0.01° | 849,696 | 99.94% |
+| \|diff\| < 0.1° | 849,704 | 99.94% |
+| \|diff\| < 1.0° | 849,755 | 99.95% |
+| \|diff\| > 1.0° | 469 | 0.06% |
+
+Mean |diff|: 0.0209°. Median |diff|: 0.0000°. Max |diff|: 178.47°.
+
+### Psi comparison (848,096 pairs with both values non-null)
+
+| Threshold | Count | Percent |
+|-----------|------:|--------:|
+| \|diff\| < 0.01° | 847,273 | 99.90% |
+| \|diff\| < 0.1° | 847,295 | 99.91% |
+| \|diff\| < 1.0° | 847,502 | 99.93% |
+| \|diff\| > 1.0° | 594 | 0.07% |
+
+Mean |diff|: 0.0280°. Median |diff|: 0.0000°. Max |diff|: 179.86°.
+
+### Interpretation of discrepancies
+
+The ~500 large discrepancies (>1°) for each angle are dominated by
+differences of ~180°, the signature of alternate conformation selection.
+The Richardson Lab data and pydangle may select different alternate
+conformations for residues with multiple modeled positions. This is
+expected behavior, not an error.
+
+The 19,625 phi null mismatches and 21,753 psi null mismatches reflect
+fragment boundary differences between our B-factor-derived fragments
+and the Richardson Lab's fragment definitions.
+
+### Conclusion
+
+The pipeline produces values that are identical to the Richardson Lab
+reference to within numerical precision (99.9% within 0.01°) for the
+matched residue set. The small number of large discrepancies are
+attributable to alternate conformation selection differences.
+
 ## RCSB Remediation
 
 No chain ID or residue numbering mismatches were detected. All 7,957

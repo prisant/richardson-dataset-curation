@@ -74,6 +74,10 @@ Each line of the JSONL file is a JSON object with these fields:
 
 See `top8000_analysis.txt` for the full statistical report and `top8000_issues.md` for known issues.
 
+## Regression validation
+
+Phi and psi values were validated against the Richardson Lab's pre-computed angles from the Top8000 rotamer reference dataset (Hintze et al., 2016). Of 869,849 matched residues, 99.94% of phi values and 99.90% of psi values agree to within 0.01 degrees. The ~500 discrepancies >1 degree per angle are attributable to alternate conformation selection differences. See `top8000_issues.md` for full details.
+
 ## Software versions used
 
 | Software | Version |
