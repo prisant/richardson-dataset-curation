@@ -1,5 +1,7 @@
 # pydangle top8000: Per-residue backbone geometry for 7,814 quality-filtered protein chains
 
+**Zenodo DOI:** [10.5281/zenodo.19041232](https://doi.org/10.5281/zenodo.19041232)
+
 ## Summary
 
 This dataset contains per-residue backbone geometric measurements, Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 1,568,561 quality-filtered protein residues from 7,814 chains in 7,607 high-resolution, low-redundancy protein structures.
