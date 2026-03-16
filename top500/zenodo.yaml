@@ -6,9 +6,10 @@ title: >-
   quality-filtered protein chains from the Richardson Lab reference dataset
 
 description: >-
-  Per-residue backbone geometry (phi, psi, omega, tau), Ramachandran
-  classifications at four granularities (6/5/4/3-class), DSSP secondary
-  structure, peptide bond type, and chirality for 97,519
+  Per-residue backbone geometry (phi, psi, omega, tau), sidechain
+  torsion angles (chi1-chi4), Ramachandran classifications at four
+  granularities (6/5/4/3-class), DSSP secondary structure, peptide
+  bond type, and chirality for 97,519
   quality-filtered protein residues from 514 chains in 492
   protein structures. Computed using pydangle-biopython v0.5.1 on
   "ersatz" full-structure PDB files with NQH flip corrections from
