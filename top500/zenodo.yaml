@@ -1,0 +1,99 @@
+# Zenodo metadata for top500 dataset
+# Used by: python pipeline/publish_to_zenodo.py top500/
+
+title: >-
+  pydangle top500: Per-residue backbone geometry for 514
+  quality-filtered protein chains from the Richardson Lab reference dataset
+
+description: >-
+  Per-residue backbone geometry (phi, psi, omega, tau), Ramachandran
+  classifications at four granularities (6/5/4/3-class), DSSP secondary
+  structure, peptide bond type, and chirality for 97,519
+  quality-filtered protein residues from 514 chains in 492
+  protein structures. Computed using pydangle-biopython v0.5.1 on
+  "ersatz" full-structure PDB files with NQH flip corrections from
+  Reduce 4.16. Source data from the Richardson Lab Top500 reference
+  dataset (Lovell et al., 2003, doi:10.1002/prot.10286). Residue-level
+  filtering by mainchain B-factor <= 30.
+  See README.md for full methodology.
+
+version: "1.0.0"
+license: cc-by-4.0
+
+creators:
+  - name: "Prisant, Michael"
+    orcid: ""
+    affiliation: "Prisant Scientific, Durham, NC"
+
+contributors:
+  - name: "Prisant, Michael"
+    affiliation: "Prisant Scientific, Durham, NC"
+    type: "Researcher"
+
+keywords:
+  - protein structure
+  - Ramachandran
+  - dihedral angles
+  - DSSP
+  - secondary structure
+  - pydangle
+  - top500
+
+subjects:
+  - term: "Protein Conformation"
+    scheme: "MeSH"
+  - term: "Protein Structure, Secondary"
+    scheme: "MeSH"
+  - term: "Amino Acids"
+    scheme: "MeSH"
+  - term: "Databases, Protein"
+    scheme: "MeSH"
+  - term: "Crystallography, X-Ray"
+    scheme: "MeSH"
+
+related_identifiers:
+  - identifier: "10.1006/jmbi.1998.2401"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.1006/jmbi.1998.2400"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.1002/prot.10286"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.1093/nar/gkh398"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.1002/prot.25039"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.1002/pro.3330"
+    relation: "cites"
+    resource_type: "publication-article"
+    scheme: "doi"
+  - identifier: "10.5281/zenodo.19041232"
+    relation: "isSupplementedBy"
+    resource_type: "dataset"
+    scheme: "doi"
+  - identifier: "https://github.com/prisant/pydangle-biopython"
+    relation: "isCompiledBy"
+    resource_type: "software"
+    scheme: "url"
+  - identifier: "https://github.com/prisant/richardson-dataset-curation"
+    relation: "isDocumentedBy"
+    resource_type: "software"
+    scheme: "url"
+
+references:
+  - "Word, J. M., Lovell, S. C., Richardson, J. S., & Richardson, D. C. (1999a). doi:10.1006/jmbi.1998.2401"
+  - "Word, J. M., Lovell, S. C., Richardson, J. S., & Richardson, D. C. (1999b). doi:10.1006/jmbi.1998.2400"
+  - "Lovell, S. C., Word, J. M., Richardson, J. S., & Richardson, D. C. (2000). PMID:10861930"
+  - "Lovell, S. C., Davis, I. W., Arendall, W. B. III, et al. (2003). doi:10.1002/prot.10286"
+  - "Davis, I. W., Murray, L. W., Richardson, J. S., & Richardson, D. C. (2004). doi:10.1093/nar/gkh398"
+  - "Hintze, B. J., Lewis, S. M., Richardson, J. S., & Richardson, D. C. (2016). doi:10.1002/prot.25039"
+  - "Williams, C. J., Headd, J. J., Moriarty, N. W., Prisant, M. G., et al. (2018). doi:10.1002/pro.3330"

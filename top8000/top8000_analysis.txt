@@ -1,0 +1,176 @@
+
+======================================================================
+  DATASET OVERVIEW
+======================================================================
+
+  Total residues:          1,568,561
+  Unique structures:           7,607
+  Output chain IDs:            7,814  [1]
+  Multi-chain structs:           182  (207 extra chains)
+  Standard residues:       1,568,560
+  Non-standard:                    1
+
+  Remaining non-standard residues:
+    CSD           1
+
+======================================================================
+  RESIDUE COMPOSITION
+======================================================================
+
+      Res       Count       Pct   Std
+      ---       -----       ---   ---
+      LEU     146,611     9.35%   yes
+      ALA     137,293     8.75%   yes
+      GLY     118,710     7.57%   yes
+      VAL     118,127     7.53%   yes
+      GLU      97,991     6.25%   yes
+      ILE      93,569     5.97%   yes
+      SER      90,238     5.75%   yes
+      ASP      89,811     5.73%   yes
+      THR      87,232     5.56%   yes
+      LYS      83,548     5.33%   yes
+      ARG      77,862     4.96%   yes
+      PRO      71,026     4.53%   yes
+      PHE      66,832     4.26%   yes
+      ASN      65,830     4.20%   yes
+      TYR      58,959     3.76%   yes
+      GLN      55,838     3.56%   yes
+      HIS      37,563     2.39%   yes
+      MET      26,804     1.71%   yes
+      TRP      24,087     1.54%   yes
+      CYS      20,629     1.32%   yes
+      CSD           1     0.00%    no
+
+======================================================================
+  RAMACHANDRAN CATEGORY DISTRIBUTION
+======================================================================
+
+
+  --- Overall ---
+
+    Category       Count   Percent
+    --------       -----   -------
+     General   1,056,115    71.06%
+      IleVal     200,462    13.49%
+         Gly     112,610     7.58%
+    TransPro      63,261     4.26%
+      PrePro      50,230     3.38%
+      CisPro       3,524     0.24%
+
+  --- By residue type (top 20) ---
+
+  ALA    General:96.3%  PrePro:3.7%
+  ARG    General:95.9%  PrePro:4.1%
+  ASN    General:94.3%  PrePro:5.7%
+  ASP    General:95.1%  PrePro:4.9%
+  CYS    General:94.8%  PrePro:5.2%
+  GLN    General:95.8%  PrePro:4.2%
+  GLU    General:96.6%  PrePro:3.4%
+  GLY    Gly:100.0%
+  HIS    General:94.1%  PrePro:5.9%
+  ILE    IleVal:100.0%
+  LEU    General:95.2%  PrePro:4.8%
+  LYS    General:95.8%  PrePro:4.2%
+  MET    General:95.5%  PrePro:4.5%
+  PHE    General:95.3%  PrePro:4.7%
+  PRO    TransPro:94.7%  CisPro:5.3%
+  SER    General:95.6%  PrePro:4.4%
+  THR    General:94.5%  PrePro:5.5%
+  TRP    General:96.1%  PrePro:3.9%
+  TYR    General:95.1%  PrePro:4.9%
+  VAL    IleVal:100.0%
+
+======================================================================
+  DSSP SECONDARY STRUCTURE
+======================================================================
+
+
+  --- Overall ---
+
+   State       Count   Percent
+   -----       -----   -------
+       H     509,873    32.66%
+       E     363,619    23.29%
+       C     275,923    17.67%
+       T     167,858    10.75%
+       S     123,456     7.91%
+       G      62,206     3.98%
+       P      28,842     1.85%
+       B      20,370     1.30%
+       I       9,043     0.58%
+
+  --- By Ramachandran category ---
+
+  CisPro      S:48.3%  T:31.5%  C:14.5%  E:3.1%  P:1.9%  I:0.3%  H:0.3%  B:0.1%
+  General     H:37.8%  E:22.2%  C:15.2%  T:10.4%  S:6.9%  G:4.4%  B:1.3%  P:1.2%  I:0.6%
+  Gly         T:27.2%  C:20.2%  S:16.1%  E:15.8%  H:15.4%  G:3.3%  B:1.1%  P:0.6%  I:0.4%
+  IleVal      E:42.2%  H:31.2%  C:13.0%  S:4.5%  T:3.6%  G:1.9%  B:1.6%  P:1.3%  I:0.7%
+  PrePro      C:44.7%  S:22.1%  E:12.2%  P:8.6%  H:6.7%  T:2.6%  G:1.7%  B:1.4%  I:0.1%
+  TransPro    C:31.0%  T:17.5%  H:16.0%  P:10.4%  E:10.3%  S:7.1%  G:6.2%  B:1.3%  I:0.1%
+
+======================================================================
+  GEOMETRIC DISTRIBUTIONS
+======================================================================
+
+
+  --- Overall ---
+
+   Measure           N        Mean         Std
+   -------           -        ----         ---
+       phi   1,523,961     -77.128      50.062
+       psi   1,523,951      39.810      89.195
+     omega   1,523,961      25.966     174.286
+       tau   1,568,552     111.121       2.715
+
+  --- By Ramachandran category ---
+
+  CisPro:
+         phi  N=     3,524  Mean=   -80.047  Std=    12.435
+         psi  N=     3,523  Mean=    91.955  Std=    86.692
+       omega  N=     3,524  Mean=     0.318  Std=     5.419
+         tau  N=     3,524  Mean=   113.332  Std=     2.756
+  General:
+         phi  N= 1,055,915  Mean=   -82.499  Std=    37.964
+         psi  N= 1,055,894  Mean=    34.181  Std=    85.986
+       omega  N= 1,055,915  Mean=    24.734  Std=   174.722
+         tau  N= 1,056,113  Mean=   111.106  Std=     2.528
+  Gly:
+         phi  N=   112,570  Mean=     5.574  Std=    97.423
+         psi  N=   112,581  Mean=    -0.670  Std=   104.258
+       omega  N=   112,570  Mean=    39.039  Std=   172.059
+         tau  N=   112,609  Mean=   113.183  Std=     2.831
+  IleVal:
+         phi  N=   200,439  Mean=   -94.075  Std=    29.357
+         psi  N=   200,442  Mean=    60.145  Std=    85.190
+       omega  N=   200,439  Mean=    37.027  Std=   172.300
+         tau  N=   200,462  Mean=   109.763  Std=     2.588
+  PrePro:
+         phi  N=    50,217  Mean=   -95.354  Std=    40.923
+         psi  N=    50,230  Mean=   110.019  Std=    60.314
+       omega  N=    50,217  Mean=    10.761  Std=   175.510
+         tau  N=    50,230  Mean=   110.076  Std=     2.868
+  TransPro:
+         phi  N=    63,247  Mean=   -64.367  Std=     9.814
+         psi  N=    63,241  Mean=    69.121  Std=    87.144
+       omega  N=    63,247  Mean=     5.484  Std=   176.464
+         tau  N=    63,261  Mean=   112.797  Std=     2.578
+
+======================================================================
+  DATA COMPLETENESS
+======================================================================
+
+            Field     Present     Missing   % Present
+            -----     -------     -------   ---------
+              phi   1,523,961      44,600      97.16%
+              psi   1,523,951      44,610      97.16%
+            omega   1,523,961      44,600      97.16%
+              tau   1,568,552           9     100.00%
+             dssp   1,561,190       7,371      99.53%
+    rama_category   1,486,202      82,359      94.75%
+
+  [1] The output contains 7,814 unique (file, chain) combinations.
+      This may differ from the source chain list count
+      if RCSB PDB remediation renamed or split chains
+      relative to the original dataset. See issues
+      for per-entry details.
+
