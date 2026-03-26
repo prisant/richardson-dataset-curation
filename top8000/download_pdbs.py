@@ -9,8 +9,8 @@ Usage:
 
 Example:
     python top8000/download_pdbs.py \
-        ~/Desktop/top8000_pdbs_hom70/need_download.txt \
-        ~/Desktop/top8000_pdbs_hom70/ -j 8
+        ~/Desktop/Data/top8000_pdbs_hom70/need_download.txt \
+        ~/Desktop/Data/top8000_pdbs_hom70/ -j 8
 """
 
 from __future__ import annotations
