@@ -1,0 +1,58 @@
+/* Custom CSS for notebook PDF conversion via WeasyPrint */
+
+@page {
+    size: letter;
+    margin: 0.75in 0.6in 0.75in 0.6in;
+}
+
+/* Nuclear option: override letter-spacing everywhere */
+* {
+    letter-spacing: 0 !important;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, strong, em, b, i, span, div, a {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Fix digit kerning in headings */
+h1 { font-size: 18pt; margin-top: 0; }
+h2 { font-size: 14pt; margin-top: 1.5em; }
+
+/* Plots should not break across pages */
+.jp-OutputArea-output img,
+.jp-RenderedImage img,
+img {
+    page-break-inside: avoid;
+    max-width: 100%;
+}
+
+/* Output text formatting */
+pre {
+    font-size: 8pt;
+    font-family: "Courier New", monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Remove Jupyter UI chrome */
+.jp-Toolbar,
+.jp-Cell-inputWrapper,
+.jp-InputPrompt,
+.jp-OutputPrompt {
+    display: none !important;
+}
+
+/* Tighten spacing */
+.jp-Cell {
+    padding: 0.2em 0;
+}
+
+.jp-OutputArea-child {
+    padding: 0;
+}
