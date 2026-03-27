@@ -5,19 +5,23 @@
     margin: 0.75in 0.6in 0.75in 0.6in;
 }
 
-/* Nuclear option: override letter-spacing everywhere */
+/* Override letter-spacing and font everywhere */
 * {
     letter-spacing: 0 !important;
+    word-spacing: normal !important;
+    font-variant-numeric: tabular-nums !important;
+    font-feature-settings: "kern" 0, "liga" 0 !important;
+    -webkit-font-feature-settings: "kern" 0 !important;
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "DejaVu Sans", "Liberation Sans", Helvetica, Arial, sans-serif;
     font-size: 10pt;
 }
 
 h1, h2, h3, h4, h5, h6,
-p, strong, em, b, i, span, div, a {
-    font-family: Helvetica, Arial, sans-serif;
+p, strong, em, b, i, span, div, a, li, td, th {
+    font-family: "DejaVu Sans", "Liberation Sans", Helvetica, Arial, sans-serif;
 }
 
 /* Fix digit kerning in headings */
