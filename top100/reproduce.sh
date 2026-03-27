@@ -37,7 +37,7 @@ python ../pipeline/build_ersatz_only.py "$DIR" -j "$JOBS"
 # 4. Build B-factor masks (mainchain B <= 40, matching original Top100 methodology)
 echo ""
 echo "Step 4: Build B-factor masks..."
-python ../pipeline/build_bfactor_masks.py "$DIR" "$CHAIN_LIST" -j "$JOBS" -b 30
+python ../pipeline/build_bfactor_masks.py "$DIR" "$CHAIN_LIST" -j "$JOBS" -b 40
 
 # 5. Run pydangle
 echo ""
