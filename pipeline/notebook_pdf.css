@@ -36,6 +36,24 @@ img {
     max-width: 100%;
 }
 
+/* Keep headings with following content — avoid orphaned headings */
+h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Allow cells to break across pages (large plots need this) */
+.jp-Cell {
+    page-break-inside: auto;
+    break-inside: auto;
+}
+
+/* But keep markdown text blocks together */
+.jp-MarkdownOutput {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
 /* Output text formatting */
 pre {
     font-size: 8pt;

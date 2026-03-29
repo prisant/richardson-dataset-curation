@@ -17,7 +17,7 @@ description: >-
   preserve multi-chain context for correct DSSP assignments. Source data
   from the Richardson Lab top2018 dataset (Williams et al., 2021,
   doi:10.1002/pro.4239), full-filtered, 70% homology, 60% completeness.
-  See README.md for full methodology and top2018_issues.md for preparation details.
+  See README.md for full methodology and top2018full_issues.md for preparation details.
 
 version: "2.0.0"
 license: cc-by-4.0

@@ -80,7 +80,7 @@ Null values indicate the measurement could not be computed (e.g., phi requires t
 - Cis peptide bonds: 5,902 (0.29%), of which 5,154 are Pro (5.0% of all Pro)
 - DSSP: H 31.4%, E 23.5%, C 18.1%, T 10.9%, S 8.2%, G 4.0%, P 2.0%, B 1.4%, I 0.6%
 
-See [top2018_analysis.md](top2018_analysis.md) for the full statistical report and [top2018_issues.md](top2018_issues.md) for preparation details.
+See [top2018full_analysis.md](top2018full_analysis.md) for the full statistical report and [top2018full_issues.md](top2018full_issues.md) for preparation details.
 
 ## Files
 
@@ -88,15 +88,15 @@ See [top2018_analysis.md](top2018_analysis.md) for the full statistical report a
 
 | File | Description |
 |------|-------------|
-| `top2018_pydangle_results.jsonl.gz` | Compressed JSONL measurement output (63 MB) |
-| `top2018_analysis.txt` | Human-readable analysis report |
-| `top2018_analysis.json` | Machine-readable analysis report |
+| `top2018full_measures.jsonl.gz` | Compressed JSONL measurement output (63 MB) |
+| `top2018full_analysis.txt` | Human-readable analysis report |
+| `top2018full_analysis.json` | Machine-readable analysis report |
 
 ### GitHub repository
 
 | File | Description |
 |------|-------------|
-| `top2018_pdb_chain_ids.txt` | List of 11,843 PDB chain identifiers |
+| `top2018full_chain_list.txt` | List of 11,843 PDB chain identifiers |
 | `get_top2018_full.py` | Download full PDBs from RCSB and run DSSP |
 | `reproduce.sh` | End-to-end reproduction script |
 | `../pipeline/` | Shared pipeline scripts (build_ersatz, filter, reduce, etc.) |
@@ -157,7 +157,7 @@ pydangle-biopython \
 
 # 6. Post-filter to quality-filtered residues
 python ../pipeline/filter_pruned_residues.py raw.jsonl \
-  top2018_pdbs_full_filtered_hom70/ > top2018_pydangle_results.jsonl
+  top2018_pdbs_full_filtered_hom70/ > top2018full_measures.jsonl
 ```
 
 ## Software versions used

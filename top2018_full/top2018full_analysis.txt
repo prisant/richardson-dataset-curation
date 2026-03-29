@@ -111,54 +111,71 @@
   GEOMETRIC DISTRIBUTIONS
 ======================================================================
 
+  Note: Torsion angles (phi, psi, omega, chi) use circular
+  statistics (atan2 mean, sqrt(-2 ln R) std). Tau is linear.
+
 
   --- Overall ---
 
    Measure           N        Mean         Std
    -------           -        ----         ---
-       phi   2,027,343     -76.715      51.845
-       psi   2,027,390      41.853      89.670
-     omega   2,027,346      25.866     173.731
+       phi   2,027,343     -85.842      42.650
+       psi   2,027,390      21.398     117.893
+     omega   2,027,346     179.186       8.315
        tau   2,405,312     111.153       2.531
-      chi1   1,936,652     -24.477     105.790
+      chi1   1,936,652     -85.699      87.319
+      chi2   1,417,035     158.075     125.702
+      chi3     798,792    -173.409     102.217
+      chi4     362,877      -1.809      83.632
 
   --- By Ramachandran category ---
 
   CisPro:
-         phi  N=     4,574  Mean=   -80.682  Std=    11.089
-         psi  N=     4,574  Mean=    91.544  Std=    86.005
-       omega  N=     4,574  Mean=     0.999  Std=     6.096
+         phi  N=     4,574  Mean=   -80.661  Std=    11.084
+         psi  N=     4,574  Mean=   130.566  Std=    82.227
+       omega  N=     4,574  Mean=     0.996  Std=     6.092
          tau  N=     4,574  Mean=   113.314  Std=     2.439
-        chi1  N=     4,574  Mean=    26.154  Std=    16.442
+        chi1  N=     4,574  Mean=    26.637  Std=    16.235
+        chi2  N=     4,574  Mean=   -29.005  Std=    21.312
+        chi3  N=     4,574  Mean=    19.004  Std=    19.089
   General:
-         phi  N= 1,185,559  Mean=   -83.904  Std=    38.073
-         psi  N= 1,185,568  Mean=    37.493  Std=    86.597
-       omega  N= 1,185,559  Mean=    26.001  Std=   173.950
+         phi  N= 1,185,559  Mean=   -85.633  Std=    35.439
+         psi  N= 1,185,568  Mean=    -1.865  Std=   105.345
+       omega  N= 1,185,559  Mean=   179.207  Std=     6.054
          tau  N= 1,185,578  Mean=   111.079  Std=     2.327
-        chi1  N= 1,015,883  Mean=   -34.070  Std=   102.763
+        chi1  N= 1,015,883  Mean=   -89.055  Std=    83.576
+        chi2  N=   793,422  Mean=   160.321  Std=   120.536
+        chi3  N=   472,062  Mean=  -177.246  Std=    78.493
+        chi4  N=   252,947  Mean=    -1.989  Std=    84.653
   Gly:
-         phi  N=   151,710  Mean=     5.148  Std=    97.601
-         psi  N=   151,708  Mean=    -0.294  Std=   103.861
-       omega  N=   151,710  Mean=    37.223  Std=   171.928
+         phi  N=   151,710  Mean=    96.194  Std=   135.628
+         psi  N=   151,708  Mean=   -19.456  Std=   109.902
+       omega  N=   151,710  Mean=   178.825  Std=     5.963
          tau  N=   151,712  Mean=   113.215  Std=     2.585
   IleVal:
-         phi  N=   242,778  Mean=   -94.661  Std=    29.175
-         psi  N=   242,780  Mean=    61.665  Std=    84.671
-       omega  N=   242,778  Mean=    37.088  Std=   171.694
+         phi  N=   242,778  Mean=   -94.799  Std=    29.198
+         psi  N=   242,780  Mean=   107.910  Std=   102.571
+       omega  N=   242,778  Mean=   178.735  Std=     5.954
          tau  N=   242,781  Mean=   109.708  Std=     2.344
-        chi1  N=   242,752  Mean=     9.470  Std=   126.664
+        chi1  N=   242,752  Mean=  -128.048  Std=    82.949
+        chi2  N=   104,038  Mean=   175.804  Std=    49.333
   PrePro:
-         phi  N=    63,786  Mean=   -95.656  Std=    40.325
-         psi  N=    63,787  Mean=   111.861  Std=    58.237
-       omega  N=    63,786  Mean=    10.079  Std=   174.912
+         phi  N=    63,786  Mean=   -97.992  Std=    38.324
+         psi  N=    63,787  Mean=   128.177  Std=    49.049
+       omega  N=    63,786  Mean=   179.439  Std=     6.732
          tau  N=    63,787  Mean=   110.050  Std=     2.534
-        chi1  N=    56,451  Mean=   -45.735  Std=   103.146
+        chi1  N=    56,451  Mean=   -97.475  Std=    82.679
+        chi2  N=    43,353  Mean=  -131.758  Std=   125.366
+        chi3  N=    23,930  Mean=  -175.494  Std=    71.672
+        chi4  N=    13,047  Mean=    -1.158  Std=    81.523
   TransPro:
-         phi  N=    80,908  Mean=   -65.267  Std=     9.751
-         psi  N=    80,908  Mean=    70.913  Std=    86.264
-       omega  N=    80,908  Mean=     3.169  Std=   175.799
+         phi  N=    80,908  Mean=   -65.237  Std=     9.746
+         psi  N=    80,908  Mean=   117.674  Std=   109.179
+       omega  N=    80,908  Mean=   179.914  Std=     5.696
          tau  N=    80,908  Mean=   112.776  Std=     2.194
-        chi1  N=    80,907  Mean=    -0.624  Std=    25.879
+        chi1  N=    80,907  Mean=    -0.724  Std=    26.282
+        chi2  N=    80,907  Mean=     2.899  Std=    35.617
+        chi3  N=    80,907  Mean=    -3.740  Std=    30.356
 
 ======================================================================
   DATA COMPLETENESS

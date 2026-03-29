@@ -126,11 +126,11 @@ python3 "$PIPELINE/filter_pruned_residues.py" \
 echo ""
 echo "=== Step 6: Compress and analyze ==="
 gzip -kf top2018full_measures.jsonl
-python3 "$PIPELINE/analyze_jsonl.py" top2018full_measures.jsonl -o text > top2018_analysis.txt
-python3 "$PIPELINE/analyze_jsonl.py" top2018full_measures.jsonl -o json > top2018_analysis.json
+python3 "$PIPELINE/analyze_jsonl.py" top2018full_measures.jsonl -o text > top2018full_analysis.txt
+python3 "$PIPELINE/analyze_jsonl.py" top2018full_measures.jsonl -o json > top2018full_analysis.json
 
 echo ""
 echo "=== Done ==="
 echo "Output: top2018full_measures.jsonl.gz"
-echo "Analysis: top2018_analysis.txt"
-ls -lh top2018full_measures.jsonl.gz top2018_analysis.txt
+echo "Analysis: top2018full_analysis.txt"
+ls -lh top2018full_measures.jsonl.gz top2018full_analysis.txt
