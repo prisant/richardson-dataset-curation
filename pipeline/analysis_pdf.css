@@ -1,0 +1,218 @@
+/* Analysis report PDF stylesheet — for pandoc HTML + WeasyPrint
+ * Based on prisant_lab_inventory.css (proven working)
+ * Adapted for 12pt body, 1in margins, analysis report layout
+ */
+
+@page {
+    size: letter;
+    margin: 0.35in 0.35in 0.5in 0.35in;
+
+    @bottom-left {
+        content: "Michael G. Prisant  |  info@prisantscientific.org";
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 8pt;
+        color: #555;
+    }
+    @bottom-right {
+        content: "Page " counter(page);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* Hide the pandoc-generated title element to avoid duplication */
+header, .title {
+    display: none;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: #222;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+}
+
+/* Title block */
+h1 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #3B5998;
+    margin-top: 4pt;
+    margin-bottom: 4pt;
+    border-bottom: none;
+}
+
+h1 + p {
+    font-size: 11pt;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Section headers — blue with underline */
+h2 {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #3B5998;
+    border-bottom: 2pt solid #3B5998;
+    padding-bottom: 2pt;
+    margin-top: 18pt;
+    margin-bottom: 8pt;
+}
+
+h3 {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #3B5998;
+    margin-top: 14pt;
+    margin-bottom: 6pt;
+}
+
+h4 {
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: #3B5998;
+    margin-top: 8pt;
+    margin-bottom: 2pt;
+}
+
+/* Tables — blue header rows, bordered */
+table {
+    border-collapse: collapse;
+    width: auto;
+    font-size: 10pt;
+    margin-top: 6pt;
+    margin-bottom: 10pt;
+    page-break-inside: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tr {
+    page-break-inside: avoid;
+}
+
+thead th {
+    background-color: #3B5998;
+    color: white;
+    font-weight: bold;
+    padding: 4pt 8pt;
+    text-align: left;
+    border: 0.5pt solid #2d4373;
+    font-size: 10pt;
+}
+
+tbody td {
+    padding: 3pt 8pt;
+    border: 0.5pt solid #ccc;
+    vertical-align: top;
+    font-size: 10pt;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f7f8fc;
+}
+
+/* Bold first column in key-value tables */
+table:first-of-type td:first-child {
+    font-weight: bold;
+}
+
+/* Paragraphs */
+p {
+    margin-top: 4pt;
+    margin-bottom: 4pt;
+}
+
+/* Lists */
+ol, ul {
+    margin-top: 4pt;
+    margin-bottom: 4pt;
+    padding-left: 24pt;
+}
+
+li {
+    margin-bottom: 3pt;
+}
+
+/* Code / monospace — inline */
+code {
+    font-family: "DejaVu Sans Mono", "Courier New", monospace;
+    font-size: 10pt;
+    background-color: #f0f0f0;
+    padding: 1pt 3pt;
+    border-radius: 2pt;
+}
+
+/* Code blocks — monospaced output tables */
+pre {
+    font-family: "DejaVu Sans Mono", "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.3;
+    background-color: #f8f8f8;
+    padding: 6pt 10pt;
+    margin: 4pt 0 8pt 0;
+    border-radius: 3pt;
+    border: 0.5pt solid #ddd;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+pre code {
+    font-size: 10pt;
+    padding: 0;
+    background-color: transparent;
+}
+
+/* Images — plots */
+img {
+    max-width: 100%;
+    page-break-inside: avoid;
+}
+
+/* Page break before each major section */
+h2 {
+    page-break-before: always;
+    break-before: always;
+}
+
+/* Keep headings with following content */
+h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Side-by-side tables layout */
+.tables-row {
+    display: flex;
+    gap: 12pt;
+    align-items: flex-start;
+}
+.tables-row table {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Horizontal rules */
+hr {
+    border: none;
+    border-top: 1pt solid #3B5998;
+    margin: 16pt 20%;
+}
+
+/* Emphasis / strong */
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+    color: #444;
+}
