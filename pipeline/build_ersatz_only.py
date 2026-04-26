@@ -25,8 +25,9 @@ _KEEP_PREFIXES = (
     "SCALE1", "SCALE2", "SCALE3",
     "ORIGX1", "ORIGX2", "ORIGX3",
     "MTRIX1", "MTRIX2", "MTRIX3",
+    "SEQRES",
     "MODEL ", "ENDMDL", "END   ",
-    "ATOM  ", "HETATM", "ANISOU", "TER   ",
+    "ATOM  ", "HETATM", "TER   ",
 )
 
 
@@ -55,12 +56,30 @@ def process_entry(entry_dir: Path) -> tuple[str, bool, str]:
         ersatz_path = entry_dir / f"{pdb_id}_ersatz.pdb"
         atom_count = 0
 
+        # First pass: find the default chain ID from ATOM records
+        default_chain = "A"
+        with open(fh_pdb) as fin:
+            for line in fin:
+                if line.startswith("ATOM  ") and len(line) > 21:
+                    ch = line[21]
+                    if ch != " ":
+                        default_chain = ch
+                        break
+
         with open(fh_pdb) as fin, open(ersatz_path, "w") as fout:
             for line in fin:
                 if not line.startswith(_KEEP_PREFIXES):
                     continue
                 if line.startswith(("ATOM  ", "HETATM")) and _is_hydrogen(line):
                     continue
+                # Fill blank chain IDs (column 22, 0-indexed 21)
+                # to prevent mkdssp 4.x parse failures
+                if (
+                    line.startswith(("ATOM  ", "HETATM", "TER   "))
+                    and len(line) > 21
+                    and line[21] == " "
+                ):
+                    line = line[:21] + default_chain + line[22:]
                 fout.write(line)
                 if line.startswith("ATOM  "):
                     atom_count += 1
