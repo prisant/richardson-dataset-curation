@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Generate DSSP files for all PDB structures in a dataset directory.
 
-Runs mkdssp on each original PDB file after cleaning records that
-cause mkdssp 4.x to fail:
+Runs mkdssp on each original PDB file after building a minimal
+protein-only PDB that avoids the records mkdssp 4.x mishandles:
 
   - ANISOU records (cause incomplete residue assignments)
   - SIGATM/SIGUIJ records (cause zero-residue output)
-  - Blank chain IDs in column 22 (cause parse failures)
+  - HETATM records (collide with SEQRES protein alignment, silently
+    nulling the structure's DSSP output for ligand-heavy entries
+    like 1a1y, 1gdo, 1tax, 2myr in top500)
+  - Blank chain IDs in column 12 (SEQRES) and column 22 (ATOM)
+
+The cleaned input contains HEADER + CRYST1 + SEQRES + ATOM + TER only.
 
 Usage:
     python pipeline/run_dssp.py SRC_DIR [-j JOBS]
@@ -26,9 +31,6 @@ import tempfile
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
-# Record prefixes that cause mkdssp 4.x failures
-_STRIP_PREFIXES = ("ANISOU", "SIGATM", "SIGUIJ")
-
 
 def _find_mkdssp() -> str | None:
     """Return the path to the mkdssp executable, or None."""
@@ -42,22 +44,41 @@ def _clean_and_run_dssp(
 ) -> tuple[bool, str]:
     """Clean a PDB file and run mkdssp on it.
 
-    Builds a minimal PDB containing only HEADER, CRYST1, and
-    coordinate records (ATOM/HETATM/TER) with ANISOU/SIGATM/SIGUIJ
-    stripped and blank chain IDs filled.  This avoids all known
-    mkdssp 4.x parsing issues with old PDB files.
+    Builds a minimal PDB containing HEADER + CRYST1 + SEQRES + ATOM +
+    TER + protein-only HETATM records, with blank chain IDs filled.
+
+    HETATM records are filtered: only those whose residue name appears
+    in SEQRES or ATOM (i.e., modified amino-acid residues like MSE,
+    PCA, MEN, PTR, LOV that some old PDBs deposit as HETATM) are
+    written.  Non-protein HETATM (HOH, SO4, GOL, NAG, ZN, ...) are
+    omitted because mkdssp 4.x silently produces zero-residue output
+    when those heteroatoms collide with the SEQRES protein alignment
+    (observed on top500: 1a1y, 1gdo, 1tax, 2myr).
 
     Returns (success, message).
     """
-    # Find default chain ID from ATOM records
+    # First pass: collect default chain + protein residue names from
+    # SEQRES and ATOM records.
     default_chain = "A"
+    chain_seen = False
+    protein_residues: set[str] = set()
     with open(pdb_path, encoding="utf-8") as fh:
         for line in fh:
             if line.startswith("ATOM  ") and len(line) > 21:
-                ch = line[21]
-                if ch != " ":
-                    default_chain = ch
-                    break
+                if not chain_seen:
+                    ch = line[21]
+                    if ch != " ":
+                        default_chain = ch
+                        chain_seen = True
+                if len(line) >= 20:
+                    protein_residues.add(line[17:20].strip())
+            elif line.startswith("SEQRES") and len(line) > 19:
+                idx = 19
+                while idx + 3 <= len(line):
+                    name = line[idx:idx + 3].strip()
+                    if name:
+                        protein_residues.add(name)
+                    idx += 4
 
     tmp_fd, tmp_path = tempfile.mkstemp(suffix=".pdb")
     try:
@@ -72,8 +93,14 @@ def _clean_and_run_dssp(
                         if len(line) > 11 and line[11] == " ":
                             out = line[:11] + default_chain + line[12:]
                         tmp.write(out)
-                    elif line.startswith(("ATOM  ", "HETATM", "TER   ")):
-                        if line.startswith(_STRIP_PREFIXES):
+                    elif line.startswith(("ATOM  ", "TER   ")):
+                        out = line
+                        if len(line) > 21 and line[21] == " ":
+                            out = line[:21] + default_chain + line[22:]
+                        tmp.write(out)
+                    elif line.startswith("HETATM"):
+                        resname = line[17:20].strip() if len(line) >= 20 else ""
+                        if resname not in protein_residues:
                             continue
                         out = line
                         if len(line) > 21 and line[21] == " ":
