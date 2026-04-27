@@ -387,265 +387,237 @@
   "dssp": {
     "overall": {
       "H": {
-        "count": 509873,
-        "percent": 32.6593
+        "count": 521563,
+        "percent": 39.8035
       },
       "E": {
-        "count": 363619,
-        "percent": 23.2911
-      },
-      "C": {
-        "count": 275923,
-        "percent": 17.6739
+        "count": 374045,
+        "percent": 28.5455
       },
       "T": {
-        "count": 167858,
-        "percent": 10.7519
+        "count": 168774,
+        "percent": 12.8801
       },
       "S": {
-        "count": 123456,
-        "percent": 7.9078
+        "count": 124942,
+        "percent": 9.535
       },
       "G": {
-        "count": 62206,
-        "percent": 3.9845
+        "count": 63039,
+        "percent": 4.8109
       },
       "P": {
-        "count": 28842,
-        "percent": 1.8474
+        "count": 29262,
+        "percent": 2.2332
       },
       "B": {
-        "count": 20370,
-        "percent": 1.3048
+        "count": 19432,
+        "percent": 1.483
       },
       "I": {
-        "count": 9043,
-        "percent": 0.5792
+        "count": 9288,
+        "percent": 0.7088
       }
     },
     "by_rama_category": {
       "CisPro": {
         "S": {
-          "count": 1695,
-          "percent": 48.3319
+          "count": 1731,
+          "percent": 56.5501
         },
         "T": {
-          "count": 1103,
-          "percent": 31.4514
-        },
-        "C": {
-          "count": 510,
-          "percent": 14.5423
+          "count": 1124,
+          "percent": 36.72
         },
         "E": {
-          "count": 110,
-          "percent": 3.1366
+          "count": 113,
+          "percent": 3.6916
         },
         "P": {
-          "count": 65,
-          "percent": 1.8534
+          "count": 68,
+          "percent": 2.2215
         },
         "I": {
           "count": 11,
-          "percent": 0.3137
+          "percent": 0.3594
         },
         "H": {
           "count": 10,
-          "percent": 0.2851
+          "percent": 0.3267
         },
         "B": {
-          "count": 3,
-          "percent": 0.0855
+          "count": 4,
+          "percent": 0.1307
         }
       },
       "General": {
         "H": {
-          "count": 397323,
-          "percent": 37.7989
+          "count": 406188,
+          "percent": 44.7266
         },
         "E": {
-          "count": 233541,
-          "percent": 22.2177
-        },
-        "C": {
-          "count": 159810,
-          "percent": 15.2034
+          "count": 240067,
+          "percent": 26.4345
         },
         "T": {
-          "count": 108905,
-          "percent": 10.3606
+          "count": 109119,
+          "percent": 12.0154
         },
         "S": {
-          "count": 72535,
-          "percent": 6.9005
+          "count": 73367,
+          "percent": 8.0787
         },
         "G": {
-          "count": 46773,
-          "percent": 4.4497
+          "count": 47359,
+          "percent": 5.2148
         },
         "B": {
-          "count": 13218,
-          "percent": 1.2575
+          "count": 12677,
+          "percent": 1.3959
         },
         "P": {
-          "count": 12307,
-          "percent": 1.1708
+          "count": 12441,
+          "percent": 1.3699
         },
         "I": {
-          "count": 6737,
-          "percent": 0.6409
+          "count": 6940,
+          "percent": 0.7642
         }
       },
       "Gly": {
         "T": {
-          "count": 30444,
-          "percent": 27.1741
-        },
-        "C": {
-          "count": 22590,
-          "percent": 20.1637
-        },
-        "S": {
-          "count": 17998,
-          "percent": 16.0649
+          "count": 31102,
+          "percent": 34.0217
         },
         "E": {
-          "count": 17738,
-          "percent": 15.8328
+          "count": 18338,
+          "percent": 20.0595
+        },
+        "S": {
+          "count": 18243,
+          "percent": 19.9556
         },
         "H": {
-          "count": 17284,
-          "percent": 15.4276
+          "count": 17745,
+          "percent": 19.4108
         },
         "G": {
-          "count": 3682,
-          "percent": 3.2865
+          "count": 3744,
+          "percent": 4.0955
         },
         "B": {
-          "count": 1187,
-          "percent": 1.0595
+          "count": 1116,
+          "percent": 1.2208
         },
         "P": {
-          "count": 677,
-          "percent": 0.6043
+          "count": 690,
+          "percent": 0.7548
         },
         "I": {
-          "count": 433,
-          "percent": 0.3865
+          "count": 440,
+          "percent": 0.4813
         }
       },
       "IleVal": {
         "E": {
-          "count": 84234,
-          "percent": 42.2173
+          "count": 86430,
+          "percent": 48.8435
         },
         "H": {
-          "count": 62309,
-          "percent": 31.2287
-        },
-        "C": {
-          "count": 25883,
-          "percent": 12.9723
+          "count": 63597,
+          "percent": 35.9401
         },
         "S": {
-          "count": 8926,
-          "percent": 4.4736
+          "count": 8978,
+          "percent": 5.0737
         },
         "T": {
-          "count": 7212,
-          "percent": 3.6146
+          "count": 7119,
+          "percent": 4.0231
         },
         "G": {
-          "count": 3742,
-          "percent": 1.8755
+          "count": 3783,
+          "percent": 2.1379
         },
         "B": {
-          "count": 3202,
-          "percent": 1.6048
+          "count": 2979,
+          "percent": 1.6835
         },
         "P": {
-          "count": 2616,
-          "percent": 1.3111
+          "count": 2636,
+          "percent": 1.4897
         },
         "I": {
-          "count": 1401,
-          "percent": 0.7022
+          "count": 1431,
+          "percent": 0.8087
         }
       },
       "PrePro": {
-        "C": {
-          "count": 22368,
-          "percent": 44.7449
-        },
         "S": {
-          "count": 11032,
-          "percent": 22.0684
+          "count": 11190,
+          "percent": 39.7669
         },
         "E": {
-          "count": 6089,
-          "percent": 12.1804
+          "count": 6275,
+          "percent": 22.3
         },
         "P": {
-          "count": 4294,
-          "percent": 8.5897
+          "count": 4367,
+          "percent": 15.5194
         },
         "H": {
-          "count": 3335,
-          "percent": 6.6713
+          "count": 3444,
+          "percent": 12.2392
         },
         "T": {
-          "count": 1282,
-          "percent": 2.5645
+          "count": 1269,
+          "percent": 4.5098
         },
         "G": {
-          "count": 853,
-          "percent": 1.7063
+          "count": 876,
+          "percent": 3.1131
         },
         "B": {
-          "count": 708,
-          "percent": 1.4163
+          "count": 689,
+          "percent": 2.4486
         },
         "I": {
           "count": 29,
-          "percent": 0.058
+          "percent": 0.1031
         }
       },
       "TransPro": {
-        "C": {
-          "count": 19548,
-          "percent": 31.0498
-        },
         "T": {
-          "count": 11044,
-          "percent": 17.5421
+          "count": 11139,
+          "percent": 25.1258
         },
         "H": {
-          "count": 10084,
-          "percent": 16.0173
-        },
-        "P": {
-          "count": 6552,
-          "percent": 10.4071
+          "count": 10382,
+          "percent": 23.4182
         },
         "E": {
-          "count": 6469,
-          "percent": 10.2753
+          "count": 6744,
+          "percent": 15.2121
+        },
+        "P": {
+          "count": 6684,
+          "percent": 15.0768
         },
         "S": {
-          "count": 4483,
-          "percent": 7.1207
+          "count": 4535,
+          "percent": 10.2294
         },
         "G": {
-          "count": 3893,
-          "percent": 6.1836
+          "count": 3980,
+          "percent": 8.9775
         },
         "B": {
-          "count": 825,
-          "percent": 1.3104
+          "count": 810,
+          "percent": 1.8271
         },
         "I": {
           "count": 59,
-          "percent": 0.0937
+          "percent": 0.1331
         }
       }
     }
@@ -935,9 +907,9 @@
       "percent_present": 83.4576
     },
     "dssp": {
-      "present": 1561190,
-      "missing": 7371,
-      "percent_present": 99.5301
+      "present": 1310345,
+      "missing": 258216,
+      "percent_present": 83.538
     },
     "rama_category": {
       "present": 1486202,
