@@ -24,3 +24,5 @@ __pycache__/
 # Editor backups
 *~
 *.swp
+.ipynb_checkpoints/
+*_analysis_plots_files/
