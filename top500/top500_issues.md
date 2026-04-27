@@ -259,10 +259,22 @@ mkdssp output is identical.
 
 The published top500 dataset on Zenodo continues to ship with the
 569 silently-nulled records and ~14,000 `'C'`-literal records
-described above. Per project decision (2026-04-26), public
-disclosure / Zenodo errata is **deferred until the v2.0.0 release**;
-the v2.0.0 release notes will describe the prior errors and the
-corrections shipped under v2.0.0.
+described above. Per project decision (revised 2026-04-27, supersedes
+the 2026-04-26 "defer until v2.0.0" decision), the corrections will
+ship as a **v1.x bugfix release** (proposed top500 patch version: v2.0.3,
+under the "Phase 1 DSSP corrections" release umbrella covering all five
+datasets simultaneously). The v1.x bugfix release ships before v2.0.0;
+v2.0.0 follows separately for format rectification (augmented ersatz,
+footer ordering, schema unification — qualitatively different work).
+
+The shift from the original "defer all to v2.0.0" plan addresses three
+concerns: (a) holding back known-correctable data while colleagues are
+informed of the bugs creates a credibility gap counter to the project's
+external data-integrity commitments; (b) Phase 1 (bugfix) and Phase 2
+(format change) are qualitatively different changes, and decoupling
+them gives each release a clean narrative; (c) the v1.x bugfix
+release shrinks the "tainted data in the wild" window from months to
+days/weeks.
 
 ### References
 
