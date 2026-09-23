@@ -13,6 +13,19 @@ protein-only PDB that avoids the records mkdssp 4.x mishandles:
 
 The cleaned input contains HEADER + CRYST1 + SEQRES + ATOM + TER only.
 
+Edge case: structures with >26 case-distinguished chain IDs.
+    mkdssp 4.x silently caps legacy DSSP output at 26 chains and
+    drops the surplus.  When that error is detected
+    ('This file contains data that won't fit in the original DSSP
+    format'), this module automatically falls back to
+    ``dssp_chain_batch_fix.run_dssp_chain_batched``, which splits the
+    structure into ≤26-chain batches, runs mkdssp on each, and
+    concatenates the residue tables into a single .dssp file with
+    renumbered global sequential indices and shifted BP1/BP2 refs.
+    See dssp_chain_batch_fix's docstring for the empirical
+    derivation, the cross-batch H-bond information-loss bound, and
+    the per-dataset documentation of affected structures.
+
 Usage:
     python pipeline/run_dssp.py SRC_DIR [-j JOBS]
 
@@ -120,6 +133,22 @@ def _clean_and_run_dssp(
 
     if result.returncode != 0:
         stderr = result.stderr.strip().split("\n")[-1] if result.stderr else ""
+        # mkdssp 4.x edge case: structures with > 26 case-distinguished
+        # chain IDs trigger "won't fit in the original DSSP format"
+        # and silently drop the surplus chains.  Fall back to the
+        # chain-batched processor in dssp_chain_batch_fix.  See that
+        # module's docstring for the format limitation, the empirical
+        # 26-chain cap, and the cross-batch H-bond information loss.
+        if "won't fit in the original DSSP format" in stderr:
+            import dssp_chain_batch_fix as _cbf
+            stats = _cbf.run_dssp_chain_batched(pdb_path, dssp_path, mkdssp)
+            if stats.get("ok"):
+                return True, (
+                    f"chain-batched fallback: "
+                    f"{stats['n_chains_input']} chains in {stats['n_batches']} batches "
+                    f"-> {stats['n_residues_output']} residues"
+                )
+            return False, f"chain-batched fallback failed: {stats.get('reason', 'unknown')}"
         return False, f"mkdssp failed: {stderr}"
 
     return True, "ok"

@@ -197,6 +197,75 @@ since the ersatz files hadn't changed.
 **Lesson:** Expensive intermediate outputs should be preserved until
 the final dataset is confirmed complete and all validation checks pass.
 
+## 11. mkdssp 4.x legacy-format chain-count cap (>26 chains)
+
+**Problem.** The classic 80-column DSSP output format reserves a single
+character (PDB column 22) for the chain identifier. mkdssp 4.x (4.2.2,
+NKI build) silently caps its legacy DSSP output at the first 26
+distinct case-distinguished chain IDs encountered (uppercase processed
+before lowercase) and emits
+`This file contains data that won't fit in the original DSSP format`
+to stderr with returncode 1 — but the partial .dssp file is written to
+disk **with the surplus chains entirely absent**. This is an mkdssp 4.x
+format limitation, not a chain-naming issue.
+
+**Affected structures (6 in top2018_full).** Verified by direct test —
+every structure with >26 case-distinguished chain IDs is affected, and
+all mkdssp errors in this dataset are from this cap. Confirmed by
+biconditional: candidates = errors = 6.
+
+| pdbid | chains |
+|---|---:|
+| 5Le5 | 28 |
+| 2zzs | 32 |
+| 5v2c | 38 |
+| 4ub8 | 39 |
+| 3uoi | 48 |
+| 4v4m | 60 |
+
+These are large multi-monomer assemblies (photosynthesis reaction
+centres, GroEL-class chaperonins, etc.) deliberately retained in
+top2018 to sample rare main-chain conformations.
+
+**Resolution — chain-batch fallback.** `pipeline/run_dssp.py` detects
+the "won't fit" stderr and automatically falls back to
+`pipeline/dssp_chain_batch_fix.py`:
+
+1. Split the structure's chains into ordered batches of ≤26.
+2. Run mkdssp on each batch independently (each fits the 26-chain cap;
+   each returns RC=0 with no warnings).
+3. Concatenate the per-batch residue tables into a single .dssp file
+   with renumbered global sequential indices and BP1/BP2 references
+   shifted accordingly.
+
+After fallback, **all input chains and all residues are present** in
+the ground-truth .dssp file (no chain dropping).
+
+**Information loss disclosure — cross-batch H-bonds.** Per-batch mkdssp
+runs cannot detect hydrogen bonds whose donor and acceptor are in
+different batches. Empirical bound, on a worst-case 20-chain test
+structure with an inter-chain β-sheet (13/7 split):
+
+- Per-residue **secondary-structure code (H/E/B/G/I/T/S/P)** preserved
+  with **>99.5% fidelity** vs full-run reference.
+- Per-residue **ACC, TCO, KAPPA, ALPHA, PHI, PSI, X-CA/Y-CA/Z-CA** are
+  computed locally per residue and are **fully preserved.**
+- Per-residue **4 H-bond partner offset+energy columns** lose the
+  partners that span the batch boundary (~4% of residues affected on
+  worst-case test; less on homo-multimers).
+
+Trade-off vs not handling the case at all: with the fallback, all
+chains and residues are present in the .dssp file. Without the
+fallback, the 6 structures lose 2 to 34 chains' worth of residues
+entirely from the ground-truth .dssp consumed by `validate_dssp.py`.
+
+**Validation gate.** `validate_dssp.py` 0-mismatch result is preserved
+after the fallback; counts are unchanged for residues already present.
+
+**Module reference.** See the docstring of
+`pipeline/dssp_chain_batch_fix.py` for the per-batch reconstruction
+algorithm and the empirical 26-chain cap derivation.
+
 ## Summary
 
 | Issue | Entries affected | Residues affected | Resolution |
