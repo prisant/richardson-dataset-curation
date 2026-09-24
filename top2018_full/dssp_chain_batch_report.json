@@ -1,0 +1,159 @@
+[
+  {
+    "pdb_id": "2zzs",
+    "n_chains_input": 32,
+    "chains_input": "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456",
+    "n_batches": 2,
+    "batches": [
+      {
+        "i": 0,
+        "chains": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "rc": 0,
+        "n_residues": 2105,
+        "succeeded": true
+      },
+      {
+        "i": 1,
+        "chains": "123456",
+        "rc": 0,
+        "n_residues": 484,
+        "succeeded": true
+      }
+    ],
+    "warnings": [],
+    "n_residues_output": 2589,
+    "ok": true
+  },
+  {
+    "pdb_id": "3uoi",
+    "n_chains_input": 48,
+    "chains_input": "ABCDEFGHIJKLMNOPQRSTUVWXabcdefghijklmnopqrstuvwx",
+    "n_batches": 2,
+    "batches": [
+      {
+        "i": 0,
+        "chains": "ABCDEFGHIJKLMNOPQRSTUVWXab",
+        "rc": 0,
+        "n_residues": 4134,
+        "succeeded": true
+      },
+      {
+        "i": 1,
+        "chains": "cdefghijklmnopqrstuvwx",
+        "rc": 0,
+        "n_residues": 3498,
+        "succeeded": true
+      }
+    ],
+    "warnings": [],
+    "n_residues_output": 7632,
+    "ok": true
+  },
+  {
+    "pdb_id": "4ub8",
+    "n_chains_input": 39,
+    "chains_input": "ABCDEFHIJKLMOTUVYXZRabcdefhijklmotuvyxz",
+    "n_batches": 2,
+    "batches": [
+      {
+        "i": 0,
+        "chains": "ABCDEFHIJKLMOTUVYXZRabcdef",
+        "rc": 0,
+        "n_residues": 4413,
+        "succeeded": true
+      },
+      {
+        "i": 1,
+        "chains": "hijklmotuvyxz",
+        "rc": 0,
+        "n_residues": 887,
+        "succeeded": true
+      }
+    ],
+    "warnings": [],
+    "n_residues_output": 5300,
+    "ok": true
+  },
+  {
+    "pdb_id": "4v4m",
+    "n_chains_input": 60,
+    "chains_input": "efghijklmnopqrstuvwxyz01234567ABCDEFGHIJKLMNOPQRSTUVWXYZabcd",
+    "n_batches": 3,
+    "batches": [
+      {
+        "i": 0,
+        "chains": "efghijklmnopqrstuvwxyz0123",
+        "rc": 0,
+        "n_residues": 4784,
+        "succeeded": true
+      },
+      {
+        "i": 1,
+        "chains": "4567ABCDEFGHIJKLMNOPQRSTUV",
+        "rc": 0,
+        "n_residues": 4784,
+        "succeeded": true
+      },
+      {
+        "i": 2,
+        "chains": "WXYZabcd",
+        "rc": 0,
+        "n_residues": 1472,
+        "succeeded": true
+      }
+    ],
+    "warnings": [],
+    "n_residues_output": 11040,
+    "ok": true
+  },
+  {
+    "pdb_id": "5Le5",
+    "n_chains_input": 28,
+    "chains_input": "ABCDEFGHIJKLMNOPQRSTUVWXYZab",
+    "n_batches": 2,
+    "batches": [
+      {
+        "i": 0,
+        "chains": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "rc": 0,
+        "n_residues": 5806,
+        "succeeded": true
+      },
+      {
+        "i": 1,
+        "chains": "ab",
+        "rc": 0,
+        "n_residues": 419,
+        "succeeded": true
+      }
+    ],
+    "warnings": [],
+    "n_residues_output": 6225,
+    "ok": true
+  },
+  {
+    "pdb_id": "5v2c",
+    "n_chains_input": 38,
+    "chains_input": "ABCDEFHIJKLMOTUVYXZabcdefhijklmotuvyxz",
+    "n_batches": 2,
+    "batches": [
+      {
+        "i": 0,
+        "chains": "ABCDEFHIJKLMOTUVYXZabcdefh",
+        "rc": 0,
+        "n_residues": 4454,
+        "succeeded": true
+      },
+      {
+        "i": 1,
+        "chains": "ijklmotuvyxz",
+        "rc": 0,
+        "n_residues": 826,
+        "succeeded": true
+      }
+    ],
+    "warnings": [],
+    "n_residues_output": 5280,
+    "ok": true
+  }
+]
