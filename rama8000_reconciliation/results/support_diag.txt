@@ -1,0 +1,18 @@
+ours only   2084 bins; density×realcount min 2 median 2 max 12; distance from common support (bins) median 3.0 max 17.0
+NDFT only  0 bins
+common support 29072 bins; ours 31156, NDFT 29072
+smallest nonzero value×realcount: ours 2, NDFT 2
+
+residues in ours-only bins: 2
+preceding |omega|: <30 0  30-150 1  >=150 1
+own mc max B quartiles [23.0, 23.5, 24.1, 24.6, 25.1]
+ pdb chain  resnum ins resname    phi    psi   omega  own_mc_max
+1w0p     A     729         GLY -14.80 150.46 -179.27       23.00
+3k26     A     190         GLY  13.99  -6.42 -136.51       25.11
+
+ours only  0 bins
+NDFT only  0 bins
+common support 9276 bins; ours 9276, NDFT 9276
+smallest nonzero value×realcount: ours 1, NDFT 1
+
+residues in ours-only bins: 0

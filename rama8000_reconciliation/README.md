@@ -241,3 +241,47 @@ titles and our fits, all of which give < 30 (sections above). Questions for
 J. Richardson: (1) confirm B = 30.00 was excluded; (2) were the occupancy (including H), zero-B and twisted-Pro
 exclusions deliberate, or side effects of Reduce/Dangle; (3) the exact
 Dangle and Silk commands used for rama8000.
+
+## Silk parameter scans and support diagnosis (2026-10-13)
+
+`scripts/silk_param_scan.py` (outputs `results/silk_scan_{gly,general}.txt`)
+runs Silk over a parameter grid on the reconciled-rule set (B < 30).
+`SilkCmdLine` has no `-sym` flag (that is `silk/old/Rota2D`), so Gly points
+are mirrored explicitly to (φ, ψ) and (−φ, −ψ). The archived `glycine.ndft`
+is titled "Gly (sym)" and is exactly point-symmetric, so this is the right
+model.
+
+| Class | Scanned | Best (meanΔ×1e4) | Next best |
+|---|---|---|---|
+| General | cosine 5; twopass 6, 6.5, 7, 7.5, 8 | twopass 6.5 (0.558) | 1.16 |
+| Gly | cosine 4, 5, 6 × twopass 6.5, 7, 8, 9, 10 | cosine 5, twopass 8 (1.213) | 2.40 |
+
+Both minima are sharp and equal the `silk/old/Makefile` values, so the
+residual misfit is in residue membership, not smoothing.
+
+`scripts/support_diag.py CLASS NDFT TWOPASS` (outputs
+`results/support_diag.txt`, `results/support_diag_nonpro.txt`) splits the
+support mismatch into bins nonzero only in our grid and only in the NDFT,
+with their densities and distance from the common support, and lists
+residues whose own bin lies in our-only support.
+
+| Class | ours-only bins | NDFT-only bins | ours-only density (counts) | distance from common support |
+|---|--:|--:|---|---|
+| TransPro (twisted excluded) | 0 | 0 | – | – |
+| PrePro | 5 | 2 | 1 | 1 bin |
+| IleVal | 89 | 9 | 1–2 | median 1, max 3 |
+| General | 239 | 17 | median 3, max 6 | median 2.2, max 7.6 |
+| Gly | 2,084 | 0 | median 2, max 12 | median 3, max 17 |
+
+Reading:
+- **Gly** (+76): all mismatch is ours, a low-density fringe outside the
+  lab's support. Our set has extra points in sparse regions that the lab's
+  set lacks. Only 2 residues (1w0p A729, 3k26 A190) sit inside our-only
+  bins; the others lie inside the common support and widen it through the
+  density-dependent second pass. Next: rank Gly by local density and
+  characterise the sparse ones.
+- **General** (−772): fewer residues overall but more extra fringe, so
+  membership differs in both directions.
+- **IleVal** (+167): thin fringe, mostly ours; consistent with a small
+  excess of edge points.
+- **PrePro** (−39): support almost exact; the misfit is interior density.

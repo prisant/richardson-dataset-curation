@@ -1,0 +1,21 @@
+== General
+ours only    239 bins; density×realcount min 1 median 3 max 6; distance from common support (bins) median 2.2 max 7.6
+NDFT only     17 bins; density×realcount min 1 median 2 max 3; distance from common support (bins) median 1.0 max 1.0
+common support 27134 bins; ours 27373, NDFT 27151
+smallest nonzero value×realcount: ours 1, NDFT 1
+
+residues in ours-only bins: 0
+== PrePro
+ours only      5 bins; density×realcount min 1 median 1 max 1; distance from common support (bins) median 1.0 max 1.0
+NDFT only      2 bins; density×realcount min 1 median 1 max 1; distance from common support (bins) median 1.0 max 1.0
+common support 17408 bins; ours 17413, NDFT 17410
+smallest nonzero value×realcount: ours 1, NDFT 1
+
+residues in ours-only bins: 0
+== IleVal
+ours only     89 bins; density×realcount min 0.999 median 0.999 max 2; distance from common support (bins) median 1.0 max 3.0
+NDFT only      9 bins; density×realcount min 1 median 1 max 1; distance from common support (bins) median 1.0 max 1.0
+common support 21263 bins; ours 21352, NDFT 21272
+smallest nonzero value×realcount: ours 0.999, NDFT 1
+
+residues in ours-only bins: 0
