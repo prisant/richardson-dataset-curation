@@ -1,0 +1,17 @@
+class   variant                             n     Δn  meanΔ×1e4  supp ours-only NDFT-only  rank-identical max|Δrank|
+Gly     reconciled rule                116665    +76     1.2133  2084      2084         0      2328/32400       1220
+Gly     drop cis (|ω|<30)              116616    +27     0.7399  2084      2084         0      2220/32400        307
+Gly     drop twisted (30–150)          116645    +56     0.8775     2         2         0     10194/32400       1207
+Gly     drop non-trans (|ω|<150)       116596     +7     0.4750     2         2         0     14748/32400        300
+PrePro  reconciled rule                 61529    -39     0.5499     7         5         2     26795/32400        337
+PrePro  drop cis (|ω|<30)               61507    -61     0.4690     7         5         2     26793/32400        314
+PrePro  drop twisted (30–150)           61522    -46     0.5320     6         5         1     26895/32400        338
+PrePro  drop non-trans (|ω|<150)        61500    -68     0.4460     6         5         1     26933/32400        315
+IleVal  reconciled rule                195250   +167     0.2497    98        89         9     18435/32400        337
+IleVal  drop cis (|ω|<30)              195204   +121     0.1712     9         0         9     19452/32400        317
+IleVal  drop twisted (30–150)          195238   +155     0.2215    98        89         9     19225/32400        338
+IleVal  drop non-trans (|ω|<150)       195192   +109     0.1474     9         0         9     20618/32400        312
+General reconciled rule               1060867   -772     0.5576   256       239        17      8696/32400       2576
+General drop cis (|ω|<30)             1060441  -1198     0.4212   103        86        17      9221/32400       2026
+General drop twisted (30–150)         1060782   -857     0.4935   179       165        14      9946/32400       2534
+General drop non-trans (|ω|<150)      1060356  -1283     0.3630    22        10        12     15899/32400       1881

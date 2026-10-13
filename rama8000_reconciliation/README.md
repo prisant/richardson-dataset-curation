@@ -307,3 +307,67 @@ Reading:
 - **IleVal** (+167): thin fringe, mostly ours; consistent with a small
   excess of edge points.
 - **PrePro** (−39): support almost exact; the misfit is interior density.
+
+## Preceding-peptide (non-trans) exclusion for non-Pro classes (2026-10-13)
+
+`scripts/gly_sparse.py` (`results/gly_sparse.txt`) profiled the sparsest
+Gly residues and tested candidate exclusions. Only one helps: dropping Gly
+whose **preceding peptide is non-trans** (|ω| < 150°, cis or twisted
+non-Pro). Neighbour-ω, neighbour-B and neighbour-occupancy rules all make
+the fit much worse. `scripts/nontrans_nonpro.py`
+(`results/nontrans_nonpro.txt`) splits cis from twisted and extends the
+test to all non-Pro classes (Makefile smoothing; reconciled rule, B < 30):
+
+| Class | Variant | n | Δn | meanΔ×1e4 | supp (ours/NDFT) | rank-identical |
+|---|---|--:|--:|--:|---|--:|
+| Gly | reconciled rule | 116,665 | +76 | 1.2133 | 2,084 / 0 | 2,328 |
+| Gly | drop cis | 116,616 | +27 | 0.7399 | 2,084 / 0 | 2,220 |
+| Gly | drop twisted | 116,645 | +56 | 0.8775 | 2 / 0 | 10,194 |
+| Gly | **drop non-trans** | 116,596 | **+7** | **0.4750** | **2 / 0** | **14,748** |
+| PrePro | reconciled rule | 61,529 | −39 | 0.5499 | 5 / 2 | 26,795 |
+| PrePro | **drop non-trans** | 61,500 | −68 | **0.4460** | 5 / 1 | 26,933 |
+| IleVal | reconciled rule | 195,250 | +167 | 0.2497 | 89 / 9 | 18,435 |
+| IleVal | **drop non-trans** | 195,192 | **+109** | **0.1474** | **0 / 9** | 20,618 |
+| General | reconciled rule | 1,060,867 | −772 | 0.5576 | 239 / 17 | 8,696 |
+| General | **drop non-trans** | 1,060,356 | −1,283 | **0.3630** | **10 / 12** | **15,899** |
+
+(Full split by cis/twisted for every class in the results file.) Dropping
+non-trans improves the grid in **every** class; both cis and twisted
+contribute, and the combination is best. With the Pro rule (TransPro =
+|ω| ≥ 150°, CisPro = |ω| < 30°) this generalises to: **a residue's
+preceding peptide must be trans, except for the CisPro class.** Counts
+after the rule: Gly +7, IleVal +109, PrePro −68, General −1,283 — the
+grids now say General and PrePro lack residues that the lab included,
+i.e. some other exclusion of ours is too broad (candidates: amide-H
+occupancy scope, peptide-link test, zero-B, non-standard neighbours).
+
+Literature: no paper states this exclusion. WHM+18 (p.305) treats
+cis-nonPro and twisted peptides as near-certain errors ("twisted peptides
+should virtually always be considered modeling errors"); LDA+03 notes the
+Top500 Pro plot "includes prolines preceded by either trans or cis
+peptide bonds", i.e. before the cis/trans Pro split.
+
+## Further literature review (2026-10-13)
+
+Sources in `~/Desktop/UnFiled261002_RamaRichardson/Refs/`:
+- **LDA+03** (Lovell 2003, Top500): residues kept only if no main-chain
+  atom has B ≥ 30 (strict); files screened for "large numbers of B-factors
+  ≤1, which is an indication of the use of U rather than B, or of
+  unrefined B-factors" — precedent for the zero-B exclusion (2fcr, 2yyh);
+  dihedrals from DANG.
+- **HLR+16** (Hintze 2016) and supplement: Top8000 chain selection —
+  PDB as of March 29, 2011; chains ≥ 38 residues at < 2.0 Å; Reduce with
+  N/Q/H flips; chain MolProbity score < 2.0; ≤ 5% bond-length, bond-angle
+  (> 4σ) and Cβ (> 0.25 Å) outliers; best average of resolution and
+  MolProbity score per homology cluster, ties broken by PDB ID + chain ID.
+  Rotamer residue filter (B < 40, RSCC, map value, clashes, no altlocs) is
+  not the rama8000 filter. Top500 rotamer filter: "no clashes, no
+  alternates, and no B factors ≥ 40".
+- **WRR22** (Top2018) and supplement: later dataset, B < 40 + RSCC > 0.7 +
+  map > 1.2σ + no geometry outliers / clashes / altlocs; non-standard
+  residues kept if part of the chain. Not the rama8000 regime.
+- **RVW+25** (cis-nonPro): Top8000 50% SF list with B ≤ 40 backbone + Cβ
+  and density filters; does not describe the rama contours.
+- **WHM+18 supplement**: H-parameter methods only; Top8000 used with B
+  cutoffs on atom pairs (< 10, raised to < 30), not residue filtering.
+- Not reviewed in depth (not Richardson-lab datasets): SD13, TWS+10.
