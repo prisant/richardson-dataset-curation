@@ -227,12 +227,34 @@ Side findings from this run:
    incl. H, zero B, twisted Pro, non-standard) applied when the NDFTs were
    built. Not usable as a check without a table of all residues.
 
+4. **Read et al. (2011) Supplemental Experimental Procedures**
+   (`Refs/RAA+11_supp.pdf`, Document S1 via Europe PMC, PMC3195755),
+   "Categories for Ramachandran validation":
+   > These distributions were made from a MySQL database containing PDB
+   > and validation data for over a million residues from 4400
+   > nonhomologous chains (at the 70% sequence identity level), chosen for
+   > resolution < 2.0Å and an average of resolution and MolProbity score
+   > of < 2.0. Individual residues were omitted if they had occupancy < 1.0
+   > or any backbone B-factor > 30.
+   This is the first published statement of the **occupancy rule**
+   (inferred rule 2). It does not say which atoms; our fits require all
+   atoms including Reduce amide H. Same text: "> 30" again, and the
+   precedence example "a Gly that is also a pre-Pro is judged on the Gly
+   distribution". Applies to the pre-Top8000 (4,400-chain) dataset.
+   The Williams 2018 supplement (PMC5734394, `PRO-27-293-s001.pdf`) and
+   Hintze 2016 (PMC4983197) are not open access in Europe PMC; PMC serves a
+   CAPTCHA to scripted downloads, so they need a browser download.
+
 **Conclusion on the boundary:** B < 30 (30.00 excluded). It is stated by
 RKR13 ("≥30" omitted) and Read 2011 ("<30Å2"), implemented by `Rota2D`
 (`Bfactor < cutoff`), written in the NDFT titles ("B<30"), and supported
 by the TransPro count and by every class's grid fit. WHM+18's "> 30" is
 the outlier wording. The altloc exclusion is published in Read 2011 and
-RKR13, and confirmed by J. Richardson.
+RKR13, and confirmed by J. Richardson. The occupancy < 1.0 exclusion is
+published in the Read 2011 supplement. The "> 30" wording appears in the
+Read 2011 supplement as well as WHM+18, against "≥ 30 omitted" (RKR13),
+"<30" (Read 2011 Fig. 2, NDFT titles) and `Bfactor < cutoff` (Rota2D);
+the data decide for < 30.
 
 Conclusion: the paper documents the chain set and the B-factor test
 (own mainchain atoms) but not occupancy, zero-B or residue-type rules,
