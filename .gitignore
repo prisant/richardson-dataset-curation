@@ -25,3 +25,8 @@ __pycache__/
 *~
 *.swp
 .ipynb_checkpoints/
+
+# rama8000 reconciliation: regenerable bulk data and local Silk build
+rama8000_reconciliation/data/*.tsv
+rama8000_reconciliation/silk_build/
+rama8000_reconciliation/results/*.log
