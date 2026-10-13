@@ -371,3 +371,29 @@ Sources in `~/Desktop/UnFiled261002_RamaRichardson/Refs/`:
 - **WHM+18 supplement**: H-parameter methods only; Top8000 used with B
   cutoffs on atom pairs (< 10, raised to < 30), not residue filtering.
 - Not reviewed in depth (not Richardson-lab datasets): SD13, TWS+10.
+
+## Relaxing each exclusion in turn (2026-10-13)
+
+`scripts/relax_exclusions.py` → `results/relax_exclusions.txt`. Starting
+from the full rule (link both sides C–N < 2.0 Å, own mainchain 0 < B < 30,
+all heavy atoms occ 1, amide H occ 1, standard residue, preceding peptide
+trans except CisPro), each component is dropped in turn; General and
+PrePro grids are recomputed for the variants that add residues.
+
+| relaxation | General Δ | PrePro Δ | General meanΔ×1e4 | PrePro meanΔ×1e4 |
+|---|--:|--:|--:|--:|
+| full rule | −1,283 | −68 | 0.363 | 0.446 |
+| keep C–N ≥ 2.0 Å links | −942 | −48 | 0.972 | 1.172 |
+| keep mainchain B = 0 | −1,099 | −53 | 0.374 | 0.470 |
+| keep partial-occupancy amide H | +6,333 | +370 | 0.586 | 1.179 |
+| keep all non-standard residues | +1,985 | +104 | 0.353 | 0.450 |
+| **keep MSE only** | **+1,552** | **+82** | **0.283** | **0.392** |
+
+The link, B > 0 and amide-H rules are confirmed (relaxing each worsens
+the grids). Adding MSE alone gives the best General and PrePro grids so
+far (General rank-identical bins 15,899 → 16,226), better than adding all
+non-standard residues — consistent with the lab's tools treating MSE as
+Met. But with MSE in, General overshoots by 1,552 and PrePro by 82 while
+Gly, TransPro, CisPro are unchanged: some further exclusion, hitting
+side-chain-bearing classes, is missing. Next candidate: incomplete side
+chains.
