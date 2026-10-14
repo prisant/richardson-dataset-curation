@@ -1,0 +1,51 @@
+incomplete residues under std + MSE, by class:
+rama6
+General     6199
+Gly            2
+IleVal        54
+PrePro       253
+TransPro       6
+most common missing-atom sets (std + MSE):
+missing
+CG,CD,CE,NZ            1011
+CG,CD,OE1,OE2           869
+CE,NZ                   795
+CD,CE,NZ                722
+CD,OE1,OE2              539
+CG,CD,NE,CZ,NH1,NH2     455
+NZ                      309
+CG,CD,OE1,NE2           277
+CD,NE,CZ,NH1,NH2        217
+NE,CZ,NH1,NH2           185
+
+variant                                  General       Gly    IleVal    PrePro  TransPro    CisPro     total
+full rule (std only)                      -1,283        +7      +109       -68        -1        +0    -1,236
+std + MSE                                 +1,552        +7      +109       +82        -1        +0    +1,749
++MSE, drop any atom missing               -4,647        +5       +55      -171        -7        +0    -4,765
++MSE, drop O missing                      +1,545        +5      +109       +81        -2        +0    +1,738
++MSE, drop CB missing                     +1,484        +7      +107       +79        -1        +0    +1,676
++MSE, drop side-chain B ≥ 30            -175,784        +7    -6,968    -8,109    -1,912       -99  -192,865
++MSE, drop missing or sc B ≥ 30         -180,726        +5    -7,016    -8,311    -1,918       -99  -198,065
+
+class   variant                                       n     Δn  meanΔ×1e4  supp ours-only NDFT-only  rank-identical
+General full rule (std only)                    1060356  -1283     0.3630    22        10        12     15899/32400
+General std + MSE                               1063191  +1552     0.2827    22        10        12     16226/32400
+General +MSE, drop any atom missing             1056992  -4647     0.7291   547         2       545      5878/32400
+General +MSE, drop O missing                    1063184  +1545     0.2847    22        10        12     16162/32400
+General +MSE, drop CB missing                   1063123  +1484     0.2903   141         9       132      6607/32400
+General +MSE, drop side-chain B ≥ 30             885855-175784    10.5207   620        45       575      6177/32400
+General +MSE, drop missing or sc B ≥ 30          880913-180726    11.0213   857        27       830      6433/32400
+PrePro  full rule (std only)                      61500    -68     0.4460     6         5         1     26933/32400
+PrePro  std + MSE                                 61650    +82     0.3916     4         1         3     27321/32400
+PrePro  +MSE, drop any atom missing               61397   -171     0.8398     4         2         2     27004/32400
+PrePro  +MSE, drop O missing                      61649    +81     0.3966     4         1         3     27330/32400
+PrePro  +MSE, drop CB missing                     61647    +79     0.4014     4         1         3     27330/32400
+PrePro  +MSE, drop side-chain B ≥ 30              53459  -8109     7.4499   435        49       386     18971/32400
+PrePro  +MSE, drop missing or sc B ≥ 30           53257  -8311     7.7110   435        49       386     18900/32400
+IleVal  full rule (std only)                     195192   +109     0.1474     9         0         9     20618/32400
+IleVal  std + MSE                                195192   +109     0.1474     9         0         9     20618/32400
+IleVal  +MSE, drop any atom missing              195138    +55     0.1572     9         0         9     20664/32400
+IleVal  +MSE, drop O missing                     195192   +109     0.1474     9         0         9     20618/32400
+IleVal  +MSE, drop CB missing                    195190   +107     0.1465     9         0         9     20609/32400
+IleVal  +MSE, drop side-chain B ≥ 30             188115  -6968     1.5444    60        39        21     19041/32400
+IleVal  +MSE, drop missing or sc B ≥ 30          188067  -7016     1.5583    60        39        21     19029/32400

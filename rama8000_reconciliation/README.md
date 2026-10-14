@@ -397,3 +397,23 @@ Met. But with MSE in, General overshoots by 1,552 and PrePro by 82 while
 Gly, TransPro, CisPro are unchanged: some further exclusion, hitting
 side-chain-bearing classes, is missing. Next candidate: incomplete side
 chains.
+
+## MSE plus side-chain exclusions (2026-10-13)
+
+`scripts/sidechain_records.py` → `data/sidechain_records.tsv` (gitignored,
+regenerable in ~40 s): expected heavy atoms missing, side-chain max B and
+min occupancy per residue. `scripts/sidechain_test.py` →
+`results/sidechain_test.txt`. All variants include MSE.
+
+| variant | General Δ | PrePro Δ | IleVal Δ | General meanΔ×1e4 | PrePro meanΔ×1e4 |
+|---|--:|--:|--:|--:|--:|
+| std + MSE | +1,552 | +82 | +109 | 0.283 | 0.392 |
+| drop any atom missing | −4,647 | −171 | +55 | 0.729 | 0.840 |
+| drop CB missing | +1,484 | +79 | +107 | 0.290 | 0.401 |
+| drop side-chain B ≥ 30 | −175,784 | −8,109 | −6,968 | 10.5 | 7.45 |
+
+Incomplete side chains are **not** the missing exclusion: 6,199 General
+residues (mostly truncated Lys/Glu/Arg/Gln) are incomplete, three times the
+excess, and dropping them worsens every grid (General 545 bins NDFT-only).
+The lab kept truncated side chains. All-atom B < 30 is far too strong.
+The ~1.5k General / ~80 PrePro excess with MSE remains unexplained.
