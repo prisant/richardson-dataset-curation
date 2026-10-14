@@ -1,0 +1,30 @@
+own heavy atoms occ 1 and amide H occ < 1: 11451 residues
+  H occ == 0: 179; 0 < H occ < 1: 11272
+  of 0 < H occ < 1, previous residue has altloc or occ < 1: 11094; previous residue not in records (no phi/psi row): 56
+previous residue has altloc or occ < 1, own heavy occ 1, H occ 1: 37732
+
+rule      class        NDFT n      ours      Δn      Δ%  meanΔ×1e4  supp ours-only NDFT-only  rank-identical max|Δrank|
+std+MSE   CisPro         3654      3654      +0  +0.000     0.0279     1         1         0     32090/32400          3
+std+MSE   TransPro      66364     66363      -1  -0.002     0.0253     0         0         0     30851/32400         48
+std+MSE   Gly          116589    116596      +7  +0.006     0.4750     2         2         0     14748/32400        300
+std+MSE   IleVal       195083    195192    +109  +0.056     0.1474     9         0         9     20618/32400        312
+std+MSE   PrePro        61568     61650     +82  +0.133     0.3916     4         1         3     27321/32400        188
+std+MSE   General     1061639   1063191   +1552  +0.146     0.2827    22        10        12     16226/32400       1974
+std only  CisPro         3654      3654      +0  +0.000     0.0279     1         1         0     32090/32400          3
+std only  TransPro      66364     66363      -1  -0.002     0.0253     0         0         0     30851/32400         48
+std only  Gly          116589    116596      +7  +0.006     0.4750     2         2         0     14748/32400        300
+std only  IleVal       195083    195192    +109  +0.056     0.1474     9         0         9     20618/32400        312
+std only  PrePro        61568     61500     -68  -0.110     0.4460     6         5         1     26933/32400        315
+std only  General     1061639   1060356   -1283  -0.121     0.3630    22        10        12     15899/32400       1881
+no H rule CisPro         3654      3654      +0  +0.000     0.0279     1         1         0     32090/32400          3
+no H rule TransPro      66364     66363      -1  -0.002     0.0253     0         0         0     30851/32400         48
+no H rule Gly          116589    117340    +751  +0.644     1.5826     2         2         0      9604/32400        799
+no H rule IleVal       195083    196610   +1527  +0.783     0.3383    47        36        11     20596/32400        423
+no H rule PrePro        61568     62090    +522  +0.848     1.1248    31        17        14     24128/32400        481
+no H rule General     1061639   1070826   +9187  +0.865     0.5773   199       184        15     11257/32400       3766
+prev rule CisPro         3654      3551    -103  -2.819     1.3633    24         8        16     29579/32400         59
+prev rule TransPro      66364     64746   -1618  -2.438     0.5522    59         8        51     28047/32400        635
+prev rule Gly          116589    114094   -2495  -2.140     3.2923    98        26        72      7254/32400       1370
+prev rule IleVal       195083    190786   -4297  -2.203     0.8384   107         7       100     16795/32400        835
+prev rule PrePro        61568     60373   -1195  -1.941     1.4139   125        31        94     20431/32400        502
+prev rule General     1061639   1040449  -21190  -1.996     1.1368   141        31       110     10854/32400       8067

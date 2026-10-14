@@ -1,0 +1,50 @@
+non-standard residues passing the rest of the rule: 3440; types: 72
+rama6    General  PrePro  total
+resname                        
+MSE         2835     150   2985
+MLY          187       8    195
+CSO           28       4     32
+CSD           26       1     27
+KCX           23       0     23
+OCS           20       2     22
+LLP           18       0     18
+CME           12       2     14
+SEP            8       0      8
+LP6            7       0      7
+CSX            6       1      7
+PTR            6       0      6
+CSS            5       0      5
+2HF            3       1      4
+SMC            4       0      4
+CGU            4       0      4
+HYP            2       1      3
+TPO            3       0      3
+SEC            3       0      3
+CAF            3       0      3
+CAS            3       0      3
+KPI            3       0      3
+SCH            2       0      2
+MHS            2       0      2
+MEN            2       0      2
+
+class   added to std+MSE              n     Δn  meanΔ×1e4  rank-identical
+General (none)                  1063191  +1552     0.2827     16226/32400
+General all non-standard        1063624  +1985     0.3532     12569/32400
+General MLY                     1063378  +1739     0.2959     16153/32400
+General CSO                     1063219  +1580     0.2884     16238/32400
+General CSD                     1063217  +1578     0.2917     13503/32400
+General KCX                     1063214  +1575     0.2834     16230/32400
+General OCS                     1063211  +1572     0.2863     16220/32400
+General LLP                     1063209  +1570     0.2925     15166/32400
+General CME                     1063203  +1564     0.2858     15473/32400
+General SEP                     1063199  +1560     0.2838     16229/32400
+PrePro  (none)                    61650    +82     0.3916     27321/32400
+PrePro  all non-standard          61672   +104     0.4501     26750/32400
+PrePro  MLY                       61658    +90     0.4091     27297/32400
+PrePro  CSO                       61654    +86     0.4022     27233/32400
+PrePro  CSD                       61651    +83     0.3963     27309/32400
+PrePro  KCX                       61650    +82     0.3916     27321/32400
+PrePro  OCS                       61652    +84     0.3968     27245/32400
+PrePro  LLP                       61650    +82     0.3916     27321/32400
+PrePro  CME                       61652    +84     0.3974     27317/32400
+PrePro  SEP                       61650    +82     0.3916     27321/32400
