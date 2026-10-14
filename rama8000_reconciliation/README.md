@@ -417,3 +417,75 @@ residues (mostly truncated Lys/Glu/Arg/Gln) are incomplete, three times the
 excess, and dropping them worsens every grid (General 545 bins NDFT-only).
 The lab kept truncated side chains. All-atom B < 30 is far too strong.
 The ~1.5k General / ~80 PrePro excess with MSE remains unexplained.
+
+## Best-rule summary, amide-H rule and non-standard residues (2026-10-14)
+
+`best_rule_summary.py`, `nonstandard_types.py` (committed c406ccd). Without
+the amide-H rule every non-Pro class is 0.6–0.9 % over with 2–3× worse
+grids. 11,272 of the 11,451 residues it removes have 0 < H occ < 1 because
+Reduce splits the amide H when the preceding residue has alternates; 179
+have deposited occ-0 H. Of the 3,440 non-standard residues passing the
+rule, 2,985 are MSE; adding the other 455 (mostly MLY) worsens the grids.
+
+## Neighbour φ/ψ-atom occupancy rule (2026-10-14)
+
+`phipsi_atom_records.py` → `data/phipsi_atom_records.tsv` (gitignored,
+regenerable); `phipsi_atom_test.py` → `results/phipsi_atom_test.txt`.
+Tested whether "all atoms defining φ/ψ (ω) have occ 1, no altloc" replaces
+the amide-H rule. It does not:
+- prev C alone matches the H rule closely for non-Pro classes (General
+  +1,144, grid 0.277 vs 0.283) but **breaks Pro**: TransPro −415, CisPro
+  −36, grids 8–30× worse. Pro has no amide H, so the lab kept Pro whose
+  preceding C has alternates; the H rule leaves Pro exact.
+- adding next N (ψ) or prev CA (ω) removes thousands too many and worsens
+  every grid.
+So the lab's exclusion acts on the amide H itself, consistent with an
+"occupancy < 1 on any atom" test run on the Reduce-hydrogenated file
+rather than a deliberate neighbour rule.
+
+## Contour polylines (2026-10-14)
+
+`contour_compare.py` → `results/contour_compare.txt`, `.png`. NDFT values
+are Silk `-fraction` (fraction of points at lower density), so the X%
+contour is level 1 − X: inner 98% (0.02) all classes; outer 99.95%
+(0.0005) General, 99.90% (0.001) IleVal/Gly/TransPro/PrePro, 99.85%
+(0.0015) CisPro. Best rule (std + MSE, H rule).
+
+| class | contour | bins NDFT / ours | only NDFT / only ours | regions | mean ° | max (Hausdorff) ° |
+|---|---|---|---|---|--:|--:|
+| General | 98% | 5,273 / 5,273 | 2 / 2 | 4 / 4 | 0.01 | 0.20 |
+| General | 99.95% | 12,593 / 12,618 | 0 / 25 | 3 / 3 | 0.06 | 0.66 |
+| Gly | 98% | 11,638 / 11,636 | 6 / 4 | 3 / 3 | 0.02 | 0.22 |
+| Gly | 99.90% | 20,346 / 20,344 | 2 / 0 | 1 / 1 | 0.02 | 0.34 |
+| IleVal | 98% | 3,258 / 3,259 | 0 / 1 | 2 / 2 | 0.01 | 0.13 |
+| IleVal | 99.90% | 7,530 / 7,535 | 0 / 5 | 3 / 3 | 0.06 | 0.71 |
+| PrePro | 98% | 3,269 / 3,272 | 0 / 3 | 3 / 3 | 0.02 | 0.13 |
+| PrePro | 99.90% | 7,198 / 7,202 | 0 / 4 | 4 / 4 | 0.02 | 0.50 |
+| TransPro | 98% | 1,492 / 1,497 | 0 / 5 | 3 / 3 | 0.00 | 0.12 |
+| TransPro | 99.90% | 3,231 / 3,230 | 1 / 0 | 1 / 1 | 0.00 | 0.14 |
+| CisPro | 98% | 1,843 / 1,843 | 0 / 0 | 2 / 2 | 0.00 | 0.12 |
+| CisPro | 99.85% | 3,849 / 3,847 | 2 / 0 | 2 / 2 | 0.01 | 1.42 |
+
+Every contour has the same topology as the lab's; the largest polyline
+deviation is 1.42° (CisPro outer, from one 2° bin), all others ≤ 0.71°,
+on a 2° grid. The residual count differences do not change the
+contours.
+
+## Java Dangle vs our parser (2026-10-14)
+
+`dangle_run.sh` runs Java Dangle 1.07 (`~/bin/dangle "phi, psi, omega"`,
+one process per file) on all 7,737 top8000 Reduce files (`*FH.pdb`) and
+ersatz files → `data/dangle_{FH,ersatz}.tsv` (gitignored; ~1 h each on
+8 cores). `dangle_compare.py` → `results/dangle_compare_{FH,ersatz}.txt`.
+Both inputs give identical results:
+- coverage: 1,846,175 residues with φ/ψ in both; 5,762 ours-only, all at
+  chain breaks (C–N > 2 Å, already excluded by the link rule); 0
+  Dangle-only. 17 FH files raise Dangle parser warnings (ANISOU after H,
+  H without state) but all produce output.
+- angles: ψ identical (max 0.005°); φ differs > 0.01° in 14 residues,
+  ω in 15; no Pro class changes.
+- counts under the best rule with Dangle's φ/ψ/ω and residue list:
+  General −4, Gly −1, other classes 0 relative to ours.
+
+The angle tool is not the source of the residual (General +1,552,
+PrePro +82, IleVal +109).

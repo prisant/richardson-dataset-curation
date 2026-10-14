@@ -1,0 +1,26 @@
+ours (best rule):
+  General +1552  Gly +7  IleVal +109  PrePro +82  TransPro -1  CisPro +0
+
+=== Dangle on FH files: 7737 structures, 1867101 rows in listed chains, 26 rows with duplicate keys, 1846175 with phi and psi
+coverage (phi and psi computable): {'both': 1846175, 'ours only': 5762, 'Dangle only': 0}
+  ours-only examples:
+ pdb chain  resnum ins resname  d_prevC_N  d_C_nextN
+1b8z     A      52         VAL      1.311      5.051
+1b8z     A      76         VAL      5.051      1.317
+1bam     A      78         LYS      1.333      2.938
+1bam     A      92         PRO      2.938      1.334
+1bkj     A     200         TYR      1.331      9.737
+1bkj     A     210         SER      9.737      1.335
+1a7s     A      43         PHE      1.317      4.831
+1a7s     A      48         PRO      4.831      1.321
+  phi: |Δ| > 0.01° in 14 of 1846175; max 9.152°; missing in Dangle 0, in ours 0
+  psi: |Δ| > 0.01° in 0 of 1846175; max 0.005°; missing in Dangle 0, in ours 0
+  omega: |Δ| > 0.01° in 15 of 1846108; max 7.369°; missing in Dangle 67, in ours 67
+  class changes (our ω vs Dangle ω): 0
+class           NDFT      ours    Dangle  ours-NDFT  Dangle-NDFT  Dangle-ours
+General      1061639   1063191   1063187      +1552        +1548           -4
+Gly           116589    116596    116595         +7           +6           -1
+IleVal        195083    195192    195192       +109         +109           +0
+PrePro         61568     61650     61650        +82          +82           +0
+TransPro       66364     66363     66363         -1           -1           +0
+CisPro          3654      3654      3654         +0           +0           +0

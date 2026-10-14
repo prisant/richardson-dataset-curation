@@ -1,0 +1,55 @@
+H rule vs prev-C rule (base, all classes): H fails 10237; prev C fails 11288; H fails & prev C ok 271; H ok & prev C fails 1322
+
+variant                            General       Gly    IleVal    PrePro  TransPro    CisPro     total
+H rule (current best)               +1,552        +7      +109       +82        -1        +0    +1,749
+no H rule                           +9,187      +751    +1,527      +522        -1        +0   +11,986
+prev C                              +1,144       -55       +21       +39      -415       -36      +698
+prev C + next N (phi/psi)           -6,327      -839    -1,413      -103      -895       -66    -9,643
+prev CA, C + next N (+omega)       -16,721    -1,908    -3,490      -660    -1,434       -99   -24,312
+prev N, CA, C, O + next N, CA      -26,914    -3,057    -5,415      -735    -2,119      -129   -38,369
+H rule + next N                     -5,952      -787    -1,331       -64      -507       -30    -8,671
+H rule + prev CA + next N          -16,872    -1,920    -3,504      -661    -1,430       -99   -24,486
+
+class    variant                                 n     Δn  meanΔ×1e4  supp ours-only NDFT-only  rank-identical max|Δrank|
+CisPro   H rule (current best)                3654     +0     0.0279     1         1         0     32090/32400          3
+CisPro   prev C                               3618    -36     0.7687     4         1         3     30408/32400         34
+CisPro   prev C + next N (phi/psi)            3588    -66     1.1604    42         1        41     28960/32400         45
+CisPro   prev CA, C + next N (+omega)         3555    -99     1.4655    42         1        41     28920/32400         62
+CisPro   prev N, CA, C, O + next N, CA        3525   -129     1.8926    54         2        52     28792/32400         73
+CisPro   H rule + next N                      3624    -30     0.7002    39         1        38     28907/32400         23
+CisPro   H rule + prev CA + next N            3555    -99     1.4655    42         1        41     28920/32400         62
+TransPro H rule (current best)               66363     -1     0.0253     0         0         0     30851/32400         48
+TransPro prev C                              65949   -415     0.1967     2         2         0     28780/32400        233
+TransPro prev C + next N (phi/psi)           65469   -895     0.2741     3         3         0     28486/32400        428
+TransPro prev CA, C + next N (+omega)        64930  -1434     0.4007     6         6         0     27968/32400        421
+TransPro prev N, CA, C, O + next N, CA       64245  -2119     0.5502    48        14        34     27804/32400        502
+TransPro H rule + next N                     65857   -507     0.2140     2         2         0     29161/32400        245
+TransPro H rule + prev CA + next N           64934  -1430     0.4005     6         6         0     27967/32400        418
+Gly      H rule (current best)              116596     +7     0.4750     2         2         0     14748/32400        300
+Gly      prev C                             116534    -55     0.4503     2         2         0     15750/32400        312
+Gly      prev C + next N (phi/psi)          115750   -839     1.7048     4         2         2      9764/32400        907
+Gly      prev CA, C + next N (+omega)       114681  -1908     2.5259    98        24        74      7322/32400       1303
+Gly      prev N, CA, C, O + next N, CA      113532  -3057     3.6556   134        26       108      6960/32400       1921
+Gly      H rule + next N                    115802   -787     1.6984     4         2         2      9956/32400        896
+Gly      H rule + prev CA + next N          114669  -1920     2.5025    98        24        74      7320/32400       1207
+IleVal   H rule (current best)              195192   +109     0.1474     9         0         9     20618/32400        312
+IleVal   prev C                             195104    +21     0.1503     9         0         9     20511/32400        191
+IleVal   prev C + next N (phi/psi)          193670  -1413     0.4188    11         2         9     20313/32400        682
+IleVal   prev CA, C + next N (+omega)       191593  -3490     0.7646   108         7       101     16905/32400        883
+IleVal   prev N, CA, C, O + next N, CA      189668  -5415     1.0411   131        11       120     16153/32400        970
+IleVal   H rule + next N                    193752  -1331     0.4310    11         2         9     20298/32400        589
+IleVal   H rule + prev CA + next N          191579  -3504     0.7690   108         7       101     16874/32400        943
+PrePro   H rule (current best)               61650    +82     0.3916     4         1         3     27321/32400        188
+PrePro   prev C                              61607    +39     0.4026     9         6         3     24102/32400        156
+PrePro   prev C + next N (phi/psi)           61465   -103     0.6620     9         6         3     24153/32400        265
+PrePro   prev CA, C + next N (+omega)        60908   -660     1.0959    11        10         1     23989/32400        568
+PrePro   prev N, CA, C, O + next N, CA       60833   -735     1.2210    11        10         1     23752/32400        508
+PrePro   H rule + next N                     61504    -64     0.6796     4         1         3     27209/32400        291
+PrePro   H rule + prev CA + next N           60907   -661     1.0921     8         8         0     24142/32400        564
+General  H rule (current best)             1063191  +1552     0.2827    22        10        12     16226/32400       1974
+General  prev C                            1062783  +1144     0.2769    22        10        12     16186/32400       1847
+General  prev C + next N (phi/psi)         1055312  -6327     0.6006    53        14        39     13766/32400       3495
+General  prev CA, C + next N (+omega)      1044918 -16721     0.9239    90        34        56     10973/32400       6793
+General  prev N, CA, C, O + next N, CA     1034725 -26914     1.2694   121        36        85      9858/32400       8487
+General  H rule + next N                   1055687  -5952     0.6065    53        14        39     13883/32400       3129
+General  H rule + prev CA + next N         1044767 -16872     0.9350    90        34        56     10908/32400       6843
