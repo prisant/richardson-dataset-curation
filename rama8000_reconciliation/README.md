@@ -489,3 +489,35 @@ Both inputs give identical results:
 
 The angle tool is not the source of the residual (General +1,552,
 PrePro +82, IleVal +109).
+
+## cctbx ramalyze vs our parser (2026-10-14)
+
+cctbx-base 2026.9 (conda-forge) in a micromamba env (`~/.local/bin/micromamba`,
+env `cctbx`, root `~/micromamba`). `ramalyze_run.py` runs
+`mmtbx.validation.ramalyze` on all 7,737 structures (ANISOU records dropped
+first: 13 Reduce files carry orphan hydrogen ANISOU lines that iotbx
+rejects) → `data/ramalyze_{FH,ersatz}.tsv` (gitignored, ~6 min each).
+`ramalyze_compare.py` → `results/ramalyze_compare_{FH,ersatz}.txt`;
+`ramalyze_gaps.py` → `results/ramalyze_gaps_{FH,ersatz}.txt`. FH and
+ersatz give identical results.
+
+- Residue types: ramalyze reports MSE (8,422 / 8,458) and essentially no
+  other non-standard residue (MLY 0/277, CSO 0/48, CSD 0/37, LLP 2/29) —
+  the same residue-type rule the grids selected (std + MSE).
+- Coverage: 1,844,377 residues in both, 0 ramalyze-only, 7,560 ours-only.
+  2,174 of these pass our link test; 1,132 pass the best rule, and ~1,070
+  of those are next to a non-standard (non-MSE) residue (MLY, CSO, CSD,
+  PCA, ...): ramalyze does not build a φ/ψ window across them.
+- Angles agree except 24/25 residues (altloc choice); classes agree except
+  30 twisted Pro (ramalyze splits cis/trans at |ω| = 90).
+- Counts, best rule restricted to ramalyze coverage: General +781, Gly
+  −101, IleVal −63, PrePro +51, TransPro −48, CisPro −3. Halves the
+  General excess but breaks Gly and Pro, which matched exactly; so the
+  lab's set did include residues next to non-standard residues. Replacing
+  the amide-H rule with ramalyze's altloc flag (any altloc in the
+  three-residue window) removes ~10k: far too strong.
+
+Reading: current cctbx reproduces the lab's residue-type choice (MSE in,
+other modified residues out) but not its neighbour handling. Consistent
+with a tool that classifies only standard + MSE residues yet computes φ/ψ
+across any linked neighbour (possibly an earlier cctbx/MolProbity version).

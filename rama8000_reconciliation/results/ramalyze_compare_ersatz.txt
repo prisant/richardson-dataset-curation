@@ -1,0 +1,18 @@
+
+=== ramalyze on ersatz files: 7737 structures, 0 errors, 1907430 rows in listed chains, 1844377 residues (63128 with altloc rows)
+coverage: {'both': 1844377, 'ours only': 7560, 'ramalyze only': 0}
+  ours only: in structures ramalyze failed to read 0
+  ours only (readable structures), by resname: {'GLY': 691, 'SER': 565, 'ALA': 542, 'LEU': 490, 'GLU': 464, 'PRO': 455, 'ASP': 435, 'LYS': 393, 'THR': 378, 'VAL': 375, 'ARG': 365, 'ASN': 340}
+  non-standard residues with phi/psi in ours -> reported by ramalyze: {'MSE': '8422/8458', 'MLY': '0/277', 'CSO': '0/48', 'CSD': '0/37', 'OCS': '0/34', 'LLP': '2/29', 'KCX': '0/25', 'CME': '0/23', 'SEP': '0/15', 'CSX': '0/13'}
+  ours only: link both < 2.0 Å 2174; passing the best rule 1132
+  ramalyze only, by resname: {}
+  class differences (ramalyze vs ours): 30;  {('TransPro', 'CisPro'): 30}
+  phi: |Δ| > 0.01° in 24 of 1844377; max 149.965°
+  psi: |Δ| > 0.01° in 25 of 1844377; max 172.517°
+
+variant                                    General       Gly    IleVal    PrePro  TransPro    CisPro     total
+ours (best rule)                            +1,552        +7      +109       +82        -1        +0    +1,749
+a. best rule ∩ ramalyze coverage              +781      -101       -63       +51       -48        -3      +617
+b. a, residue test → ramalyze coverage        +781      -101       -63       +51       -48        -3      +617
+c. a, H rule → no ramalyze altloc           -6,602      -869    -1,492      -106      -903       -67   -10,039
+d. b + c (cctbx-native)                     -6,602      -869    -1,492      -106      -903       -67   -10,039

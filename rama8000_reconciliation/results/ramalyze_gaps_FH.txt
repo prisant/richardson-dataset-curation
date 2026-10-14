@@ -1,0 +1,30 @@
+FH: residues with link both sides but not reported by ramalyze: 2174; passing the best rule: 1132
+  own non-standard (not 20+MSE)    all    655   best-rule      0
+  prev non-standard                all    730   best-rule    558
+  next non-standard                all    667   best-rule    524
+  own altloc                       all     94   best-rule      0
+  own atom missing                 all     26   best-rule      7
+  own O missing                    all      4   best-rule      1
+  none of the above                all    166   best-rule     60
+
+best-rule residues omitted by ramalyze, by class: {'General': 771, 'IleVal': 172, 'Gly': 108, 'TransPro': 47, 'PrePro': 31, 'CisPro': 3}
+next residue names (best-rule, next non-standard): {'MLY': 196, 'CSO': 41, 'CSD': 33, 'OCS': 26, 'KCX': 24, 'LLP': 24, 'CME': 17, 'CSX': 11, 'SEP': 10, 'CSS': 6}
+prev residue names (best-rule, prev non-standard): {'MLY': 191, 'CSO': 40, 'CSD': 35, 'PCA': 33, 'OCS': 28, 'KCX': 23, 'LLP': 22, 'CME': 18, 'ACE': 10, 'SEP': 10}
+
+unexplained examples:
+ pdb chain  resnum ins resname prev_rn next_resname  d_prevC_N  d_C_nextN  own_alt
+1e6i     A     438         ILE     LEU          ASP      1.336      1.330        0
+1gwu     A     305         ASN     VAL          SER      1.325      1.243        0
+1g6c     B    1234         GLY     THR          ARG      1.329      1.249        0
+1h2c     A     192         THR     TRP          ASP      1.329      1.234        0
+1hfe     L     397         ALA     GLU          MET      1.331      1.253        0
+1lb3     A     183         LEU     THR          LYS      1.348      1.334        0
+1mj4     A      10         GLU     LYS          GLU      1.315      1.335        0
+1m33     A     216         PRO     VAL          MSE      1.318      1.325        0
+1o8s     A     149         SER     LYS          GLY      1.305      1.229        0
+1o8x     A     145         ALA     ASP          PRO      1.326      1.248        0
+1oi6     B     202         PRO     VAL          VAL      1.329      1.266        0
+1ojk     A     398         TYR     THR          GLN      1.324      1.238        0
+1ojx     C     252         TYR     VAL          GLY      1.331      1.240        0
+1qpc     A     501         THR     ALA          GLU      1.340      1.264        0
+1sng     A     311         GLY     ARG          ALA      1.329      1.332        0
