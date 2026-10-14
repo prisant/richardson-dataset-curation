@@ -521,3 +521,37 @@ Reading: current cctbx reproduces the lab's residue-type choice (MSE in,
 other modified residues out) but not its neighbour handling. Consistent
 with a tool that classifies only standard + MSE residues yet computes φ/ψ
 across any linked neighbour (possibly an earlier cctbx/MolProbity version).
+
+## Richardson lab answers (2026-10-14)
+
+Online meeting with Jane Richardson, Christopher and Vincent.
+
+1. **Tool.** Probably ramalyze for top8000, but a much earlier version than
+   cctbx 2026.9, which may limit an exact regression. Earlier datasets may
+   have used older tools (Dangle, Prekin).
+2. **Modified residues.** Best guess: only MSE included; not certain.
+3. **Altlocs.** A residue whose own mainchain N has an altloc would be
+   excluded anyway. Christopher: altloc handling on adjoining residues was
+   added to ramalyze after the top8000 analysis; the old version probably
+   took the first alternate (usually, not always, A) of each neighbour.
+4. **B factor.** Cutoff 30 on mainchain N, CA, C, O; 40 on side-chain heavy
+   (and other) atoms. Later versions (top2018 filtered) add CB to the
+   mainchain list where it exists (not Gly).
+5. **ω / twisted peptides.** Not known for the original build; the lab now
+   thinks twisted peptides should be excluded from the filtered set.
+6. **Per-residue list.** Not known. Vincent will search archived data from
+   that era, including a backup drive from former lab member Dan Keedy
+   (now at CUNY).
+
+Implications for this work:
+
+- An exact regression may not be possible without the old ramalyze, so the
+  category-count reconciliation remains the target.
+- Answers 1–2 agree with the best rule (std + MSE) and the ramalyze
+  comparison above. Answer 3 is consistent with the old tool computing
+  φ/ψ across neighbours with altlocs, which current ramalyze flags.
+- Side-chain criteria are not pursued for the top8000 reconciliation
+  (user decision); `sidechain_test.py` already showed the lab kept
+  truncated side chains.
+- Answer 5 is a policy decision for the v1.x release: exclude twisted
+  peptides from the filtered set.
