@@ -17,6 +17,7 @@ Branch: `rama8000-reconciliation`.
 | `data/` | the six archived `.ndft` files; `pro_records.jsonl` (all Pro with φ,ψ in listed chains, parsed from ersatz PDBs); `cispro_bestfit.txt` |
 | `scripts/` | `ndft.py` (reader), `recount3.py` (class recount under filter variants), `pro_records.py`, `silk_fit*.py`, `cis_*.py` |
 | `results/` | Silk outputs and per-residue test results |
+| `data/Top8000_Rama_2013/` | the lab's 2013 residue lists and method files, extracted from `Top8000_Rama_2013.zip` (sha256 `87414cc3c05437e8e4ac7fc3019fe19e1906248933dbc59778bc2cca06801cc1`); gitignored |
 | `kincontours_build/src/` | `rlabduke/kincontours` at `3da22b4` (J. Michael Word, BSD-3), `kin2Dcont` built with `make kin2Dcont`; gitignored |
 
 ## Findings so far (CisPro)
@@ -604,3 +605,72 @@ matches the lab's grid to ≤ 0.73° everywhere except one CisPro outer point
 (1.79° at (−88, 70), one 2° bin). The 1° even/odd sampling offset (B) and
 the contouring method (C) each move lines by about 0.1° on average, at most
 1.41° (CisPro outer, the sparsest class) and 0.42°.
+
+## The lab's 2013 residue lists (2026-10-15)
+
+`Top8000_Rama_2013.zip` (recovered from the lab archive, October 2026;
+sha256 `87414cc3…801cc1`; all its own checksums pass), extracted to
+`data/Top8000_Rama_2013/`: one CSV per class written 2013-02-16 by
+`get_srcdata.py` (Bradley Hintze) from the lab's top8000 MySQL database,
+plus that script, `filters_mysql.txt`, `symmetrize.awk`, the Silk Makefile
+and `Top8000_Origins.doc` (chain selection, Keedy et al. 2011). This
+answers question 6 of the lab meeting.
+
+**The lists built the NDFT tables.** `lab2013_silk_check.py` →
+`results/lab2013_silk_check.txt`: Silk with the Makefile options on the six
+CSVs (Gly from `gly-sym.csv`) reproduces all six archived `.ndft` tables,
+32,400 / 32,400 bins identical, realcounts equal.
+
+**Filters in `get_srcdata.py`** (SQL on the `dangle`, `mp_residue`,
+`versions`, `neighbors` tables): chain in the 70% set; `1 < max_mc_b < 30`;
+φ, ψ, ω, τ defined; `min_res_q = 1`; trans `|ω| > 150` except CisPro
+(`|ω| < 30`); no clash filter. Classes: General = not Gly, Pro, Ile, Val and
+next residue not Pro (no standard-residue list); IleVal = next not Pro;
+PrePro = next Pro, not Gly or Pro (so pre-Pro Ile/Val are PrePro); Gly
+includes pre-Pro Gly.
+
+**Residue-level comparison** (`lab2013_compare.py` →
+`results/lab2013_compare.txt`; `prevC_spread.py` → `data/prevC_spread.tsv`;
+`allatom_records.py` → `data/allatom_records.tsv`):
+
+- All 7,810 lab chains are among our 7,957 listed chains; 79 lab residues
+  are not in our residue table.
+- Best rule: 1,504,330 of the lab's 1,504,897 residues shared.
+- Four entries (2oyp, 3h87, 3hkx, 3me5) carry a different residue type at
+  the same number in 567 shared residues: our coordinate files are not the
+  ones the lab used. Outside them, shared residues agree in type and class
+  everywhere, and in φ/ψ to ≤ 0.01° except 350 residues in 3kda (285) and
+  1gug (65), up to 49°, presumably re-refined since 2011.
+- **φ ambiguity, not amide-H occupancy.** Base rule (best rule without the
+  amide-H rule), non-Pro, preceding residue with a mainchain altloc: 24,548
+  residues. The lab dropped 10,228 of the 10,263 whose preceding C
+  alternates are at different positions and kept 14,172 of the 14,285
+  whose preceding C alternates coincide (13,983 of 14,031 even when CA or O
+  alternates differ). The amide-H rule was a proxy: Reduce 3.3 sometimes
+  gives the amide H occupancy 1 when the preceding C differs. Exception:
+  1agy, where the lab dropped all 18 such residues.
+- **MSE B covers all heavy atoms.** Base-rule MSE: 3,001; the lab kept
+  1,815 and dropped 1,186, of which 1,175 have side-chain heavy-atom
+  B ≥ 30. For the kept MSE the lab's printed B matches the max over all
+  heavy atoms for 1,478 and over N, CA, C, O for 158 (MET: 24,204 / 24,215
+  on N, CA, C, O).
+- An all-atom occupancy rule on the Reduce output is ruled out: 1,007
+  residues the lab kept (and the refined rule keeps) have a hydrogen below
+  occupancy 1.
+
+Class counts (lab lists = NDFT realcounts) and residues in only one set
+(outside the four renumbered entries):
+
+| rule | General | Gly | IleVal | PrePro | TransPro | CisPro | total | ours-only | lab-only |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| lab 2013 lists | 1,061,639 | 116,589 | 195,083 | 61,568 | 66,364 | 3,654 | 1,504,897 | | |
+| best rule (amide-H rule) | 1,063,191 | 116,596 | 195,192 | 61,650 | 66,363 | 3,654 | 1,506,646 | 2,184 | 437 |
+| best + MSE all-heavy B < 30 | 1,062,046 | 116,596 | 195,192 | 61,594 | 66,363 | 3,654 | 1,505,445 | 1,019 | 470 |
+| prev-C rule instead of H rule | 1,063,186 | 116,587 | 195,189 | 61,635 | 66,363 | 3,654 | 1,506,614 | 1,876 | 161 |
+| prev-C rule + MSE B | 1,062,041 | 116,587 | 195,189 | 61,579 | 66,363 | 3,654 | 1,505,413 | 711 | 194 |
+| prev-C + H rule + MSE B | 1,061,767 | 116,557 | 195,144 | 61,571 | 66,363 | 3,654 | 1,505,056 | 634 | 474 |
+
+The remaining differences cluster by entry (lab-only: 1b8d 143, 3a4r 65,
+3dnj 36; ours-only: 3oon 29, 3ln3 19, 1agy 17), consistent with entries
+that changed after 2011. With the per-residue list in hand, the top8000
+reconciliation no longer depends on inferring the rule.

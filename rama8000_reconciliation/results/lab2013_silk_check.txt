@@ -1,0 +1,6 @@
+general-noGPIVpreP   realcount 1061639 vs 1061639; max |Δ| 0; identical bins 32400/32400
+ileval-nopreP        realcount 195083 vs 195083; max |Δ| 0; identical bins 32400/32400
+gly-sym              realcount 233178 vs 233178; max |Δ| 0; identical bins 32400/32400
+prepro-noGP          realcount 61568 vs 61568; max |Δ| 0; identical bins 32400/32400
+transpro             realcount 66364 vs 66364; max |Δ| 0; identical bins 32400/32400
+cispro               realcount 3654 vs 3654; max |Δ| 0; identical bins 32400/32400

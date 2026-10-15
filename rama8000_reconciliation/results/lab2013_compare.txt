@@ -1,0 +1,116 @@
+lab residues 1,504,897 in 7,810 chains (chains.tsv 7,810); duplicate keys 0
+our listed chains 7,957; lab chains not in ours 0; our chains with a best-rule residue not in lab chains 0
+lab residues not in our residue table at all: 79
+
+shared 1,504,330; lab-only 567; ours-only 2,316
+shared, resname differs 567; class differs 308
+shared |Δφ| max 177.600, |Δψ| max 179.367; >0.1° 952; >1° 906
+shared, lab B<x vs our own_mc_max: max |Δ| 20.60
+
+class           lab      ours    shared  lab-only ours-only   cls≠
+General   1,061,639 1,063,191 1,061,067       430     1,995    142
+Gly         116,589   116,596   116,506        47        48     36
+IleVal      195,083   195,192   194,956        60       173     67
+PrePro       61,568    61,650    61,521        18        93     29
+TransPro     66,364    66,363    66,321        12         7     31
+CisPro        3,654     3,654     3,651         0         0      3
+
+shared residues in a different class (lab → ours):
+lab_cls   rama6   
+CisPro    General      2
+          Gly          1
+General   CisPro       3
+          Gly         33
+          IleVal      46
+          PrePro      28
+          TransPro    32
+Gly       General     30
+          IleVal       3
+          PrePro       3
+IleVal    General     56
+          Gly          6
+          PrePro       3
+          TransPro     2
+PrePro    General     20
+          Gly          1
+          IleVal       7
+          TransPro     1
+TransPro  General     21
+          Gly          1
+          IleVal       7
+          PrePro       2
+
+ours-only by reason:
+rama6         General  Gly  IleVal  PrePro  TransPro
+why                                                 
+MSE              1111    0       0      55         0
+own mc B ≤ 1        2    0       2       1         1
+unexplained       882   48     171      37         6
+
+lab-only by first failing rule of ours:
+lab_cls             General  Gly  IleVal  PrePro  TransPro
+why                                                       
+amide H occ < 1         250   26      34       7         0
+heavy-atom occ < 1       54    3      11       2         1
+not in our table         55    9       9       4         2
+not peptide-linked        1    0       0       0         1
+own mc B ≤ 0              2    0       0       0         0
+own mc B ≥ 30            68    9       6       5         8
+
+lab-only non-standard residue types: {}
+ours-only unexplained, first 15:
+       pdb chain  resnum ins resname    rama6  own_mc_max   omega  H_minocc
+3830  1agy     A      29         ALA  General       20.93  173.85       1.0
+3859  1agy     A      58         ASN  General       10.21  175.86       1.0
+3863  1agy     A      62         ALA  General       16.28 -177.34       1.0
+3880  1agy     A      79         ALA  General        8.70  177.62       1.0
+3882  1agy     A      81         LEU  General        8.92 -178.34       1.0
+3886  1agy     A      85         ALA  General       10.32 -177.18       1.0
+3894  1agy     A      93         ALA  General        9.20  178.46       1.0
+3898  1agy     A      97         GLU  General        8.22  175.56       1.0
+3906  1agy     A     105         ALA  General        9.71  178.72       1.0
+3909  1agy     A     108         LYS  General       14.75 -176.64       1.0
+3931  1agy     A     130         ILE   IleVal        7.55  175.74       1.0
+3940  1agy     A     139         ASP  General        9.38 -177.10       1.0
+3955  1agy     A     154         GLN  General       11.06 -177.61       1.0
+3965  1agy     A     164         ALA  General        7.37  178.04       1.0
+3985  1agy     A     184         VAL   IleVal       14.11  178.79       1.0
+
+refined rules (Δ vs NDFT per class; ours-only / lab-only residues, excluding the 4 renumbered entries ['2oyp', '3h87', '3hkx', '3me5'])
+variant                           General      Gly   IleVal   PrePro TransPro   CisPro   total  ours-only  lab-only
+best rule (amide-H rule)           +1,552       +7     +109      +82       -1       +0  +1,749      2,184       437
+best + MSE all-heavy B < 30          +407       +7     +109      +26       -1       +0    +548      1,019       470
+prev-C rule instead of H rule      +1,547       -2     +106      +67       -1       +0  +1,717      1,876       161
+prev-C rule + MSE B                  +402       -2     +106      +11       -1       +0    +516        711       194
+prev-C rule + H rule + MSE B         +128      -32      +61       +3       -1       +0    +159        634       474
+
+ours-only under prev-C + H + MSE B, by class: {'General': 504, 'IleVal': 112, 'PrePro': 11, 'Gly': 6, 'TransPro': 1}
+ours-only by entry (top 10): {'3oon': 29, '3ln3': 19, '1agy': 17, '2vd8': 17, '3gs9': 15, '2fcl': 13, '2ftz': 13, '2etv': 12, '1lln': 10, '3lsu': 10}
+
+lab-only under prev-C + H + MSE B, by class: {'General': 375, 'IleVal': 51, 'Gly': 38, 'PrePro': 8, 'TransPro': 2}
+lab-only by entry (top 10): {'1b8d': 143, '3a4r': 65, '3dnj': 36, '2pvq': 34, '3oon': 29, '3p3e': 23, '2imf': 14, '2zs0': 7, '3hvv': 7, '3kda': 7}
+
+shared outside the renumbered entries: 1,503,668; resname differs 0; class differs 0; |Δφ| max 48.987, |Δψ| max 45.286; >0.01° 350
+class differences there (lab → ours): {}
+φ/ψ differences > 0.01°: 350 residues in 2 entries; by entry: {'3kda': 285, '1gug': 65}
+  |Δ| quantiles (max of φ, ψ): [2.69, 7.55, 48.99]
+
+absolute class counts: lab lists (= NDFT realcounts) vs ours under each rule
+rule                                General        Gly     IleVal     PrePro   TransPro     CisPro      total
+lab 2013 lists                    1,061,639    116,589    195,083     61,568     66,364      3,654  1,504,897
+best rule (amide-H rule)          1,063,191    116,596    195,192     61,650     66,363      3,654  1,506,646
+best + MSE all-heavy B < 30       1,062,046    116,596    195,192     61,594     66,363      3,654  1,505,445
+prev-C rule instead of H rule     1,063,186    116,587    195,189     61,635     66,363      3,654  1,506,614
+prev-C rule + MSE B               1,062,041    116,587    195,189     61,579     66,363      3,654  1,505,413
+prev-C rule + H rule + MSE B      1,061,767    116,557    195,144     61,571     66,363      3,654  1,505,056
+
+base rule (best rule without the H rule), non-Pro, preceding residue with a mainchain altloc: 24,548; lab kept 14,207
+  preceding C alternates at different positions: 10,263; lab kept 35, dropped 10,228
+  preceding C alternates coincide: 14,285; lab kept 14,172, dropped 113
+    of which CA or O alternates differ: 14,031; lab kept 13,983, dropped 48
+  1agy: 18 such residues, lab kept 0
+shared under prev-C + H + MSE B with a non-amide H (or any atom) below occupancy 1: 1,007
+MSE under the base rule: 3,001; lab kept 1,815; dropped 1,186, of which side-chain heavy B >= 30: 1,175
+  lab printed B matches max over N, CA, C, O (±0.05): 158 / 1,815
+  lab printed B matches max over all heavy atoms (±0.05): 1,478 / 1,815
+  MET: lab printed B matches max over N, CA, C, O: 24,204 / 24,215
