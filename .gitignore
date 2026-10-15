@@ -31,3 +31,4 @@ rama8000_reconciliation/data/*.tsv
 rama8000_reconciliation/silk_build/
 rama8000_reconciliation/results/*.log
 rama8000_reconciliation/data/dangle_*.err
+rama8000_reconciliation/kincontours_build/

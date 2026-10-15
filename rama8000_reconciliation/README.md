@@ -17,6 +17,7 @@ Branch: `rama8000-reconciliation`.
 | `data/` | the six archived `.ndft` files; `pro_records.jsonl` (all Pro with φ,ψ in listed chains, parsed from ersatz PDBs); `cispro_bestfit.txt` |
 | `scripts/` | `ndft.py` (reader), `recount3.py` (class recount under filter variants), `pro_records.py`, `silk_fit*.py`, `cis_*.py` |
 | `results/` | Silk outputs and per-residue test results |
+| `kincontours_build/src/` | `rlabduke/kincontours` at `3da22b4` (J. Michael Word, BSD-3), `kin2Dcont` built with `make kin2Dcont`; gitignored |
 
 ## Findings so far (CisPro)
 
@@ -555,3 +556,51 @@ Implications for this work:
   truncated side chains.
 - Answer 5 is a policy decision for the v1.x release: exclude twisted
   peptides from the filtered set.
+
+## Contours with kin2Dcont, the lab's contouring program (2026-10-15)
+
+`contour_kin2d.py` → `results/contour_kin2d.txt`,
+`results/contours_kin2d/<class>_<contour>.png` and the kin2Dcont output
+`<class>_{ndft,ours_odd,ours_even}.kin`. Requires `kincontours_build/src/kin2Dcont`
+(clone `rlabduke/kincontours`, check out `3da22b4`, `make kin2Dcont`).
+
+Lab procedure (`rlabduke/reference_data`
+`Top8000/Top8000_filtered_residues_rotarama/Makefile`, `68f581a`, 2018-01-22):
+Silk `-fraction` on `-bounds=-181,179,-181,179` (samples on even degrees,
+whereas the NDFT tables use `-bounds=-180,180,-180,180`, odd degrees), piped
+to `kin2Dcont -samp -last -nosmooth -group -wrap -180 180 -180 180 -g2`.
+kin2Dcont puts each sample on a lattice node (missing samples are zero),
+duplicates the wrap edge, splits each cell into four triangles at a centre
+point (mean of the corners) and interpolates linearly on triangle edges
+(Zyda 1988 contour tree, `contree.c`). The lab's level list has no 0.0015
+(CisPro 99.85%); its output then goes through the unpublished `cont.php`.
+No lab rama kinemages or input points are published, so the lab side here
+is the NDFT grid contoured with kin2Dcont on its odd-degree lattice.
+
+Distances between polylines (resampled at 0.25°, periodic), degrees,
+mean / p95 / max:
+
+- **A**: lab NDFT vs ours (best rule, Gly mirrored), both odd grid, both kin2Dcont.
+- **B**: ours on the even grid (the lab's exact procedure) vs ours on the odd grid.
+- **C**: the NDFT grid contoured with kin2Dcont vs contourpy (method effect).
+
+| class | contour | lines N/O/E | A | B | C |
+|---|---|---|---|---|---|
+| General | 98% | 5/5/5 | 0.02 / 0.07 / 0.20 | 0.06 / 0.12 / 0.25 | 0.04 / 0.11 / 0.22 |
+| General | 99.95% | 7/7/7 | 0.06 / 0.18 / 0.66 | 0.11 / 0.20 / 0.50 | 0.05 / 0.12 / 0.30 |
+| Gly | 98% | 6/6/6 | 0.02 / 0.09 / 0.23 | 0.06 / 0.12 / 0.22 | 0.04 / 0.11 / 0.16 |
+| Gly | 99.90% | 4/4/4 | 0.02 / 0.11 / 0.34 | 0.17 / 0.33 / 0.57 | 0.06 / 0.15 / 0.40 |
+| IleVal | 98% | 3/3/3 | 0.01 / 0.05 / 0.12 | 0.11 / 0.22 / 0.37 | 0.06 / 0.13 / 0.42 |
+| IleVal | 99.90% | 6/6/6 | 0.07 / 0.15 / 0.73 | 0.14 / 0.29 / 0.47 | 0.05 / 0.12 / 0.26 |
+| PrePro | 98% | 3/3/3 | 0.02 / 0.07 / 0.13 | 0.08 / 0.15 / 0.29 | 0.05 / 0.12 / 0.26 |
+| PrePro | 99.90% | 7/7/7 | 0.02 / 0.09 / 0.50 | 0.11 / 0.25 / 0.80 | 0.04 / 0.11 / 0.26 |
+| TransPro | 98% | 4/4/4 | 0.01 / 0.02 / 0.12 | 0.07 / 0.14 / 0.23 | 0.05 / 0.11 / 0.17 |
+| TransPro | 99.90% | 2/2/2 | 0.00 / 0.02 / 0.13 | 0.10 / 0.21 / 0.31 | 0.05 / 0.12 / 0.25 |
+| CisPro | 98% | 3/3/3 | 0.00 / 0.03 / 0.12 | 0.09 / 0.17 / 0.32 | 0.04 / 0.10 / 0.19 |
+| CisPro | 99.85% | 3/3/3 | 0.01 / 0.00 / 1.79 | 0.56 / 1.00 / 1.41 | 0.07 / 0.23 / 0.33 |
+
+Every contour has the same number of polylines in all three versions. Ours
+matches the lab's grid to ≤ 0.73° everywhere except one CisPro outer point
+(1.79° at (−88, 70), one 2° bin). The 1° even/odd sampling offset (B) and
+the contouring method (C) each move lines by about 0.1° on average, at most
+1.41° (CisPro outer, the sparsest class) and 0.42°.
