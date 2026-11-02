@@ -450,8 +450,9 @@ rather than a deliberate neighbour rule.
 `contour_compare.py` → `results/contour_compare.txt`, `.png`. NDFT values
 are Silk `-fraction` (fraction of points at lower density), so the X%
 contour is level 1 − X: inner 98% (0.02) all classes; outer 99.95%
-(0.0005) General, 99.90% (0.001) IleVal/Gly/TransPro/PrePro, 99.85%
-(0.0015) CisPro. Best rule (std + MSE, H rule).
+(0.0005) General, 99.90% (0.001) IleVal/Gly/TransPro/PrePro, 99.80%
+(0.002) CisPro (the lab's Ramalyze `CISPRO_ALLOWED`; corrected 2026-10-16 from
+an unsourced 99.85%). Best rule (std + MSE, H rule).
 
 | class | contour | bins NDFT / ours | only NDFT / only ours | regions | mean ° | max (Hausdorff) ° |
 |---|---|---|---|---|--:|--:|
@@ -466,11 +467,10 @@ contour is level 1 − X: inner 98% (0.02) all classes; outer 99.95%
 | TransPro | 98% | 1,492 / 1,497 | 0 / 5 | 3 / 3 | 0.00 | 0.12 |
 | TransPro | 99.90% | 3,231 / 3,230 | 1 / 0 | 1 / 1 | 0.00 | 0.14 |
 | CisPro | 98% | 1,843 / 1,843 | 0 / 0 | 2 / 2 | 0.00 | 0.12 |
-| CisPro | 99.85% | 3,849 / 3,847 | 2 / 0 | 2 / 2 | 0.01 | 1.42 |
+| CisPro | 99.80% | 3,414 / 3,414 | 0 / 0 | 2 / 2 | 0.00 | 0.44 |
 
 Every contour has the same topology as the lab's; the largest polyline
-deviation is 1.42° (CisPro outer, from one 2° bin), all others ≤ 0.71°,
-on a 2° grid. The residual count differences do not change the
+deviation is 0.71° (IleVal outer), on a 2° grid. The residual count differences do not change the
 contours.
 
 ## Java Dangle vs our parser (2026-10-14)
@@ -573,8 +573,10 @@ to `kin2Dcont -samp -last -nosmooth -group -wrap -180 180 -180 180 -g2`.
 kin2Dcont puts each sample on a lattice node (missing samples are zero),
 duplicates the wrap edge, splits each cell into four triangles at a centre
 point (mean of the corners) and interpolates linearly on triangle edges
-(Zyda 1988 contour tree, `contree.c`). The lab's level list has no 0.0015
-(CisPro 99.85%); its output then goes through the unpublished `cont.php`.
+(Zyda 1988 contour tree, `contree.c`). CisPro outer is 99.80% (0.002), the
+lab's Ramalyze `CISPRO_ALLOWED` and in the lab's level list (corrected
+2026-10-16 from an unsourced 99.85%, 0.0015); the lab's output then goes
+through the unpublished `cont.php`.
 No lab rama kinemages or input points are published, so the lab side here
 is the NDFT grid contoured with kin2Dcont on its odd-degree lattice.
 
@@ -598,13 +600,12 @@ mean / p95 / max:
 | TransPro | 98% | 4/4/4 | 0.01 / 0.02 / 0.12 | 0.07 / 0.14 / 0.23 | 0.05 / 0.11 / 0.17 |
 | TransPro | 99.90% | 2/2/2 | 0.00 / 0.02 / 0.13 | 0.10 / 0.21 / 0.31 | 0.05 / 0.12 / 0.25 |
 | CisPro | 98% | 3/3/3 | 0.00 / 0.03 / 0.12 | 0.09 / 0.17 / 0.32 | 0.04 / 0.10 / 0.19 |
-| CisPro | 99.85% | 3/3/3 | 0.01 / 0.00 / 1.79 | 0.56 / 1.00 / 1.41 | 0.07 / 0.23 / 0.33 |
+| CisPro | 99.80% | 3/3/3 | 0.00 / 0.00 / 0.44 | 0.34 / 0.69 / 0.88 | 0.06 / 0.19 / 0.29 |
 
 Every contour has the same number of polylines in all three versions. Ours
-matches the lab's grid to ≤ 0.73° everywhere except one CisPro outer point
-(1.79° at (−88, 70), one 2° bin). The 1° even/odd sampling offset (B) and
-the contouring method (C) each move lines by about 0.1° on average, at most
-1.41° (CisPro outer, the sparsest class) and 0.42°.
+matches the lab's grid to ≤ 0.73° everywhere. The 1° even/odd sampling
+offset (B) and the contouring method (C) each move lines by about 0.1° on
+average, at most 0.88° (CisPro outer, the sparsest class) and 0.42°.
 
 ## The lab's 2013 residue lists (2026-10-15)
 
@@ -674,3 +675,49 @@ The remaining differences cluster by entry (lab-only: 1b8d 143, 3a4r 65,
 3dnj 36; ours-only: 3oon 29, 3ln3 19, 1agy 17), consistent with entries
 that changed after 2011. With the per-residue list in hand, the top8000
 reconciliation no longer depends on inferring the rule.
+
+## The lab's 2011 chain files and 2011 tools (2026-11-02)
+
+**Chain files.** `top8000_chains_70.tgz`: the Richardson lab's own 2011
+download of the Top8000 chains (laboratory website, recovered via the
+Internet Archive; MG Prisant's archive of the kinemage website and VB Chen's
+archive of lab files). 753,911,580 bytes, sha256
+`4a6bb1b9bb340cd42c14cd9054688732ac09317dfe0af49f3fd453f77ba486e6`; server
+date 2012-05-29. 7,957 single-chain files `<pdb>FH_<chain>.pdb` with Reduce
+3.15.091106 hydrogens and Asn/Gln/His flips (flips are name swaps; heavy-atom
+coordinates unchanged). Kept at `~/Desktop/Data/top8000_chains_70_2011/`.
+`lab2011_tree.py` lays them out like our tree; the record scripts then write
+`data/lab2011/*.tsv` (739 MB, not in git).
+
+- Chain IDs equal `Top8000-best_hom70_pdb_chain_list.csv` exactly: 7,957
+  chains, 7,737 entries, none in one only.
+- These files are the input of the lab's filtered residue lists
+  (`Top8000_Rama_2013.zip`): `lab_file_provenance.py` →
+  `results/lab_file_provenance.txt`. Where the 2011 files and our downloads
+  differ, the lab's φ/ψ match the 2011 files in 1,039 / 1,039 residues and
+  ours in none; mainchain B (non-MSE) 1,199 match only the 2011 files, 6 both,
+  0 only ours.
+- Mainchain records (N, CA, C, O), 2011 files vs our downloads:
+  `mc_atom_compare.py` → `results/mc_atom_compare.txt`;
+  `mc_unmatched_pairing.py` → `results/mc_unmatched_pairing.txt` (all
+  records) and `results/mc_unmatched_pairing_noalt.txt` (altloc records left
+  out). All records: 7,550,002 vs 7,550,019; after pairing renumbered,
+  relabelled or renamed records, 7,549,697 matched, 7,543,539 identical, 5,623
+  differ in coordinates or B, 627 unpaired (568 in 2oyp, 3hkx, 3h87, 3me5).
+  Altloc records left out: 7,389,832 matched, 7,384,087 identical, 635
+  unpaired.
+- The lab dropped almost every residue with altloc records:
+  `lab_altloc_use.py` → `results/lab_altloc_use.txt` (1,504,264 of 1,504,897
+  listed residues have no altloc label and occupancy 1).
+- Residues with identical filtering inputs in both file sets:
+  `identical_inputs.py` → `data/identical_inputs.tsv`;
+  `identical_set_compare.py` → `results/identical_set_compare.txt` (heavy-atom
+  rule −73: 90 only ours, 163 only lab).
+- MSE B in the lab lists is the maximum over N, CA, C, O and SE (1,820 /
+  1,820): `mse_bfactor.py` → `results/mse_bfactor.txt`.
+
+**2011 tools.** Dangle 1.07 and Ramalyze from `rlabduke/javadev` commit
+`eb1c7f48` (2011-06-16, the last before 2011-07-01), rebuilt as described in
+`dangle2011_run.sh` and `ramalyze2011_run.sh`. Cross-checks only
+(`lab2011_tools_compare.py` → `results/lab2011_tools_compare.txt`); no
+reported number depends on them.

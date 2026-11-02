@@ -1,0 +1,6 @@
+own mainchain altloc label                           residues    43,724; in lab lists       135
+own mainchain altloc label, heavy-atom occupancy 1   residues       113; in lab lists        81
+own heavy-atom occupancy < 1                         residues    58,327; in lab lists        54
+preceding C altloc label                             residues    15,521; in lab lists       509
+no altloc label, occupancy 1 (own or preceding C)    residues 1,781,391; in lab lists 1,504,264
+lab-listed residues 1,504,897

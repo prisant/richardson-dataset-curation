@@ -1,0 +1,16 @@
+rule: H rule + MSE B + ω defined; Dangle rows (model 1) 1,867,067
+
+ours-only: 547; in Dangle 547; φ, ψ, ω all defined 537; Dangle φ/ψ = ours 537
+  by class: {'General': 437, 'IleVal': 99, 'PrePro': 10, 'TransPro': 1}
+  ω undefined in Dangle: 5 ; φ/ψ differ from ours: 0
+
+lab-only: 90; in Dangle 90; φ, ψ, ω all defined 90; Dangle φ/ψ = ours 90
+  by class: {'General': 77, 'IleVal': 9, 'Gly': 2, 'PrePro': 2}
+  ω undefined in Dangle: 0 ; φ/ψ differ from ours: 0
+
+shared: 1,504,807; in Dangle 1,504,807; φ, ψ, ω all defined 1,504,807; Dangle φ/ψ = ours 1,504,794
+
+Ramalyze rows 1,902,982, residues 1,845,873
+ours-only: 547; in Ramalyze 547; rows per residue {1: 522, 2: 24, 3: 1}
+lab-only: 90; in Ramalyze 90; rows per residue {1: 67, 2: 23}
+shared: 1,504,807; in Ramalyze 1,504,807; rows per residue {1: 1494538, 2: 10121, 3: 144, 4: 4}

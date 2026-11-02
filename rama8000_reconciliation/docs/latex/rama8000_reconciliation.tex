@@ -1,0 +1,299 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\newcommand{\file}[1]{\texttt{#1}}
+
+\title{Reconciling Top8000 Ramachandran data with the Richardson Laboratory \texttt{rama8000} reference distributions}
+\author{Michael G. Prisant}
+\date{15 October 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Background}
+
+The MolProbity Ramachandran criteria \cite{Ramachandran1963,Lovell2003,Chen2010} were updated
+from the Top8000, a set of about 8000 high-resolution, quality-filtered protein chains, using six
+residue categories (General, Gly, Ile/Val, pre-Pro, trans-Pro, cis-Pro)
+\cite{Read2011,Richardson2013,Williams2018}. The chains were selected in 2011
+\cite{Keedy2011Origins,Top8000Page}; later reference sets were used for rotamers \cite{Lovell2000,Hintze2016}
+and for the Top2018 best-parts dataset \cite{Williams2022,Top2018Zenodo}. Cis peptides are discussed in
+\cite{Richardson2025}; other non-parametric estimates of Ramachandran distributions are
+described in \cite{Ting2010,Shapovalov2013}.
+
+This note reconciles Top8000 Ramachandran data, as we derive them from the laboratory's 2011 chain
+files, with the Richardson Laboratory's \file{rama8000} distributions, at the level of category
+counts and contour polylines. Our published Top8000 dataset is \cite{Top8000Zenodo}.
+
+\section*{In brief}
+
+\begin{description}[leftmargin=1.5em]
+  \item[A.1 Data.] \file{top8000\_chains\_70.tgz}; \file{Top8000\_Rama\_2013.zip}; \file{rama8000}
+    NDFT tables; contour Makefile.
+  \item[A.2 Programs.] Silk; kin2Dcont; Dangle and Ramalyze (2011 versions) as cross-checks of
+    our Python parser.
+  \item[B. Implementation.] Revised Ramachandran category precedence, so that pre-Pro Ile/Val go
+    into pre-Pro, not Ile/Val; the original Top8000 model files used for atom records; a revised
+    rule set that filters on deposited heavy-atom model values only.
+\end{description}
+
+\section{Required materials}
+
+These are the original Richardson Laboratory files and programs the comparison needed.
+
+\subsection*{Data files}
+\begin{enumerate}
+  \item \file{top8000\_chains\_70.tgz} \cite{Top8000Chains}: 7,957 Top8000 chain files from
+    2011, with Reduce 3.15 hydrogens \cite{Word1999,Deis2013}. Source: the laboratory website,
+    recovered via the Internet Archive. Used as the input for our category counts; the hydrogens
+    are ignored.
+  \item \file{Top8000\_Rama\_2013.zip} \cite{Top8000Rama2013}: the laboratory's filtered residue lists (one per category)
+    plus \file{get\_srcdata.py}, \file{filters\_mysql.txt}, \file{symmetrize.awk}, the Silk
+    Makefile and Top8000 Origins \cite{Keedy2011Origins}. Source: laboratory archive. Used as
+    the laboratory counts we compared against, and as the source of the filtering rules (the
+    SQL in \file{get\_srcdata.py}).
+  \item \file{rama8000} NDFT tables (\file{*.ndft}): \file{rlabduke/javadev}, commit
+    \file{24e0666} \cite{javadev}. Used as the laboratory grids in the contour comparison, and to
+    confirm that the laboratory's filtered residue lists reproduce them exactly.
+  \item Contour Makefile: \file{rlabduke/reference\_data}, commit \file{68f581a}
+    \cite{referencedata}. Used for the kin2Dcont options and contour levels.
+\end{enumerate}
+
+\subsection*{Programs}
+\begin{enumerate}[resume]
+  \item Silk (two-pass kernel density estimation): \file{rlabduke/javadev}, commit
+    \file{24e0666}, rebuilt \cite{javadev}.
+  \item kin2Dcont (contour polylines): \file{rlabduke/kincontours}, commit \file{3da22b4},
+    rebuilt \cite{kincontours}.
+  \item Dangle 1.07 and Ramalyze, mid-2011 versions: \file{rlabduke/javadev}, commit
+    \file{eb1c7f48} (2011-06-16), rebuilt \cite{javadev}. Cross-checks only; no reported number
+    depends on them.
+\end{enumerate}
+
+\paragraph{Not needed.} Reduce and MolProbity. Residue filtering uses deposited heavy-atom model
+values only; Reduce hydrogens and flips matter for rotamers, not for Ramachandran filtering.
+
+\paragraph{Not available.} The laboratory's 2011--2013 MySQL database (not preserved);
+\file{cont.php}, the contour post-processing script (unpublished).
+
+\paragraph{Our own code.} A Python parser and filters for $\phi$/$\psi$, $\omega$ and the
+per-residue values; ContourPy \cite{contourpy} for the marching-squares check.
+
+\section{Comparison}
+
+\subsection{Setup}
+
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+  Chain data & (a) The laboratory's 2011 Top8000 chain files (\file{top8000\_chains\_70.tgz}; 7,957
+    single chains). (b) Our current RCSB downloads of the same 7,957 chains, as used for our
+    published dataset \cite{Top8000Zenodo}. Hydrogens are ignored in both. \\
+  Program & Our own Python parser ($\phi$, $\psi$, $\omega$ and per-residue filters). The 2011
+    Java Dangle and Ramalyze were run as cross-checks; their $\phi$/$\psi$ agree with ours. \\
+  Laboratory reference & The laboratory's filtered residue lists (\file{get\_srcdata.py} output).
+    Silk run on these lists reproduces all six \file{rama8000} NDFT tables exactly. \\
+\end{tabularx}
+
+\subsection{Chain data: the laboratory's 2011 files and our downloads}
+
+Both start from the chain list \file{Top8000-best\_hom70\_pdb\_chain\_list.csv} \cite{referencedata}
+(7,957 chains from 7,737 entries); our copy is byte-identical to the laboratory's. The same list
+underlies the published \file{rama8000} contours: the laboratory's filtered residue lists draw on 7,810 of these
+chains, 898 of which are not in \file{Top8000-SFbest\_hom70}.
+
+All 7,957 chains (7,737 entries) and their chain IDs agree with the Richardson laboratory's, and we
+could download every entry, including three now in the obsolete archive (3m8t, 3n22, 3r4e). For
+the mainchain atoms N, CA, C and O, the laboratory's files contain 7,550,002 records and ours
+7,550,019. Matching records by chain, residue number, insertion code, atom name and altloc,
+7,542,952 are identical in residue name, coordinates, occupancy and $B$. Another 6,150 are
+matched but differ in at least one field: residue name 3,264, $B$ 5,605, occupancy 396,
+coordinates 4,812, every coordinate change exceeding 1\,\AA. A record can differ in more than one
+field. A further 900 records appear only in the laboratory's files and 917 only in ours, from
+renumbered, added or removed residues. All 7,967 non-identical records lie in 64 of the 7,737
+entries; 8 re-refined or re-sequenced entries (3me5, 3hkx, 3kda, 3oon, 2pvq, 3h87, 2oyp, 1gug)
+account for 7,339 of them.
+
+\paragraph{Filtering rules.} All tests use deposited heavy-atom model values only.
+\begin{enumerate}
+  \item Peptide-linked on both sides (C--N $< 2.0$\,\AA).
+  \item Own mainchain (N, CA, C, O): $1 < B < 30$ (the SQL's \file{1 < max\_mc\_b < 30}); for MSE,
+    $B < 30$ over all heavy atoms.
+  \item Every heavy atom of the residue at occupancy 1.
+  \item Non-Pro residues: no alternate location on the preceding residue's C, so that $\phi$ is
+    single-valued.
+  \item $\omega$ defined; trans $|\omega| \ge 150^\circ$, except cis-Pro $|\omega| < 30^\circ$.
+  \item Standard 20 residues + MSE.
+  \item General, Ile/Val, pre-Pro only: next residue is standard 20 or MSE.
+\end{enumerate}
+Rules 3 and 4 are our heavy-atom reading of the SQL's \file{min\_res\_q = 1}; how that column was
+computed is not preserved.
+
+\subsection{Category counts}
+
+\begin{center}
+\begin{tabular}{lrrrrr}
+  \toprule
+  & Richardson & \multicolumn{2}{c}{Ours, 2011 files} & \multicolumn{2}{c}{Ours, current files} \\
+  \cmidrule(lr){3-4}\cmidrule(lr){5-6}
+  Category & laboratory & count & $\Delta$ & count & $\Delta$ \\
+  \midrule
+  General   & 1,061,639 & 1,061,572 & $-67$ & 1,061,551 & $-88$ \\
+  Gly       &   116,589 &   116,579 & $-10$ &   116,573 & $-16$ \\
+  Ile/Val   &   195,083 &   195,080 &  $-3$ &   195,083 &   $0$ \\
+  pre-Pro   &    61,568 &    61,574 &  $+6$ &    61,573 &  $+5$ \\
+  trans-Pro &    66,364 &    66,364 &   $0$ &    66,362 &  $-2$ \\
+  cis-Pro   &     3,654 &     3,654 &   $0$ &     3,654 &   $0$ \\
+  \midrule
+  Total     & 1,504,897 & 1,504,823 & $-74$ & 1,504,796 & $-101$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+On the 2011 files, 90 residues are only in ours and 164 only in the laboratory's lists. On the
+current files, 266 are only in ours, 367 only in the laboratory's lists, and 307 have the same
+residue number but a different category.
+
+\subsection{Explaining the differences on current files}
+
+Each of the 940 residues that differ on the current files is assigned one cause. If the same rules
+on the 2011 files also disagree with the laboratory, it is a rule difference. Otherwise the 2011
+file reproduces the laboratory's choice and the cause is the change between the two file versions.
+
+\begin{center}
+\begin{tabular}{lrl}
+  \toprule
+  Cause & Residues & Entries \\
+  \midrule
+  \textbf{File differences (entries revised since 2011)} & \textbf{686} & \\
+  \quad Residue name changed (re-sequenced) & 453 & 3me5, 3hkx, 3h87, 2oyp, +4 \\
+  \quad Residue number absent in one file & 160 & 3oon, 3hkx, 2oyp, 3h87, 3me5 \\
+  \quad Mainchain $B$ changed & 50 & 2pvq (34), 3hkx, 3me5, +2 \\
+  \quad Occupancy, altloc, $\omega$, category, next residue & 23 & 1--5 residues each \\
+  \textbf{Rule differences (also on the 2011 files)} & \textbf{254} & 157 entries, at most 14 each \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The 254 rule differences are not explained by any heavy-atom rule we have. They include 74 non-Pro
+residues that the laboratory kept although the preceding C has an alternate location (rule 4),
+out of 10,395 such residues that otherwise pass:
+
+\begin{center}
+\begin{tabular}{lrr}
+  \toprule
+  Preceding C & Laboratory kept & Laboratory dropped \\
+  \midrule
+  Single altloc record & 37 & 56 \\
+  Alternates at the same position & 2 & 43 \\
+  Alternates at different positions & 35 & 10,222 \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{A rule we invented and do not adopt.} Replacing rules 3--4 with ``every atom in the
+2011 file at occupancy 1'', which includes the hydrogens added by Reduce 3.15, improves the
+agreement on the 2011 files to $+5$ (95 only in ours, 90 only in the laboratory's lists); on the
+current files, with Reduce 4.16 hydrogens, it gives $-954$. This rule has no support in the
+recollections of the original researchers or in the original filtering artifacts we have, and it
+goes against the principle of filtering only on experimentally determined heavy-atom positions.
+We report it only as a comparison.
+
+\subsection{Contour polylines}
+
+Contours were drawn with the laboratory's own program, kin2Dcont \cite{kincontours}, using the
+options in the laboratory's Makefile \cite{referencedata}, at the Ramalyze levels
+\cite{javadev}: inner 98\% for all classes; outer 99.95\% General, 99.80\% cis-Pro, 99.90\%
+others.
+
+Laboratory NDFT grid vs our Silk grid, both contoured with kin2Dcont: every contour has the same
+number of polylines. The largest deviation is $0.73^\circ$; mean deviations are
+$0.00$--$0.07^\circ$.
+
+For comparison, the $1^\circ$ sampling offset between the laboratory's contour grid and the NDFT
+grid moves lines by up to $0.88^\circ$, and changing the contouring method moves them by up to
+$0.42^\circ$.
+
+\subsubsection*{(i) Density estimation: Silk two-pass adaptive kernel density estimate}
+
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+  \toprule
+  & Original (Richardson laboratory) & Ours \\
+  \midrule
+  Program & Silk (\file{rlabduke/javadev}) & Silk, javadev \file{24e0666}, rebuilt (OpenJDK 21) \\
+  Input & laboratory's filtered residue lists & our $\phi$/$\psi$ under the filtering rules \\
+  Gly & mirrored: $(\phi,\psi)$ and $(-\phi,-\psi)$ & same, mirrored explicitly \\
+  Kernel, 1st pass & cosine, half-width $5^\circ$ (\file{-cosine=5}) & same \\
+  2nd pass & adaptive, \file{-twopass=6.5} (General), 8 (all others) & same \\
+  Grid & $2^\circ$ (\file{-gridsize=2}), periodic (\file{-wrap}) & same \\
+  Output & \file{-fraction} (fraction of data at lower density) & same \\
+  Grid placement & NDFT tables: bins centred on odd degrees (\file{-bounds=-180,180,-180,180});
+    contour kinemages: on even degrees (\file{-bounds=-181,179,-181,179})
+    & both; contours compared on the odd-degree grid \\
+  \bottomrule
+\end{tabularx}
+\end{center}
+
+Check: Silk with the original options on the laboratory's filtered residue lists reproduces all six
+published \file{rama8000} NDFT tables bin for bin.
+
+\subsubsection*{(ii) Contouring}
+
+\paragraph{Original.} kin2Dcont (\file{rlabduke/kincontours}, J.\,M.~Word \cite{kincontours}),
+options
+\begin{center}\file{-samp -last -nosmooth -group -wrap -180 180 -180 180 -g2}\end{center}
+Method: Zyda contour tree
+\cite{Zyda1988}, not marching squares.
+\begin{itemize}
+  \item Each grid value sits on a lattice node; missing samples count as 0.
+  \item The wrap edge is duplicated for periodicity.
+  \item Each $2^\circ$ cell is split into four triangles around a centre point (the mean of its
+    four corners).
+  \item Contour crossings are linearly interpolated along triangle edges.
+\end{itemize}
+Levels (fraction): inner 98\% $=0.02$ for all classes; outer 99.95\% $=0.0005$ General,
+99.90\% $=0.001$ others, 99.80\% $=0.002$ cis-Pro. These are the outlier cutoffs in the
+laboratory's Ramalyze (\file{Ramachandran.java}; cis-Pro: \file{CISPRO\_ALLOWED}) \cite{javadev};
+all are in the Makefile's level list. The laboratory's output then went through an unpublished script (\file{cont.php}).
+
+\paragraph{Ours.}
+\begin{itemize}
+  \item kin2Dcont, \file{rlabduke/kincontours} \file{3da22b4}, rebuilt with the original options.
+    On the odd-degree grid: \file{-wrap -179 181 -179 181}.
+  \item Marching squares as a method check: ContourPy \cite{contourpy}, applied to the same grid
+    padded periodically by 4 cells.
+\end{itemize}
+
+\subsubsection*{(iii) Results}
+
+Laboratory NDFT grid vs our Silk grid, both contoured with kin2Dcont: every contour has the same
+number of polylines. The largest deviation is $0.73^\circ$ (Ile/Val outer); mean deviations are
+$0.00$--$0.07^\circ$.
+
+For comparison:
+\begin{itemize}
+  \item the $1^\circ$ offset between the even- and odd-degree grids moves lines by up to
+    $0.88^\circ$ (cis-Pro outer, the sparsest class);
+  \item kin2Dcont vs marching squares on the same grid differ by up to $0.42^\circ$.
+\end{itemize}
+
+Note: the contour comparison used our current RCSB files under the earlier rule set, not the
+2011 files and final rules above. So the contour lines are largely insensitive to modest
+variation in the residue data set (about 0.1--0.2\%), to the $1^\circ$ grid offset, and to the
+contouring method (kin2Dcont vs marching squares). The density estimate itself was not varied:
+both sides used the same Silk program and parameters.
+
+\bibliographystyle{unsrtnat}
+\bibliography{rama8000_reconciliation}
+
+\end{document}

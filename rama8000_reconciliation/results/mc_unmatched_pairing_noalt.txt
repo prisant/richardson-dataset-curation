@@ -1,0 +1,38 @@
+altloc records left out: 2011 159,862; current 159,860
+records compared: 2011 7,390,140; current 7,390,159
+unmatched records: only 2011 766; only current 785; total 1,551
+paired (each pair = one 2011 + one current record):
+  same position, renumbered/relabelled               455 pairs =   910 records
+  same residue and atom, altloc label differs          0 pairs =     0 records
+  same position, residue name differs                  3 pairs =     6 records
+left without a counterpart: 2011 308; current 327
+  2011 leftovers by entry (10): {'2oyp': 88, '3hkx': 85, '3h87': 61, '3me5': 50, '1ize': 4, '2bo9': 4, '2j8g': 4, '3e7a': 4, '3gkr': 4, '3kda': 4}
+  current leftovers by entry (17): {'2oyp': 88, '3hkx': 85, '3h87': 61, '3me5': 50, '1gvx': 4, '1h72': 4, '1jbe': 4, '1wcf': 4, '1wl8': 4, '2bo9': 4, '2c6z': 4, '2imz': 4}
+
+completeness of all matched residues (residues with at least one matched record; key-matched or paired):
+  matched residues                               1,852,271
+  2011 residue has N, CA, C, O                   1,833,641
+  current residue has N, CA, C, O                1,833,641
+  all of N, CA, C, O matched                     1,833,632
+  incomplete, by the atoms matched: {'N+C+O': 17956, 'N+CA': 194, 'N': 127, 'N+CA+C': 116, 'CA+C+O': 110, 'C+O': 80, 'O': 26, 'CA': 10, 'N+CA+O': 9, 'N+C': 6, 'CA+O': 2, 'C': 2, 'N+O': 1}
+
+completeness of the residues holding paired records (N, CA, C, O; any altloc unless noalt):
+  residues                                         116
+  2011 residue has N, CA, C, O                     112
+  current residue has N, CA, C, O                  113
+  all its records matched (none left unpaired)     115
+    1atl B 2011 312 ['C', 'CA', 'N'] -> current 311 ['C', 'CA', 'N', 'O']; unpaired 2011 [], current [('O', '')]
+    1w7c A 2011 788 ['N'] -> current 478 ['N']; unpaired 2011 [], current []
+    3oon A 2011 45 ['C', 'N', 'O'] -> current 312 ['C', 'N', 'O']; unpaired 2011 [], current []
+    3oon A 2011 46 ['C', 'N', 'O'] -> current 313 ['C', 'N', 'O']; unpaired 2011 [], current []
+
+matched records compared field by field (a record may differ in several fields):
+                              key-matched    paired          all
+identical                       7,383,632       455    7,384,087
+differs                             5,742         3        5,745
+total matched                   7,389,374       458    7,389,832
+  differs in residue name           3,256         3        3,259
+  differs in coordinates            4,812         0        4,812
+  differs in occupancy                  0         0            0
+  differs in B                      5,601         0        5,601
+  differs in coordinates or B        5,614         0        5,614

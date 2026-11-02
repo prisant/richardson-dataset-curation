@@ -7,8 +7,8 @@ usage: b30_grid_check.py [CLASS ...]   (default: all). Run from rama8000_reconci
 """
 import sys, subprocess, tempfile, os, numpy as np, pandas as pd
 sys.path.insert(0, 'scripts'); import ndft
-d = pd.read_csv('data/residue_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
-h = pd.read_csv('data/amideH_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
+d = pd.read_csv(os.environ.get('T8000_DATA', 'data') + '/residue_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
+h = pd.read_csv(os.environ.get('T8000_DATA', 'data') + '/amideH_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
 d = d.merge(h, on=['pdb', 'chain', 'resnum', 'ins'], how='left')
 STD = set('ALA ARG ASN ASP CYS GLN GLU GLY HIS ILE LEU LYS MET PHE PRO SER THR TRP TYR VAL'.split())
 common = ((d.d_prevC_N < 2.0) & (d.d_C_nextN < 2.0) & (d.own_minocc >= 1) & (d.own_mc_max > 0) & d.resname.isin(STD)

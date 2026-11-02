@@ -1,0 +1,59 @@
+
+all MSE in the lab lists (2011 files): 1,820 residues
+  printed B = max over mainchain N CA C O              158
+  printed B = max over all heavy atoms               1,481
+  printed B = max over all heavy atoms except SE       101
+  printed B = max over N CA C O CB                     145
+  printed B = max over SE only                       1,673
+  printed B = max over N CA C O SE                   1,820
+  printed B = max over N CA C O CB SE                1,802
+  combinations matched:
+     1,380  all heavy atoms | SE only | N CA C O SE | N CA C O CB SE
+       262  SE only | N CA C O SE | N CA C O CB SE
+        81  mainchain N CA C O | all heavy atoms | all heavy atoms except SE | N CA C O CB | N CA C O SE | N CA C O CB SE
+        53  mainchain N CA C O | N CA C O CB | N CA C O SE | N CA C O CB SE
+        15  all heavy atoms | all heavy atoms except SE | SE only | N CA C O SE | N CA C O CB SE
+        13  mainchain N CA C O | N CA C O SE
+         5  mainchain N CA C O | all heavy atoms | all heavy atoms except SE | N CA C O CB | SE only | N CA C O SE | N CA C O CB SE
+         5  mainchain N CA C O | N CA C O CB | SE only | N CA C O SE | N CA C O CB SE
+         4  SE only | N CA C O SE
+         1  N CA C O CB | SE only | N CA C O SE | N CA C O CB SE
+         1  mainchain N CA C O | SE only | N CA C O SE
+  atom(s) holding the all-heavy-atom maximum: {'SE': 1386, 'CE': 306, 'O': 39, 'CG': 35, 'N': 22, 'C': 18, 'CB': 7, 'CA': 3}
+
+MSE the lab kept although the all-heavy-atom max B >= 30 (2011 files): 34 residues
+  printed B = max over mainchain N CA C O                6
+  printed B = max over all heavy atoms                   0
+  printed B = max over all heavy atoms except SE         0
+  printed B = max over N CA C O CB                       5
+  printed B = max over SE only                          28
+  printed B = max over N CA C O SE                      34
+  printed B = max over N CA C O CB SE                   32
+  combinations matched:
+        27  SE only | N CA C O SE | N CA C O CB SE
+         4  mainchain N CA C O | N CA C O CB | N CA C O SE | N CA C O CB SE
+         2  mainchain N CA C O | N CA C O SE
+         1  N CA C O CB | SE only | N CA C O SE | N CA C O CB SE
+  atom(s) holding the all-heavy-atom maximum: {'CE': 29, 'CG': 4, 'CB': 1}
+
+  examples (printed B; heavy-atom B values):
+    1eyb A 142       B<28.0  {'N': 21.46, 'CA': 22.09, 'C': 24.55, 'O': 25.01, 'CB': 21.4, 'CG': 25.1, 'SE': 27.99, 'CE': 40.2}
+    1l3l B 127       B<21.6  {'N': 18.72, 'CA': 19.38, 'C': 18.76, 'O': 19.01, 'CB': 21.55, 'CG': 26.8, 'SE': 21.6, 'CE': 33.37}
+    1r0d G 831       B<29.7  {'N': 20.8, 'CA': 23.84, 'C': 27.4, 'O': 25.34, 'CB': 21.92, 'CG': 36.3, 'SE': 29.73, 'CE': 13.63}
+    1sny A 152       B<27.2  {'N': 19.51, 'CA': 21.03, 'C': 22.44, 'O': 19.63, 'CB': 21.87, 'CG': 24.18, 'SE': 27.17, 'CE': 34.77}
+    1via B 66        B<29.5  {'N': 13.58, 'CA': 13.58, 'C': 14.87, 'O': 14.24, 'CB': 14.69, 'CG': 13.2, 'SE': 29.49, 'CE': 32.26}
+    1vk4 A 29        B<28.9  {'N': 16.28, 'CA': 18.36, 'C': 16.0, 'O': 17.32, 'CB': 20.41, 'CG': 26.42, 'SE': 28.92, 'CE': 33.96}
+    1vk8 B 54        B<18.6  {'N': 7.44, 'CA': 6.6, 'C': 7.37, 'O': 6.41, 'CB': 7.38, 'CG': 7.72, 'SE': 18.6, 'CE': 30.4}
+    1vr8 A 108       B<28.9  {'N': 22.21, 'CA': 20.37, 'C': 21.75, 'O': 20.64, 'CB': 22.37, 'CG': 23.41, 'SE': 28.91, 'CE': 31.05}
+    1wp5 A 188       B<25.0  {'N': 19.82, 'CA': 20.29, 'C': 20.93, 'O': 20.44, 'CB': 21.7, 'CG': 19.02, 'SE': 25.0, 'CE': 32.5}
+    1y2m C 51        B<27.7  {'N': 12.87, 'CA': 15.44, 'C': 14.66, 'O': 15.66, 'CB': 14.17, 'CG': 13.44, 'SE': 27.68, 'CE': 38.8}
+    2ici A 201       B<28.0  {'N': 19.18, 'CA': 20.82, 'C': 19.33, 'O': 19.72, 'CB': 20.06, 'CG': 22.49, 'SE': 28.01, 'CE': 31.04}
+    2j05 A 280       B<27.2  {'N': 18.63, 'CA': 19.17, 'C': 17.81, 'O': 16.58, 'CB': 23.01, 'CG': 26.79, 'SE': 27.25, 'CE': 31.8}
+
+  atom-name sets of these residues: {('C', 'CA', 'CB', 'CE', 'CG', 'N', 'O', 'SE'): 34}
+
+no candidate matches: 0; examples:
+
+lab-listed MSE with mainchain max B <= 1 (fails 1 < B on N CA C O alone): 2
+    2yyh C 60        B<5.0   max(N CA C O SE) 4.98
+    2yyh C 74        B<18.4  max(N CA C O SE) 18.35

@@ -7,7 +7,7 @@ Best rule: see contour_compare.py. Per class: lab-only, ours-only, shared; share
 phi/psi agreement on shared residues; for ours-only and lab-only, the filter values that could explain them.
 Run from rama8000_reconciliation/.
 """
-import sys, re
+import sys, re, os
 sys.path.insert(0, 'scripts')
 import numpy as np, pandas as pd
 sys.argv = ['x', 'Gly', 'data/glycine.ndft', '5', '8']
@@ -16,6 +16,7 @@ exec(src[:src.index("print(f'{cls}: realcount")])   # d (with amide-H cols)
 d['ins'] = d.ins.fillna('').astype(str).str.strip(); d['resnum'] = d.resnum.astype(int)
 
 LAB = 'data/Top8000_Rama_2013'
+DATA = os.environ.get('T8000_DATA', 'data')   # per-residue tables; data/lab2011 for the lab's 2011 chain files
 FILES = dict(General='general-noGPIVpreP', IleVal='ileval-nopreP', Gly='gly', PrePro='prepro-noGP',
              TransPro='transpro', CisPro='cispro')
 LBL = re.compile(r'^(\w{4}) (.) (-?\d+)(\D?) (\w{3}) B<([\d.]+) wc(\S+) \(([\d.]+)A MP=([\d.]+)\)$')
@@ -84,10 +85,13 @@ print('ours-only unexplained, first 15:'); print(O[O.why == 'unexplained'][K + [
 # (1) phi ambiguity: drop a non-Pro residue when the preceding C has alternates at different positions
 #     (data/prevC_spread.tsv, prevC_spread.py); the amide-H rule was a proxy for this.
 # (2) MSE: the lab's B value is the max over all heavy atoms, not N, CA, C, O (data/allatom_records.tsv).
-sp = pd.read_csv('data/prevC_spread.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
-a = pd.read_csv('data/allatom_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
+# (3) ω defined: get_srcdata.py requires d.omega IS NOT NULL.
+# (4) heavy-atom form of (1): drop a non-Pro residue whose preceding C has two or more alternate records (prevC_n),
+#     whether or not they coincide; a single alternate (e.g. only altloc B) leaves phi unambiguous.
+sp = pd.read_csv(DATA + '/prevC_spread.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
+a = pd.read_csv(DATA + '/allatom_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
 for t in (sp, a): t['ins'] = t.ins.str.strip()
-E = M.merge(sp, on=K, how='left').merge(a[K + ['sc_maxB_heavy']], on=K, how='left')
+E = M.merge(sp, on=K, how='left').merge(a[K + ['sc_maxB_heavy', 'all_minocc']], on=K, how='left')
 bad = set(S[S.resname != S.lab_resname].pdb)
 lab = E._merge != 'left_only'
 ew = E.omega.abs()
@@ -95,13 +99,22 @@ base = ((E.d_prevC_N < 2.0) & (E.d_C_nextN < 2.0) & (E.own_mc_max < 30) & (E.own
         & E.resname.isin(STD | {'MSE'})
         & pd.Series(np.where(E.rama6 == 'CisPro', ew < 30, ew.isna() | (ew >= 150)), index=E.index))
 H = ~(E.H_minocc < 1)
+# (5) neighbors join: General, IleVal and PrePro need a row in the lab's neighbors table (next residue Pro or not); a
+#     residue whose next residue is not standard 20 or MSE has none. 'file occ 1' = every atom in the residue, as it is in
+#     the file (the lab's chain files carry Reduce hydrogens), at occupancy 1.
+nextstd = ~(E.rama6.isin(['General', 'IleVal', 'PrePro']) & ~E.next_resname.isin(STD | {'MSE'}))
 phiamb = (E.prevC_spread > 0) & (E.resname != 'PRO')
 mseB = ~((E.resname == 'MSE') & (np.fmax(E.own_mc_max, E.sc_maxB_heavy) >= 30))
 V = {'best rule (amide-H rule)': base & H,
      'best + MSE all-heavy B < 30': base & H & mseB,
      'prev-C rule instead of H rule': base & ~phiamb,
      'prev-C rule + MSE B': base & ~phiamb & mseB,
-     'prev-C rule + H rule + MSE B': base & ~phiamb & H & mseB}
+     'prev-C rule + H rule + MSE B': base & ~phiamb & H & mseB,
+     'prev-C + MSE B + ω defined': base & ~phiamb & mseB & E.omega.notna(),   # (3) the lab required ω NOT NULL
+     'H rule + MSE B + ω defined': base & H & mseB & E.omega.notna(),
+     'prev C ≥ 2 alts + MSE B + ω': base & ~((E.prevC_n >= 2) & (E.resname != 'PRO')) & mseB & E.omega.notna(),
+     'file occ 1 + MSE B + ω + next std': base & ~(E.all_minocc < 1) & mseB & E.omega.notna() & nextstd,
+     'same, mainchain B > 1': base & ~(E.all_minocc < 1) & mseB & E.omega.notna() & nextstd & (E.own_mc_max > 1)}   # SQL: 1 < max_mc_b
 print(f'\nrefined rules (Δ vs NDFT per class; ours-only / lab-only residues, excluding the {len(bad)} renumbered entries {sorted(bad)})')
 print(f'{"variant":32s}' + ''.join(f'{c:>9s}' for c in nd) + f'{"total":>8s}{"ours-only":>11s}{"lab-only":>10s}')
 ok = ~E.pdb.isin(bad)
@@ -109,10 +122,13 @@ for k, v in V.items():
     dl = [int((v & (E.rama6 == c)).sum()) - n for c, n in nd.items()]
     print(f'{k:32s}' + ''.join(f'{x:>+9,d}' for x in dl) + f'{sum(dl):>+8,d}{int((v & ~lab & ok).sum()):11,d}{int((lab & ~v & ok).sum()):10,d}')
 best = V['prev-C rule + H rule + MSE B']
-for nm, sel, cls in (('ours-only', best & ~lab & ok, 'rama6'), ('lab-only', lab & ~best & ok, 'lab_cls')):
-    x = E[sel]
-    print(f'\n{nm} under prev-C + H + MSE B, by class:', x[cls].value_counts().to_dict())
-    print(f'{nm} by entry (top 10):', x.pdb.value_counts().head(10).to_dict())
+for vn in ('prev-C + MSE B + ω defined', 'H rule + MSE B + ω defined', 'file occ 1 + MSE B + ω + next std', 'same, mainchain B > 1'):
+    NEW = V[vn]
+    for nm, sel, cls in (('ours-only', NEW & ~lab & ok, 'rama6'), ('lab-only', lab & ~NEW & ok, 'lab_cls')):
+        x = E[sel]
+        print(f'\n{nm} under {vn}, by class:', x[cls].value_counts().to_dict())
+        print(f'{nm} by entry (top 10):', x.pdb.value_counts().head(10).to_dict())
+        print(f'{nm} by residue type (top 8):', x.resname.fillna(x.lab_resname).value_counts().head(8).to_dict())
 S2 = S[~S.pdb.isin(bad)]
 dphi = np.abs((S2.phi - S2.lab_phi + 180) % 360 - 180); dpsi = np.abs((S2.psi - S2.lab_psi + 180) % 360 - 180)
 print(f'\nshared outside the renumbered entries: {len(S2):,}; resname differs {int((S2.resname != S2.lab_resname).sum())};'
@@ -131,9 +147,9 @@ for k, v in V.items():
     print(f'{k:32s}' + ''.join(f'{x:11,d}' for x in n) + f'{sum(n):11,d}')
 
 # ---- Evidence for the refined rules (outside the renumbered entries) ------------------------------------------------
-pa = pd.read_csv('data/phipsi_atom_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
+pa = pd.read_csv(DATA + '/phipsi_atom_records.tsv', sep='\t', keep_default_na=False, na_values=['nan'], dtype={'ins': str, 'chain': str})
 pa['ins'] = pa.ins.str.strip()
-F = E.merge(pa, on=K, how='left').merge(a[K + ['all_minocc', 'sc_maxB_all']], on=K, how='left')
+F = E.merge(pa, on=K, how='left').merge(a[K + ['sc_maxB_all']], on=K, how='left')
 flab = F._merge != 'left_only'; fok = ~F.pdb.isin(bad)
 fbase = pd.Series(base.values, index=F.index)
 prevmc = sum((F[f'prev{x}_alt'] > 0) for x in ('N', 'CA', 'C', 'O')) > 0

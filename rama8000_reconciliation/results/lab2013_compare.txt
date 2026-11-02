@@ -83,12 +83,43 @@ best + MSE all-heavy B < 30          +407       +7     +109      +26       -1   
 prev-C rule instead of H rule      +1,547       -2     +106      +67       -1       +0  +1,717      1,876       161
 prev-C rule + MSE B                  +402       -2     +106      +11       -1       +0    +516        711       194
 prev-C rule + H rule + MSE B         +128      -32      +61       +3       -1       +0    +159        634       474
+prev-C + MSE B + ω defined           +376       -3     +104      +10       -1       +0    +486        681       194
+H rule + MSE B + ω defined           +381       +6     +107      +25       -1       +0    +518        989       470
+prev C ≥ 2 alts + MSE B + ω          +340       -5      +99       +8       -1       +0    +441        638       196
+file occ 1 + MSE B + ω + next std     -832       +6      -80      -35       -7       +0    -948        531     1,478
+same, mainchain B > 1                -834       +6      -82      -36       -8       +0    -954        525     1,478
 
-ours-only under prev-C + H + MSE B, by class: {'General': 504, 'IleVal': 112, 'PrePro': 11, 'Gly': 6, 'TransPro': 1}
-ours-only by entry (top 10): {'3oon': 29, '3ln3': 19, '1agy': 17, '2vd8': 17, '3gs9': 15, '2fcl': 13, '2ftz': 13, '2etv': 12, '1lln': 10, '3lsu': 10}
+ours-only under prev-C + MSE B + ω defined, by class: {'General': 531, 'IleVal': 124, 'PrePro': 13, 'Gly': 12, 'TransPro': 1}
+ours-only by entry (top 10): {'3oon': 29, '2cdc': 20, '3ln3': 19, '1agy': 17, '2vd8': 17, '3gs9': 15, '2fcl': 13, '2ftz': 13, '2etv': 12, '2j82': 11}
+ours-only by residue type (top 8): {'LEU': 82, 'VAL': 74, 'SER': 56, 'ALA': 53, 'ILE': 52, 'GLU': 50, 'ARG': 38, 'ASN': 36}
 
-lab-only under prev-C + H + MSE B, by class: {'General': 375, 'IleVal': 51, 'Gly': 38, 'PrePro': 8, 'TransPro': 2}
+lab-only under prev-C + MSE B + ω defined, by class: {'General': 154, 'IleVal': 20, 'Gly': 15, 'PrePro': 3, 'TransPro': 2}
+lab-only by entry (top 10): {'2pvq': 34, '3oon': 29, '2imf': 14, '2zs0': 7, '3hvv': 7, '3kda': 7, '2ip2': 6, '2ijh': 5, '3gah': 3, '1dgf': 2}
+lab-only by residue type (top 8): {'MSE': 36, 'LEU': 16, 'GLY': 15, 'SER': 15, 'GLU': 15, 'ARG': 11, 'ILE': 11, 'VAL': 9}
+
+ours-only under H rule + MSE B + ω defined, by class: {'General': 753, 'IleVal': 158, 'Gly': 44, 'PrePro': 33, 'TransPro': 1}
+ours-only by entry (top 10): {'2gew': 38, '3oon': 29, '1ls1': 27, '2zwu': 25, '3c70': 22, '1mj5': 19, '1s5m': 19, '3ln3': 19, '1agy': 18, '1m40': 18}
+ours-only by residue type (top 8): {'LEU': 121, 'ALA': 94, 'VAL': 92, 'GLU': 76, 'ILE': 71, 'SER': 71, 'THR': 57, 'ARG': 52}
+
+lab-only under H rule + MSE B + ω defined, by class: {'General': 371, 'IleVal': 51, 'Gly': 38, 'PrePro': 8, 'TransPro': 2}
 lab-only by entry (top 10): {'1b8d': 143, '3a4r': 65, '3dnj': 36, '2pvq': 34, '3oon': 29, '3p3e': 23, '2imf': 14, '2zs0': 7, '3hvv': 7, '3kda': 7}
+lab-only by residue type (top 8): {'LEU': 44, 'GLY': 38, 'SER': 37, 'MSE': 36, 'GLU': 34, 'ALA': 33, 'ARG': 29, 'VAL': 27}
+
+ours-only under file occ 1 + MSE B + ω + next std, by class: {'General': 378, 'IleVal': 75, 'Gly': 44, 'PrePro': 33, 'TransPro': 1}
+ours-only by entry (top 10): {'2gew': 38, '3oon': 29, '1ls1': 27, '2zwu': 25, '3c70': 22, '1mj5': 19, '1s5m': 19, '1agy': 18, '1m40': 18, '2xu3': 18}
+ours-only by residue type (top 8): {'ALA': 64, 'LEU': 58, 'VAL': 45, 'GLY': 44, 'GLU': 39, 'ILE': 35, 'ARG': 35, 'THR': 32}
+
+lab-only under file occ 1 + MSE B + ω + next std, by class: {'General': 1209, 'IleVal': 155, 'PrePro': 68, 'Gly': 38, 'TransPro': 8}
+lab-only by entry (top 10): {'3pxl': 284, '1b8d': 143, '2jc5': 142, '3l5l': 114, '1lqt': 97, '3a4r': 69, '2bz6': 58, '1kmt': 46, '2jcq': 45, '2bk9': 42}
+lab-only by residue type (top 8): {'SER': 181, 'THR': 169, 'LYS': 131, 'ALA': 122, 'ASN': 114, 'LEU': 101, 'VAL': 98, 'TYR': 98}
+
+ours-only under same, mainchain B > 1, by class: {'General': 376, 'IleVal': 73, 'Gly': 44, 'PrePro': 32}
+ours-only by entry (top 10): {'2gew': 38, '3oon': 29, '1ls1': 27, '2zwu': 25, '3c70': 22, '1mj5': 19, '1s5m': 19, '1agy': 18, '1m40': 18, '2xu3': 18}
+ours-only by residue type (top 8): {'ALA': 64, 'LEU': 58, 'GLY': 44, 'VAL': 43, 'GLU': 37, 'ILE': 35, 'ARG': 35, 'THR': 32}
+
+lab-only under same, mainchain B > 1, by class: {'General': 1209, 'IleVal': 155, 'PrePro': 68, 'Gly': 38, 'TransPro': 8}
+lab-only by entry (top 10): {'3pxl': 284, '1b8d': 143, '2jc5': 142, '3l5l': 114, '1lqt': 97, '3a4r': 69, '2bz6': 58, '1kmt': 46, '2jcq': 45, '2bk9': 42}
+lab-only by residue type (top 8): {'SER': 181, 'THR': 169, 'LYS': 131, 'ALA': 122, 'ASN': 114, 'LEU': 101, 'VAL': 98, 'TYR': 98}
 
 shared outside the renumbered entries: 1,503,668; resname differs 0; class differs 0; |Δφ| max 48.987, |Δψ| max 45.286; >0.01° 350
 class differences there (lab → ours): {}
@@ -103,6 +134,11 @@ best + MSE all-heavy B < 30       1,062,046    116,596    195,192     61,594    
 prev-C rule instead of H rule     1,063,186    116,587    195,189     61,635     66,363      3,654  1,506,614
 prev-C rule + MSE B               1,062,041    116,587    195,189     61,579     66,363      3,654  1,505,413
 prev-C rule + H rule + MSE B      1,061,767    116,557    195,144     61,571     66,363      3,654  1,505,056
+prev-C + MSE B + ω defined        1,062,015    116,586    195,187     61,578     66,363      3,654  1,505,383
+H rule + MSE B + ω defined        1,062,020    116,595    195,190     61,593     66,363      3,654  1,505,415
+prev C ≥ 2 alts + MSE B + ω       1,061,979    116,584    195,182     61,576     66,363      3,654  1,505,338
+file occ 1 + MSE B + ω + next std  1,060,807    116,595    195,003     61,533     66,357      3,654  1,503,949
+same, mainchain B > 1             1,060,805    116,595    195,001     61,532     66,356      3,654  1,503,943
 
 base rule (best rule without the H rule), non-Pro, preceding residue with a mainchain altloc: 24,548; lab kept 14,207
   preceding C alternates at different positions: 10,263; lab kept 35, dropped 10,228

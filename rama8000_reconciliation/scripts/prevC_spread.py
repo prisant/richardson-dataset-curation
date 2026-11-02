@@ -2,9 +2,10 @@
 
 The lab's 2013 residue lists (Top8000_Rama_2013) drop a residue when the preceding C has alternates at different
 positions (phi ambiguous), and keep it when the alternates coincide. Columns: largest distance (Å) between any two
-alternates of the preceding residue's CA, C, O (0 when none). The preceding residue is the previous residue record
+alternates of the preceding residue's CA, C, O (0 when none); prevC_n, the number of C records of the preceding
+residue (2 or more = alternate positions for phi, whether or not they coincide). The preceding residue is the previous residue record
 in file order within the chain.
-TSV columns: pdb chain resnum ins prevCA_spread prevC_spread prevO_spread
+TSV columns: pdb chain resnum ins prevCA_spread prevC_spread prevO_spread prevC_n
 usage: prevC_spread.py data/prevC_spread.tsv
 """
 import sys, os
@@ -26,11 +27,11 @@ def work(pdb):
         if prev[0] != k[0]: continue
         sp = [max((float(np.linalg.norm(a - b)) for a in R[prev].get(n, []) for b in R[prev].get(n, [])), default=0.0)
               for n in ('CA', 'C', 'O')]
-        out.append(f'{pdb}\t{k[0]}\t{k[1]}\t{k[2]}\t' + '\t'.join(f'{s:.3f}' for s in sp))
+        out.append(f'{pdb}\t{k[0]}\t{k[1]}\t{k[2]}\t' + '\t'.join(f'{s:.3f}' for s in sp) + f"\t{len(R[prev].get('C', []))}")
     return out
 
 if __name__ == '__main__':
     with Pool(8) as p, open(sys.argv[1], 'w') as f:
-        f.write('pdb\tchain\tresnum\tins\tprevCA_spread\tprevC_spread\tprevO_spread\n')
+        f.write('pdb\tchain\tresnum\tins\tprevCA_spread\tprevC_spread\tprevO_spread\tprevC_n\n')
         for recs in p.imap_unordered(work, sorted(chains), chunksize=20):
             for line in recs: f.write(line + '\n')

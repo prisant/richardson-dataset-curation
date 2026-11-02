@@ -33,3 +33,9 @@ rama8000_reconciliation/results/*.log
 rama8000_reconciliation/data/dangle_*.err
 rama8000_reconciliation/kincontours_build/
 rama8000_reconciliation/data/Top8000_Rama_2013/
+rama8000_reconciliation/data/lab2011/
+rama8000_reconciliation/docs/latex/*.aux
+rama8000_reconciliation/docs/latex/*.log
+rama8000_reconciliation/docs/latex/*.bbl
+rama8000_reconciliation/docs/latex/*.blg
+rama8000_reconciliation/docs/latex/*.out

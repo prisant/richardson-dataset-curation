@@ -1,0 +1,26 @@
+residues: 2011 files 1,851,934; current files 1,851,937
+chains:   2011 files 7,957; current files 7,957
+same residue key in both: 1,851,739; only 2011: 195; only current: 198
+  only 2011: 14 entries; top: {'3oon': np.int64(111), '3hkx': np.int64(24), '2oyp': np.int64(22), '3h87': np.int64(15), '3me5': np.int64(10), '2c9i': np.int64(2), '2c9j': np.int64(2), '2ib5': np.int64(2), '2gw3': np.int64(2), '1rwh': np.int64(1)}
+  only current: 20 entries; top: {'3oon': np.int64(111), '3hkx': np.int64(24), '2oyp': np.int64(22), '3h87': np.int64(15), '3me5': np.int64(10), '2hpw': np.int64(2), '1gvx': np.int64(1), '1gp6': np.int64(1), '1h72': np.int64(1), '1h5b': np.int64(1)}
+
+shared residues 1,851,739
+  residue name differs: 821; examples: [['1ejd', 'ASP', 'IAS'], ['1ekq', 'CSW', 'CSD'], ['1gve', 'ASP', 'TYR'], ['1h0h', 'CSE', 'SEC'], ['1lm4', 'CSW', 'OCS'], ['1nth', 'LYS', 'PYL'], ['1o5k', 'MCL', 'KPI'], ['2j8g', 'ALA', 'DGL']]
+  Ramachandran class differs: 414
+  |Δφ| > 0.01°: 1,207 in 8 entries; > 1°: 1,086; max 177.60
+  |Δψ| > 0.01°: 1,209 in 10 entries; > 1°: 1,062; max 179.96
+  |Δω| > 0.01°: 1,207 in 8 entries; > 1°: 946; max 179.52
+  φ/ψ/ω defined in one file only: 2
+  mainchain max B differs > 0.01: 1,393 in 8 entries; max 35.13
+  own heavy-atom min occupancy differs: 151
+  mainchain altloc flag differs: 31
+  peptide link (C–N < 2.0 Å) differs, prev or next: 14
+  amide H present differs: 340
+  amide H min occupancy differs: 12,083
+  all-atom min occupancy differs: 4,660
+    (2011, current) all-atom min occupancy, top pairs: {(1.0, 0.0): np.int64(1177), (0.7, 0.3): np.int64(697), (0.6, 0.4): np.int64(648), (0.8, 0.2): np.int64(153), (0.5, 1.0): np.int64(136), (1.0, 0.88): np.int64(69)}
+    of these, heavy-atom min occupancy also differs: 151
+
+entries with any heavy-atom difference (number, name, φ/ψ/ω, B, occupancy, altloc, link): 80 of 7,737; residues 1,961
+  entries with ≥ 20 differing residues: {'3me5': np.int64(422), '3kda': np.int64(296), '3hkx': np.int64(285), '3oon': np.int64(222), '2pvq': np.int64(199), '3h87': np.int64(151), '2oyp': np.int64(129), '1gug': np.int64(65), '1pa2': np.int64(25), '1s5m': np.int64(23), '2fvy': np.int64(21)}
+  entries with < 20: 69, residues 123

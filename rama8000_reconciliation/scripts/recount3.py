@@ -6,7 +6,7 @@ from collections import Counter, defaultdict
 from multiprocessing import Pool
 import numpy as np
 
-ROOT = os.path.expanduser('~/Desktop/Data/top8000_pdbs_hom70')
+ROOT = os.path.expanduser(os.environ.get('T8000_ROOT', '~/Desktop/Data/top8000_pdbs_hom70'))   # T8000_ROOT: alternative file tree
 chains = defaultdict(set)
 for r in csv.DictReader(open(f'{ROOT}/Top8000-best_hom70_pdb_chain_list.csv')):
     k = list(r.keys())

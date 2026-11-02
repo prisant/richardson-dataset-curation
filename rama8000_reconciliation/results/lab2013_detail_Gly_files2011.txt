@@ -1,0 +1,15 @@
+rule: file occ 1 + MSE B + ω + next std
+
+in the lab Gly list, not in ours: 2
+ pdb chain  resnum ins resname lab_resname rama6 lab_cls     phi  lab_phi     psi  lab_psi   omega  lab_omega  own_mc_max  lab_mcB  own_minocc  H_minocc  prevC_spread  d_prevC_N  d_C_nextN  renumbered                 reason
+1dgf     A     121         GLY         GLY   Gly     Gly -103.91 -103.906   21.20   21.200 -179.20    180.802       17.15     17.1         0.5       1.0         0.749      1.329      1.331       False own heavy-atom occ 0.5
+3hvv     A      59         GLY         GLY   Gly     Gly   64.41   64.410 -145.17 -145.169  164.68    164.680       12.34     12.3         0.0       1.0         1.725      1.356      1.362       False own heavy-atom occ 0.0
+
+in our Gly set, not in the lab list: 0
+
+lab 116,589; ours 116,587; Δ -2
+
+lab-only paired with an ours-only residue by φ/ψ (same residue, different number): 0
+unpaired: lab-only 2 ['1dgf', '3hvv']; ours-only 0 []
+
+residues passing prev-C + MSE B with ω undefined (the lab required ω defined): 35; in the lab lists 0; by class {'General': 31, 'IleVal': 2, 'Gly': 1, 'PrePro': 1}

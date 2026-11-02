@@ -2,7 +2,7 @@
 
 NDFT values are Silk '-fraction': the fraction of input points at lower density, so the X% contour is level 1 - X.
 Inner contour 98% (0.02) for all classes; outer 99.95% (0.0005) General, 99.90% (0.001) IleVal, Gly, TransPro,
-PrePro, 99.85% (0.0015) CisPro.
+PrePro, 99.80% (0.002) CisPro (Ramalyze CISPRO_ALLOWED).
 Best rule: peptide-linked both sides (C-N < 2.0 Å); own mainchain 0 < B < 30; all heavy atoms occ 1; amide H occ 1;
 standard residues + MSE; preceding peptide trans (|ω| ≥ 150), except CisPro (|ω| < 30). Silk cosine 5, twopass 8
 (General 6.5); Gly mirrored.
@@ -33,7 +33,7 @@ rule = ((d.d_prevC_N < 2.0) & (d.d_C_nextN < 2.0) & (d.own_mc_max < 30) & (d.own
         & ~(d.H_minocc < 1) & d.resname.isin(STD | {'MSE'})
         & pd.Series(np.where(d.rama6 == 'CisPro', aw < 30, aw.isna() | (aw >= 150)), index=d.index))
 setup = [('General', 'general', '6.5', 0.0005), ('Gly', 'glycine', '8', 0.001), ('IleVal', 'ileval', '8', 0.001),
-         ('PrePro', 'prepro', '8', 0.001), ('TransPro', 'transpro', '8', 0.001), ('CisPro', 'cispro', '8', 0.0015)]
+         ('PrePro', 'prepro', '8', 0.001), ('TransPro', 'transpro', '8', 0.001), ('CisPro', 'cispro', '8', 0.002)]
 P = 4
 ax_c = -179 + 2 * np.arange(-P, 180 + P)
 

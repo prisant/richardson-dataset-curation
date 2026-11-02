@@ -1,0 +1,40 @@
+records compared: 2011 7,550,002; current 7,550,019
+unmatched records: only 2011 900; only current 917; total 1,817
+paired (each pair = one 2011 + one current record):
+  same position, renumbered/relabelled               587 pairs = 1,174 records
+  same residue and atom, altloc label differs          5 pairs =    10 records
+  same position, residue name differs                  3 pairs =     6 records
+left without a counterpart: 2011 305; current 322
+  2011 leftovers by entry (10): {'2oyp': 88, '3hkx': 85, '3h87': 61, '3me5': 50, '1ize': 4, '2bo9': 4, '2j8g': 4, '3e7a': 4, '3gkr': 4, '3kda': 1}
+  current leftovers by entry (15): {'2oyp': 88, '3hkx': 85, '3h87': 61, '3me5': 50, '1gvx': 4, '1h72': 4, '1jbe': 4, '1wl8': 4, '2bo9': 4, '2c6z': 4, '2imz': 4, '2j8g': 4}
+
+completeness of all matched residues (residues with at least one matched record; key-matched or paired):
+  matched residues                               1,867,633
+  2011 residue has N, CA, C, O                   1,867,523
+  current residue has N, CA, C, O                1,867,525
+  all of N, CA, C, O matched                     1,867,509
+  incomplete, by the atoms matched: {'N+CA+C': 75, 'N+CA': 32, 'N+C+O': 9, 'CA': 5, 'N+CA+O': 3}
+
+completeness of the residues holding paired records (N, CA, C, O; any altloc unless noalt):
+  residues                                         142
+  2011 residue has N, CA, C, O                     141
+  current residue has N, CA, C, O                  142
+  all its records matched (none left unpaired)     135
+    1atl B 2011 312 ['C', 'CA', 'N'] -> current 311 ['C', 'CA', 'N', 'O']; unpaired 2011 [], current [('O', '')]
+    3h87 B 2011 141 ['C', 'CA', 'N', 'O'] -> current 126 ['C', 'CA', 'N', 'O']; unpaired 2011 [('C', ''), ('N', ''), ('O', '')], current []
+    3kda A 2011 209 ['C', 'CA', 'N', 'O'] -> current 209 ['C', 'CA', 'N', 'O']; unpaired 2011 [], current [('CA', 'A')]
+    3kda A 2011 217 ['C', 'CA', 'N', 'O'] -> current 217 ['C', 'CA', 'N', 'O']; unpaired 2011 [], current [('CA', 'A')]
+    3kda A 2011 261 ['C', 'CA', 'N', 'O'] -> current 261 ['C', 'CA', 'N', 'O']; unpaired 2011 [], current [('CA', 'A')]
+    3kda A 2011 32 ['C', 'CA', 'N', 'O'] -> current 32 ['C', 'CA', 'N', 'O']; unpaired 2011 [('CA', 'B')], current []
+    3kda A 2011 57 ['C', 'CA', 'N', 'O'] -> current 57 ['C', 'CA', 'N', 'O']; unpaired 2011 [], current [('CA', 'A')]
+
+matched records compared field by field (a record may differ in several fields):
+                              key-matched    paired          all
+identical                       7,542,952       587    7,543,539
+differs                             6,150         8        6,158
+total matched                   7,549,102       595    7,549,697
+  differs in residue name           3,264         3        3,267
+  differs in coordinates            4,812         5        4,817
+  differs in occupancy                396         5          401
+  differs in B                      5,605         5        5,610
+  differs in coordinates or B        5,618         5        5,623

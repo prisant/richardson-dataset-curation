@@ -1,0 +1,28 @@
+chains 7,957; entries 7,737
+mainchain atom records: 2011 files 7,550,002; current files 7,550,019
+  matched (residue number, insertion code, atom, altloc): 7,549,102
+    identical in every field: 7,542,952
+    differing in at least one field: 6,150
+      residue name: 3,264
+      coordinates: 4,812
+      occupancy: 396
+      B: 5,605
+      coordinates moved > 0.01 Å: 4,812; > 0.1 Å: 4,812; > 1 Å: 4,812; max 70.83 Å
+  only in the 2011 files: 900
+  only in the current files: 917
+  unmatched records whose residue (number, insertion code) is in both files (atom or altloc label differs): 2011 95; current 108
+
+entries with any differing, missing or extra mainchain record: 64 of 7,737; records 7,967
+  3me5 1,736
+  3hkx 1,204
+  3kda 1,202
+  3oon 956
+  2pvq 806
+  3h87 619
+  2oyp 548
+  1gug 268
+  1s5m 196
+  1gai 152
+  1pa2 24
+  53 entries with < 20 records each, 256 records
+  in those small entries, by field: {'residue name': 140, 'coordinates': 6, 'occupancy': 24, 'B': 6, 'only 2011': 38, 'only current': 52}

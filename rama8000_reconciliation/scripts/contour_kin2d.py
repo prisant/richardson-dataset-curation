@@ -10,7 +10,7 @@ cell split into four triangles at a centre point (mean of the corners), linear i
 The lab's own even-degree grid needs their input points, which are not published; the lab side is therefore the
 NDFT grid contoured with kin2Dcont on its odd-degree lattice (-wrap -179 181 -179 181, as in silk/old/Makefile).
 Levels: inner 98% (0.02) all classes; outer 99.95% (0.0005) General, 99.90% (0.001) Gly, IleVal, PrePro, TransPro,
-99.85% (0.0015) CisPro. Our data: best rule (see contour_compare.py); Gly mirrored.
+99.80% (0.002) CisPro (Ramalyze CISPRO_ALLOWED). Our data: best rule (see contour_compare.py); Gly mirrored.
 Comparisons per class and contour (distances from polylines resampled at 0.25°, periodic in phi and psi):
   A  lab NDFT vs ours, both odd grid, both kin2Dcont       (replaces the contourpy comparison)
   B  ours even grid (lab's exact procedure) vs ours odd    (effect of the 1° sampling offset)
@@ -38,7 +38,7 @@ rule = ((d.d_prevC_N < 2.0) & (d.d_C_nextN < 2.0) & (d.own_mc_max < 30) & (d.own
         & ~(d.H_minocc < 1) & d.resname.isin(STD | {'MSE'})
         & pd.Series(np.where(d.rama6 == 'CisPro', aw < 30, aw.isna() | (aw >= 150)), index=d.index))
 setup = [('General', 'general', '6.5', 0.0005), ('Gly', 'glycine', '8', 0.001), ('IleVal', 'ileval', '8', 0.001),
-         ('PrePro', 'prepro', '8', 0.001), ('TransPro', 'transpro', '8', 0.001), ('CisPro', 'cispro', '8', 0.0015)]
+         ('PrePro', 'prepro', '8', 0.001), ('TransPro', 'transpro', '8', 0.001), ('CisPro', 'cispro', '8', 0.002)]
 WRAP = {'odd': ['-179', '181', '-179', '181'], 'even': ['-180', '180', '-180', '180']}
 BOUNDS = {'odd': '-180,180,-180,180', 'even': '-181,179,-181,179'}
 

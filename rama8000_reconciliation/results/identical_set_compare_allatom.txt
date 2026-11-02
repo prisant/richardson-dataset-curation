@@ -1,0 +1,63 @@
+rule: all-atom (link + B + heavy occ + omega + residue type + H occ)
+residues with identical inputs: 1,865,394 of 1,867,898; not identical: 2,504
+lab-listed residues: inside the set 1,503,491; outside 1,406
+check: our rule on the identical set, 2011 vs current files: 1,503,497 vs 1,502,531 residues; identical selection and classes: False
+
+category counts on the identical set (lab 2013 lists vs ours, 2011 files)
+category          lab       ours      Δ  only ours  only lab
+General     1,060,666  1,060,663     -3         73        76
+Gly           116,474    116,472     -2          0         2
+IleVal        194,917    194,921     +4         13         9
+PrePro         61,496     61,503     +7          9         2
+TransPro       66,288     66,288     +0          0         0
+CisPro          3,650      3,650     +0          0         0
+total       1,503,491  1,503,497     +6         95        89
+
+category counts on the identical set (lab 2013 lists vs ours, current files)
+category          lab       ours      Δ  only ours  only lab
+General     1,060,666  1,059,829   -837        323     1,160
+Gly           116,474    116,483     +9         37        28
+IleVal        194,917    194,828    -89         57       146
+PrePro         61,496     61,459    -37         30        67
+TransPro       66,288     66,282     -6          0         6
+CisPro          3,650      3,650     +0          0         0
+total       1,503,491  1,502,531   -960        447     1,407
+
+2011 vs current selections on the identical set: only 2011 1,323; only current 357; entries 90
+
+outside the identical set (file differences): lab-listed 1,406; ours (current files) 1,412; ours (2011 files) 1,405
+  outside-set residues by entry (top 12): {'3me5': np.int64(424), '3kda': np.int64(298), '3hkx': np.int64(288), '3oon': np.int64(226), '2pvq': np.int64(201), '3h87': np.int64(153), '2oyp': np.int64(131), '1gug': np.int64(67), '1s5m': np.int64(61), '1gai': np.int64(50), '1pa2': np.int64(32), '2fvy': np.int64(23)}
+
+only lab: the laboratory kept it; the parts of our rule it fails
+cat                General  Gly  IleVal  PrePro  TransPro
+why                                                      
+B                       34    0       0       1         0
+H occ                 1084   26     137      65         6
+heavy occ + H occ       42    2       9       1         0
+
+only ours (447): features, count (share) vs share among the 1,502,084 residues both keep
+  own altloc label (occupancy 1)      0 (  0.0%)   both keep:  0.01%
+  preceding N/CA/O altloc           357 ( 79.9%)   both keep:  1.01%
+  next N or CA altloc                49 ( 11.0%)   both keep:  1.62%
+  next N or CA occupancy < 1         49 ( 11.0%)   both keep:  1.65%
+  side-chain heavy B >= 30           36 (  8.1%)   both keep: 12.85%
+  mainchain B 25-30                  17 (  3.8%)   both keep: 12.64%
+  MSE or next residue MSE             1 (  0.2%)   both keep:  0.54%
+  only ours with none of these: 61
+
+only lab: 1407 residues in 101 entries; top entries {'3pxl': np.int64(284), '1b8d': np.int64(143), '2jc5': np.int64(142), '3l5l': np.int64(114), '1lqt': np.int64(97), '3a4r': np.int64(69), '2bz6': np.int64(58), '1kmt': np.int64(46)}
+  residue types: {'SER': np.int64(176), 'THR': np.int64(165), 'LYS': np.int64(125), 'ALA': np.int64(116), 'ASN': np.int64(112), 'TYR': np.int64(98), 'VAL': np.int64(95), 'LEU': np.int64(92)}
+
+only ours: 447 residues in 104 entries; top entries {'2gew': np.int64(38), '1ls1': np.int64(27), '2zwu': np.int64(25), '3c70': np.int64(22), '1mj5': np.int64(19), '1agy': np.int64(18), '1m40': np.int64(18), '2xu3': np.int64(18)}
+  residue types: {'ALA': np.int64(57), 'LEU': np.int64(51), 'GLY': np.int64(37), 'VAL': np.int64(36), 'ARG': np.int64(32), 'GLU': np.int64(30), 'THR': np.int64(28), 'ILE': np.int64(26)}
+
+only lab, reason by MSE:
+resname            MSE  other
+why                          
+B                   35      0
+H occ                1   1317
+heavy occ + H occ    0     54
+only lab failing the preceding-C altloc test: 0; single altloc record 0, alternates coincide 0, alternates at different positions 0
+next residue number not n+1: only ours 27 / 447
+next residue number not n+1: only lab 12 / 1,407
+next residue number not n+1: both keep 4,650 / 1,502,084

@@ -1,0 +1,6 @@
+lab-listed residues 1,504,897; found in 2011 files 1,504,897; in current files 1,504,818
+φ/ψ match lab: 2011 files 1,504,884; current files 1,503,766
+  where the file sets differ (1,039): match 2011 only 1,039; current only 0; neither 0
+mainchain max B (non-MSE, 1,503,077) match lab: 2011 files 1,503,076; current files 1,501,797
+  where the file sets differ by > 0.05 (1,205): match 2011 only 1,199; current only 0; neither 0
+lab residue key present only in the 2011 files 79; only in current files 0; in neither 0
