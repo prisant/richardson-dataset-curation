@@ -39,9 +39,15 @@ echo "== new $(date +%T)"
 "$PY" -c "$RUN" -c "$COMMANDS" -o jsonl -j "$JOBS" \
     -f filelist.txt > new.jsonl 2> new.log || echo "new exit $?"
 echo "== java $(date +%T)"
-: > java.txt
-while read -r f; do
-    java -jar "$DANGLE_JAR" phi psi omega tau "$f" 2>>java.log | grep -v '^#' >> java.txt || true
-done < filelist.txt
+# One Java process per file, JOBS at a time; each writes its own part file
+# so output lines cannot interleave.  Lines are keyed by residue, so the
+# order of java.txt does not matter to the comparison scripts.
+rm -rf java_parts && mkdir java_parts
+export DANGLE_JAR
+xargs -P "$JOBS" -I{} sh -c \
+    'java -jar "$DANGLE_JAR" phi psi omega tau "$1" 2>>"java_parts/$(basename "$1").log" | grep -v "^#" > "java_parts/$(basename "$1").txt" || true' _ {} \
+    < filelist.txt
+cat java_parts/*.txt > java.txt
+cat java_parts/*.log > java.log 2>/dev/null || : > java.log
 echo "== done $(date +%T)"
 wc -l old.jsonl new.jsonl java.txt
