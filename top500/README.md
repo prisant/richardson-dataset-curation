@@ -77,7 +77,7 @@ Each line of the JSONL file is a JSON object with these fields:
 - Total residues: 97,519
 - Unique structures: 492
 - Output chains: 514
-- Chain list entries: 523 (9 excluded due to all-high-B, 1.7%)
+- Chain list entries: 523 (9 excluded due to all-high-B, 1.7%) — correction: only 2 of the 9 are all-high-B, see `top500_issues.md`
 - Compressed size: 2.4 MB
 
 ## Regression validation

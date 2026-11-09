@@ -15,6 +15,8 @@ documentation for detailed characterization of this phenomenon.
 2 structures are entirely excluded (all chains fail), reducing the
 output from 494 to 492 structures.
 
+> **Correction (2026-11-09).** Only 2 of the 9 chains (1evh B, 1hcr A) have every residue above B 30. Of the others, 3 are DNA chains (1aay B, 1aay C, 1cl8 B); 1atl C and 1jhg B have no atoms with that chain ID in the RCSB file used here; 1gdo F contains only a free Glu ligand (`HETATM`); and 2myr A has passing residues but was dropped because its file has blank chain IDs, so chain `A` from the chain list matched nothing when the masks were built. The statements "All 9 chains exist ... with correct chain IDs (no remediation issues)" and "Every residue in these chains has at least one mainchain atom ... exceeding 30" are therefore wrong. 2myr is one of the 2 entirely excluded structures. Classification: `pipeline/check_unmasked_chains.py`; masks rebuilt in commit `8ec45ad`. The published JSONL is unchanged until the v1.x release.
+
 ## Chain List Provenance
 
 The Top500 chain list was reconstructed from the kinemage webserver
@@ -98,6 +100,8 @@ Zero errors, zero timeouts.
 One non-standard residue (CSD, 3-sulfinoalanine) in the filtered
 output. The same residue appears in the top8000 dataset.
 
+> **Correction (2026-11-09).** The cause given here is wrong. Modified residues were not removed by quality filtering: our residue masks were built from `ATOM` records only, so residues deposited as `HETATM` (selenomethionine MSE and other modified amino acids) were dropped even where they pass the filter. Some neighbouring residues have φ and ω set to null that should have values. Fixed in the mask builders (`pipeline/polymer_residues.py`, commit `8ec45ad`); the published JSONL is unchanged until the v1.x release.
+
 ## Filtering Methodology
 
 Same as top8000: mainchain B-factor ≤ 30 filter with synthetic
@@ -120,7 +124,7 @@ mkdssp 4.x issues:
 3. **Blank chain IDs** (column 22 of ATOM/TER, column 12 of SEQRES)
    in old depositions cause parse failures or silent zero-residue
    output. Top500 has 0 structures with blank-chain SEQRES (verified
-   by survey 2026-04-26).
+   by survey 2026-04-26). **Correction (2026-11-09):** 2myr has blank chain IDs in both its SEQRES and ATOM records.
 4. **Non-protein HETATM records** (water, sulfate, glycerol, ions,
    sugars, ...) collide with the SEQRES protein alignment and cause
    mkdssp to produce zero residues for the entire structure.
@@ -254,6 +258,8 @@ artefact: in the published JSONL, ~14,000 records had literal `'C'`
 (treated as a value) where the corrected JSONL has `null` (loop).
 This is a label correction, not a value-discovery; the underlying
 mkdssp output is identical.
+
+> **Correction (2026-11-09).** 2myr is not fully B-filtered (here and in item 2 above): it had 0 records because its blank chain IDs meant no residue mask was built (see the correction under "9 Chains with Zero Passing Residues").
 
 ### Disclosure plan
 

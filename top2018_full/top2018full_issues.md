@@ -262,6 +262,8 @@ entirely from the ground-truth .dssp consumed by `validate_dssp.py`.
 **Validation gate.** `validate_dssp.py` 0-mismatch result is preserved
 after the fallback; counts are unchanged for residues already present.
 
+> **Correction (2026-11-09).** The `validate_dssp.py` 0-mismatch result above is not supported for top2018: no corrected top2018 JSONL exists, so this comparison has not been run. The published top2018 JSONL was made before the DSSP input fixes in pydangle `d979097` (ANISOU and SIGATM/SIGUIJ records, blank chain IDs, missing SEQRES, blank written as `'C'`), and some of its DSSP assignments are wrong. Corrected data will come with the v1.x release.
+
 **Module reference.** See the docstring of
 `pipeline/dssp_chain_batch_fix.py` for the per-batch reconstruction
 algorithm and the empirical 26-chain cap derivation.

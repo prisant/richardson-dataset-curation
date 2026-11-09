@@ -47,6 +47,8 @@ successfully. No data lost.
 Only 2 MSE (selenomethionine) residues in the entire dataset, mapped to
 MET for analysis. No other non-standard residues survived quality filtering.
 
+> **Correction (2026-11-09).** The cause given here is wrong. Modified residues were not removed by quality filtering: our residue masks were built from `ATOM` records only, so residues deposited as `HETATM` (selenomethionine MSE and other modified amino acids) were dropped even where the lab's pruned files keep them. Fixed in the mask builders (`pipeline/polymer_residues.py`, commit `8ec45ad`); the published JSONL is unchanged until the v1.x release.
+
 ## DSSP Coverage
 
 20,546 residues (0.69%) have null DSSP assignments. These are typically
@@ -125,3 +127,5 @@ science output.
 after the fallback; counts are unchanged for residues already present.
 The fallback eliminates the "missing-dssp" failure mode that would
 otherwise be triggered for surplus chains in any future dataset.
+
+> **Correction (2026-11-09).** The `validate_dssp.py` 0-mismatch result above is not supported for top2018: no corrected top2018 JSONL exists, so this comparison has not been run. The published top2018 JSONL was made before the DSSP input fixes in pydangle `d979097` (ANISOU and SIGATM/SIGUIJ records, blank chain IDs, missing SEQRES, blank written as `'C'`), and some of its DSSP assignments are wrong. Corrected data will come with the v1.x release. The statement above that the JSONL DSSP assignments "were already correct for these structures" holds only with respect to the 26-chain limit.

@@ -27,6 +27,8 @@ top500 and top8000 datasets (which use the stricter B ≤ 30).
 2 structures are entirely excluded, reducing the output from 100 to
 98 structures.
 
+> **Correction (2026-11-09).** The 2 chains are 3b5c A and 4ptp A, and both have residues that pass B ≤ 40. Their PDB files have blank chain IDs, so when the residue masks were built, chain `A` from the chain list matched nothing and the chain was dropped. The statement that both exist "with correct chain IDs" is wrong, and so is the B-factor explanation. With the masks rebuilt (commit `8ec45ad`), no top100 chain has zero passing residues (`pipeline/check_unmasked_chains.py`). The published JSONL is unchanged until the v1.x release.
+
 ## Chain List Provenance
 
 The Top100 chain list was reconstructed from the kinemage webserver

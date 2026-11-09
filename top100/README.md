@@ -29,7 +29,7 @@ The Top100 chain list was reconstructed from the kinemage webserver archive (top
 
 ## Residue-level quality filter
 
-Residues are filtered using a mainchain B-factor ≤ 40 criterion, matching the original Top100 methodology (Word et al., 1999a). This is intentionally less strict than the B ≤ 30 used for the larger top500 and top8000 datasets — the original Top100 used the higher threshold because with only 100 structures, a stricter cutoff would have sacrificed too many residues for adequate statistics. Of 108 chain entries, 2 (1.9%) have zero passing residues even at B ≤ 40.
+Residues are filtered using a mainchain B-factor ≤ 40 criterion, matching the original Top100 methodology (Word et al., 1999a). This is intentionally less strict than the B ≤ 30 used for the larger top500 and top8000 datasets — the original Top100 used the higher threshold because with only 100 structures, a stricter cutoff would have sacrificed too many residues for adequate statistics. Of 108 chain entries, 2 (1.9%) have zero passing residues even at B ≤ 40. **Correction (2026-11-09):** these 2 chains (3b5c A, 4ptp A) do have passing residues; they were dropped because their files have blank chain IDs (see `top100_issues.md`).
 
 ## Preprocessing: "Ersatz" full-structure PDB files
 
@@ -53,7 +53,7 @@ Sidechain torsion angles (chi1–chi4) are included for residues that have them.
 - Total residues: 17,434
 - Unique structures: 98
 - Output chains: 106
-- Chain list entries: 108 (2 excluded at B ≤ 40, 1.9%)
+- Chain list entries: 108 (2 excluded at B ≤ 40, 1.9%) — correction: not B-factor exclusions, see "Residue-level quality filter" above
 - Compressed size: ~430 KB
 
 ## Software versions used

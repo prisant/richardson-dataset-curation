@@ -46,6 +46,8 @@ track per-chain contributions.
 - 7,607 structures contribute residues (130 structures have all chains excluded)
 - The B ≤ 30 threshold matches the published methodology exactly
 
+> **Correction (2026-11-09).** The last point is not established. Reproducing the Richardson Lab's rama8000 residue counts from these files (branch `rama8000-reconciliation`, not yet merged) needed inferred filtering rules that differ from this dataset's in several respects. Until that work is settled, this filter should not be described as matching the published methodology exactly.
+
 ## Regression Validation Against Richardson Lab Reference Values
 
 The phi and psi values in this dataset were validated against the
@@ -128,6 +130,8 @@ Zero errors, zero timeouts.
 
 One non-standard residue (CSD, 3-sulfinoalanine) in the filtered output.
 No MSE→MET mapping was needed (unlike top2018 which had 2 MSE residues).
+
+> **Correction (2026-11-09).** The cause given here is wrong. Modified residues were not removed by quality filtering: our residue masks were built from `ATOM` records only, so residues deposited as `HETATM` (selenomethionine MSE and other modified amino acids) were dropped even where they pass the filter. Neighbouring residues were affected too: some have φ or ψ set to null that should have values, and some have values measured through a modified residue with B > 30 that should be null. Fixed in the mask builders (`pipeline/polymer_residues.py`, commit `8ec45ad`); the published JSONL is unchanged until the v1.x release.
 
 ## Filtering Methodology Difference from top2018
 
