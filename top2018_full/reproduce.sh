@@ -104,7 +104,12 @@ fi
 
 echo ""
 echo "=== Step 3: Build ersatz PDB files (~70 sec at -j $JOBS) ==="
-python3 "$PIPELINE/build_ersatz_pdbs.py" "$DATASET_DIR" -j "$JOBS"
+# --rcsb-remap applies the chain/numbering remaps for 4ct3, 5tvo and 1xmz
+# (RCSB files differ from the lab's pruned files; top2018full_issues.md
+# section 8).  Until 2026-11-08 this was a manual edit of the masks.
+# The pruned files' USER INC records must already be remapped (done
+# 2026-03-15, commit 9e288f2); this script does not edit them.
+python3 "$PIPELINE/build_ersatz_pdbs.py" "$DATASET_DIR" -j "$JOBS" --rcsb-remap
 
 echo ""
 echo "=== Step 4: Run pydangle (~1-2 hours at -j 4) ==="

@@ -10,6 +10,13 @@ The output is compatible with filter_pruned_residues.py: per-chain .mask files
 and synthetic _pruned_bfilt.pdb files containing USER INC fragment records
 derived from contiguous runs of passing residues.
 
+Residues are the chain's ATOM residues plus its polymer HETATM residues
+(modified residues such as MSE; see polymer_residues.py), and both are held
+to the same B-factor rule.  Before 2026-11-08 only ATOM residues were read
+(defect register B1): HETATM residues were missing from the masks, and a
+high-B modified residue did not break a fragment, so its neighbours kept
+phi/psi measured through it.
+
 Usage:
     python scripts/build_bfactor_masks.py SRC_DIR CHAIN_LIST [-j JOBS] [-b BMAX]
 
@@ -35,10 +42,16 @@ from __future__ import annotations
 
 import argparse
 import csv
+import importlib.util
 import sys
 from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
+
+_spec = importlib.util.spec_from_file_location(
+    "polymer_residues", Path(__file__).with_name("polymer_residues.py"))
+_polymer = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_polymer)
 
 # Mainchain atom names (PDB columns 13-16, space-padded)
 _MC_ATOMS = {" N  ", " CA ", " C  ", " O  "}
@@ -62,27 +75,24 @@ def _parse_residues(
     seen_set: set[tuple[str, int, str]] = set()
 
     with open(ersatz_path) as fh:
-        for line in fh:
-            if not line.startswith("ATOM  "):
-                continue
-            ch = line[21]
-            if ch != chain_id:
-                continue
-            resnum = int(line[22:26])
-            icode = line[26] if line[26] != " " else " "
-            atom_name = line[12:16]
-            key = (ch, resnum, icode)
+        lines = fh.read().splitlines()
+    for line in _polymer.mask_lines(lines, [chain_id]):
+        ch = line[21]
+        resnum = int(line[22:26])
+        icode = line[26] if line[26] != " " else " "
+        atom_name = line[12:16]
+        key = (ch, resnum, icode)
 
-            if key not in seen_set:
-                seen_set.add(key)
-                seen_order.append(key)
+        if key not in seen_set:
+            seen_set.add(key)
+            seen_order.append(key)
 
-            if atom_name in _MC_ATOMS:
-                try:
-                    bfactor = float(line[60:66])
-                    mc_bfactors[key].append(bfactor)
-                except (ValueError, IndexError):
-                    pass
+        if atom_name in _MC_ATOMS:
+            try:
+                bfactor = float(line[60:66])
+                mc_bfactors[key].append(bfactor)
+            except (ValueError, IndexError):
+                pass
 
     # Classify: pass if ALL mainchain atoms have B <= bmax
     # Also require at least N, CA, C (3 mainchain atoms) to be present
