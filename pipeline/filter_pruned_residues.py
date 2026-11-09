@@ -18,8 +18,19 @@ Neighbor-dependent measurements:
     rama_category, rama5, rama4, rama3         — require both (phi + psi)
     tau, chi1, chirality, dssp                 — use only residue i
 
+Residue set (register B2, 2026-11-09):
+    --residues all        keep every masked residue pydangle reports
+                          (default; the v1.0 behaviour)
+    --residues std20+MSE  keep only the 20 standard amino acids and MSE.
+                          Records of other residue types (PCA, MLY, M3L,
+                          CSD, ...) are dropped; nothing else changes, in
+                          particular neighbours' phi/psi measured through a
+                          dropped residue are kept.  Used by the v1.x
+                          recipes.  See docs/differences_from_richardson_lab.md.
+
 Usage:
     python scripts/filter_pruned_residues.py INPUT.jsonl SRC_DIR [-s SUFFIX]
+        [--residues {all,std20+MSE}]
 
 Arguments:
     INPUT.jsonl  Raw pydangle JSONL output
@@ -34,6 +45,7 @@ import argparse
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 
@@ -135,6 +147,16 @@ def load_masks_and_fragments(
     return masks, frag_starts, frag_ends
 
 
+# Residue sets for --residues
+STD20 = frozenset({
+    "ALA", "ARG", "ASN", "ASP", "CYS", "GLN", "GLU", "GLY", "HIS", "ILE",
+    "LEU", "LYS", "MET", "PHE", "PRO", "SER", "THR", "TRP", "TYR", "VAL",
+})
+RESIDUE_SETS: dict[str, frozenset[str] | None] = {
+    "all": None,
+    "std20+MSE": STD20 | {"MSE"},
+}
+
 # Measurements that require the previous residue (i-1)
 _NEEDS_PREV = {"phi", "omega", "is_cis", "is_trans", "peptide_bond"}
 
@@ -193,7 +215,16 @@ def main() -> None:
             "Use 'pruned_mc' for mainchain-filtered datasets."
         ),
     )
+    parser.add_argument(
+        "--residues", choices=sorted(RESIDUE_SETS), default="all",
+        help=(
+            "Residue types to keep (default: all).  std20+MSE keeps the "
+            "20 standard amino acids and MSE and drops other records "
+            "without changing any other field."
+        ),
+    )
     args = parser.parse_args()
+    keep_names = RESIDUE_SETS[args.residues]
 
     if not args.input_jsonl.exists():
         print(f"Error: {args.input_jsonl} not found", file=sys.stderr)
@@ -211,12 +242,14 @@ def main() -> None:
         f"Loaded masks for {len(masks)} PDB entries", file=sys.stderr
     )
     print(f"Pruned file suffix: {args.suffix}", file=sys.stderr)
+    print(f"Residue set: {args.residues}", file=sys.stderr)
 
     kept = 0
     skipped = 0
     no_mask = 0
     nulled_start = 0
     nulled_end = 0
+    dropped_type: Counter[str] = Counter()
 
     # Compile filename normalization pattern
     ersatz_re = re.compile(r"_ersatz\.pdb$|\.pdb$")
@@ -246,6 +279,9 @@ def main() -> None:
             if res_key not in mask:
                 skipped += 1
                 continue
+            if keep_names is not None and record.get("resname") not in keep_names:
+                dropped_type[str(record.get("resname"))] += 1
+                continue
 
             # Check fragment boundaries from USER INC records
             is_start = res_key in frag_starts.get(pdb_id, set())
@@ -268,6 +304,12 @@ def main() -> None:
         f"fragment ends (no i+1): {nulled_end}",
         file=sys.stderr,
     )
+    if keep_names is not None:
+        print(
+            f"Dropped by residue set: {sum(dropped_type.values())} "
+            f"{dict(dropped_type.most_common())}",
+            file=sys.stderr,
+        )
 
 
 if __name__ == "__main__":

@@ -52,8 +52,10 @@ pydangle-biopython \
 # 6. Post-filter
 echo ""
 echo "Step 6: Post-filter to quality-filtered residues..."
+# --residues std20+MSE: v1.x residue set (register B2, 2026-11-09);
+# see docs/differences_from_richardson_lab.md.
 python ../pipeline/filter_pruned_residues.py \
-  top500_ersatz_raw.jsonl "$DIR" -s "$SUFFIX" \
+  top500_ersatz_raw.jsonl "$DIR" -s "$SUFFIX" --residues std20+MSE \
   > top500_measures.jsonl
 
 # 7. Generate analysis reports

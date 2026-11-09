@@ -124,8 +124,10 @@ echo "  Raw output: $(wc -l < top2018_ersatz_raw.jsonl) lines"
 
 echo ""
 echo "=== Step 5: Post-filter to quality-filtered residues ==="
+# --residues std20+MSE: v1.x residue set (register B2, 2026-11-09);
+# see docs/differences_from_richardson_lab.md.
 python3 "$PIPELINE/filter_pruned_residues.py" \
-    top2018_ersatz_raw.jsonl "$DATASET_DIR" \
+    top2018_ersatz_raw.jsonl "$DATASET_DIR" --residues std20+MSE \
     > top2018full_measures.jsonl
 
 echo ""
