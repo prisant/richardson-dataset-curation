@@ -1,8 +1,8 @@
 #!/bin/bash
-# B2 residue-set regression on msi (register B2).
+# Residue-set (--residues std20+MSE) regression on msi.
 #
 # Input: ~/scratch/regress/<ds>/rama.jsonl, unfiltered output of pydangle main
-# 664e87a (run_rama_regress_msi.sh).  Filtered with the B1 masks in
+# 664e87a (run_rama_regress_msi.sh).  Filtered with the HETATM-fixed masks in
 # ~/Desktop/Data twice, --residues all and --residues std20+MSE; the first must
 # equal b1_new_filtered.jsonl (run_b1_regress_msi.sh) byte for byte, and
 # check_residue_set.py checks that the second only drops records outside the set.

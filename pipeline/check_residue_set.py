@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check filter_pruned_residues.py --residues against the unrestricted output (register B2).
+"""Check filter_pruned_residues.py --residues against the unrestricted output.
 
 ALL and SUBSET are the same raw JSONL filtered with --residues all and with
 a restricted set.  Expected: SUBSET is a sub-multiset of ALL (so every kept

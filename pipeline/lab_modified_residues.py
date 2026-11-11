@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""How the Richardson Lab Top2018 database treats modified residues (register B2).
+"""How the Richardson Lab Top2018 database treats modified residues.
 
 Reads Christopher Williams' Top2018 SQLite database (Zenodo
 10.5281/zenodo.22085722) read-only and reports, for residue types other

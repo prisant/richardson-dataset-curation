@@ -18,7 +18,7 @@ Neighbor-dependent measurements:
     rama_category, rama5, rama4, rama3         — require both (phi + psi)
     tau, chi1, chirality, dssp                 — use only residue i
 
-Residue set (register B2, 2026-11-09):
+Residue set (decided 2026-11-09):
     --residues all        keep every masked residue pydangle reports
                           (default; the v1.0 behaviour)
     --residues std20+MSE  keep only the 20 standard amino acids and MSE.
