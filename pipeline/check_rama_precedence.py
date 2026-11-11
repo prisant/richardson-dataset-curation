@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the Ramachandran-category precedence fix (register A2).
+"""Check the Ramachandran-category precedence fix of 2026-11-08.
 
 Compares pydangle JSONL before (OLD) and after (NEW) the fix, which moves
 the Ile/Val test below the pre-Pro test (Read et al. 2011: Gly, Pro >

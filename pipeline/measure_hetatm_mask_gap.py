@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Measure polymer HETATM residues missing from residue masks (register B1).
+"""Measure polymer HETATM residues missing from residue masks.
 
 The mask builders (`build_ersatz_pdbs._build_mask` for top2018,
 `build_bfactor_masks._parse_residues` for top100/500/8000) read ATOM lines

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""List chain-list entries that have no mask, and say why (register B7).
+"""List chain-list entries that have no mask, and say why.
 
 For top100/500/8000 (build_bfactor_masks.py).  For every chain in the
 chain list with no {pdbid}_{chain}.mask, reports:

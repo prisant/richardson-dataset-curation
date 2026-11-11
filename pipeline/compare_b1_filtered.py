@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare filtered JSONL before and after the HETATM mask fix (register B1).
+"""Compare filtered JSONL before and after the HETATM mask fix of 2026-11-08.
 
 OLD and NEW are the same pydangle output filtered by filter_pruned_residues.py
 with the old and the new masks.  Expected:

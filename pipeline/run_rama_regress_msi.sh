@@ -1,5 +1,5 @@
 #!/bin/bash
-# Rama-precedence fix (register A2) regression on msi.  "Old" outputs are
+# Rama-precedence fix regression on msi.  "Old" outputs are
 # the continuity-regression runs of the 2.0 A code (identical to pydangle
 # main 1a0e57e apart from a docstring): new2.jsonl for top100/500/8000,
 # new.jsonl for top2018_full/mc.  This script runs only the fixed code:
