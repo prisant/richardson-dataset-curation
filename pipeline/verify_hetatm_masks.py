@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the HETATM mask fix (register B1) before and after rebuilding masks.
+"""Verify the HETATM mask fix before and after rebuilding masks.
 
 Runs the old mask code (a copy of the pre-fix build_ersatz_pdbs.py or
 build_bfactor_masks.py, passed with --old) and the new code in this

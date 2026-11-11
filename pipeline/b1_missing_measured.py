@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """List added mask residues that pydangle measures but that are absent from NEW.
 
-Register B1 regression helper.  "Measured" = resname in pydangle's
+Helper for the HETATM mask fix regression.  "Measured" = resname in pydangle's
 _PROTEIN_NAMES.  For each such residue absent from the new filtered JSONL,
 report whether pydangle produced a record at all (in the unfiltered RAW).
 

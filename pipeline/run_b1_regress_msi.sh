@@ -1,5 +1,5 @@
 #!/bin/bash
-# HETATM mask fix (register B1) regression on msi.
+# HETATM mask fix regression on msi.
 #
 # Input: ~/scratch/regress/<ds>/rama.jsonl, the unfiltered output of pydangle
 # main 664e87a (run_rama_regress_msi.sh).  It is filtered twice with

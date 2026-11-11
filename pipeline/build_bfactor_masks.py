@@ -12,9 +12,9 @@ derived from contiguous runs of passing residues.
 
 Residues are the chain's ATOM residues plus its polymer HETATM residues
 (modified residues such as MSE; see polymer_residues.py), and both are held
-to the same B-factor rule.  Before 2026-11-08 only ATOM residues were read
-(defect register B1): HETATM residues were missing from the masks, and a
-high-B modified residue did not break a fragment, so its neighbours kept
+to the same B-factor rule.  Before 2026-11-08 only ATOM residues were read:
+HETATM residues were missing from the masks, and a high-B modified
+residue did not break a fragment, so its neighbours kept
 phi/psi measured through it.
 
 Usage:

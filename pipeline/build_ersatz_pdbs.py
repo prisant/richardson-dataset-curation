@@ -56,7 +56,7 @@ file for each chain.
 
 Masks hold ATOM residues and polymer HETATM residues (modified residues
 such as MSE or SMC that the lab kept); see polymer_residues.py.  Before
-2026-11-08 they held ATOM residues only (defect register B1).
+2026-11-08 they held ATOM residues only.
 """
 
 from __future__ import annotations

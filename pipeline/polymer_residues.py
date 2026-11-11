@@ -5,7 +5,7 @@ and build_bfactor_masks.py (top100/500/8000 masks from the ersatz files).
 
 Before 2026-11-08 both builders read ATOM lines only, so a modified residue
 written as HETATM (MSE, SMC, KCX, ...) never entered a mask, even when it
-was part of the kept chain (defect register B1).  This module keeps every
+was part of the kept chain.  This module keeps every
 ATOM line in the requested chains, exactly as before, and adds the HETATM
 lines of polymer residues.
 
@@ -23,7 +23,8 @@ MSE with OXT after the chain's TER, 1vje A 301).  The chain test excludes
 HETATM records of other chains that the lab's pruned files keep while
 deleting those chains' ATOM records (e.g. 1ci4_B_pruned_all.pdb carries
 MSE A 1).  Which of the admitted residues pydangle measures is a separate
-question (register B2); the mask only records what the lab kept.
+question (filter_pruned_residues.py --residues); the mask only records
+what the lab kept.
 
 Load from a sibling script with importlib (works under ``python -I``)::
 
