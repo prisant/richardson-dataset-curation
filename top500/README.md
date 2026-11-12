@@ -1,6 +1,6 @@
 # pydangle top500: Per-residue backbone geometry for 514 quality-filtered protein chains
 
-**Zenodo DOI:** [10.5281/zenodo.19050958](https://doi.org/10.5281/zenodo.19050958) (v2.0.2) | [all versions](https://doi.org/10.5281/zenodo.19042131)
+**Zenodo DOI:** [10.5281/zenodo.19050958](https://doi.org/10.5281/zenodo.19050958) (v2.0.2) | [all versions](https://doi.org/10.5281/zenodo.19042130)
 **Source:** Richardson Lab Top500 dataset
 
 ## Summary
@@ -20,7 +20,7 @@ The Top500 was subsequently superseded by the Top8000 (Hintze et al., 2016; Will
 ### Key references
 
 - Word, J. M., Lovell, S. C., Richardson, J. S., & Richardson, D. C. (1999a). Asparagine and glutamine: using hydrogen atom contacts in the choice of side-chain amide orientation. *J. Mol. Biol.*, 285(4), 1735–1747. doi:10.1006/jmbi.1998.2401
-- Word, J. M., Lovell, S. C., Richardson, J. S., & Richardson, D. C. (1999b). Visualizing and quantifying molecular complementarity. *J. Mol. Biol.*, 285(4), 1711–1733. doi:10.1006/jmbi.1998.2400
+- Word, J. M., Lovell, S. C., LaBean, T. H., Taylor, H. C., Zalis, M. E., Presley, B. K., Richardson, J. S., & Richardson, D. C. (1999b). Visualizing and quantifying molecular goodness-of-fit: small-probe contact dots with explicit hydrogen atoms. *J. Mol. Biol.*, 285(4), 1711–1733. doi:10.1006/jmbi.1998.2400
 - Lovell, S. C., Word, J. M., Richardson, J. S., & Richardson, D. C. (2000). The penultimate rotamer library. *Proteins*, 40(3), 389–408. PMID:10861930
 - Lovell, S. C., Davis, I. W., Arendall, W. B. III, de Bakker, P. I. W., Word, J. M., Prisant, M. G., Richardson, J. S., & Richardson, D. C. (2003). Structure validation by Calpha geometry: phi,psi and Cbeta deviation. *Proteins*, 50(3), 437–450. doi:10.1002/prot.10286
 - Davis, I. W., Murray, L. W., Richardson, J. S., & Richardson, D. C. (2004). MOLPROBITY: structure validation and all-atom contact analysis for nucleic acids and their complexes. *Nucleic Acids Research*, 32(suppl_2), W615–W619. doi:10.1093/nar/gkh398
@@ -109,8 +109,8 @@ CC-BY 4.0
 
 - pydangle-biopython: https://github.com/prisant/pydangle-biopython
 - top2018 full-filtered: doi:10.5281/zenodo.19029946
-- top2018 MC-filtered: doi:10.5281/zenodo.19040026
-- top8000: doi:10.5281/zenodo.19041232
+- top2018 MC-filtered: doi:10.5281/zenodo.19040025
+- top8000: doi:10.5281/zenodo.19041231
 - Richardson Lab reference_data: https://github.com/rlabduke/reference_data
 - Word et al. (1999a) NQH flips: doi:10.1006/jmbi.1998.2401
 - Word et al. (1999b) Probe: doi:10.1006/jmbi.1998.2400

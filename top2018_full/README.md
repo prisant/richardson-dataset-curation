@@ -12,8 +12,8 @@ The measurements were computed using [pydangle-biopython](https://github.com/pri
 
 The residues come from the top2018 dataset by the Richardson Lab at Duke University (Williams, Richardson, & Richardson, 2021). This is the full-filtered, 70% homology, 60% completeness subset.
 
-- Williams, C. J., Richardson, D. C., & Richardson, J. S. (2021). The importance of residue-level filtering, and the Top2018 best-parts dataset of high-quality protein residues. *Protein Science*. doi:10.1002/pro.4239
-- Original dataset: doi:10.5281/zenodo.5115233
+- Williams, C. J., Richardson, D. C., & Richardson, J. S. (2021). The importance of residue-level filtering and the Top2018 best-parts dataset of high-quality protein residues. *Protein Science*, 31(1), 290–300. doi:10.1002/pro.4239
+- Original dataset: doi:10.5281/zenodo.5773255 (version 2.0; all versions: doi:10.5281/zenodo.5115232)
 
 ## Preprocessing: "Ersatz" full-structure PDB files
 
@@ -125,7 +125,7 @@ git clone https://github.com/prisant/richardson-dataset-curation.git
 cd richardson-dataset-curation/top2018_full/
 
 # Download and unpack the top2018 full-filtered dataset from Zenodo
-# https://doi.org/10.5281/zenodo.5115233
+# https://doi.org/10.5281/zenodo.5773255
 # Place top2018_pdbs_full_filtered_hom70/ in this directory
 
 # Run the full pipeline
@@ -184,6 +184,6 @@ CC-BY 4.0
 ## Related
 
 - pydangle-biopython: https://github.com/prisant/pydangle-biopython
-- top2018 dataset: doi:10.5281/zenodo.5115233
+- top2018 dataset: doi:10.5281/zenodo.5773255 (version 2.0; all versions: doi:10.5281/zenodo.5115232)
 - Williams et al. (2021): doi:10.1002/pro.4239
 - Williams et al. (2018): doi:10.1002/pro.3330
