@@ -55,7 +55,7 @@ subjects:
     scheme: "MeSH"
 
 related_identifiers:
-  - identifier: "10.5281/zenodo.5115233"
+  - identifier: "10.5281/zenodo.5777651"
     relation: "isDerivedFrom"
     resource_type: "dataset"
     scheme: "doi"

@@ -8,7 +8,7 @@
 #   - Reduce (3.3+ or 4.16+) in PATH or ~/bin/
 #   - mkdssp 4.x in PATH
 #   - The top2018 full-filtered dataset from Zenodo:
-#     https://doi.org/10.5281/zenodo.5115233
+#     https://doi.org/10.5281/zenodo.5773255
 #     Unpack top2018_pdbs_full_filtered_hom70.tar.gz into this directory.
 #
 # Usage:
@@ -46,7 +46,7 @@ echo "  mkdssp $(mkdssp --version 2>&1 || dssp --version 2>&1 || echo 'unknown')
 
 if [ ! -d "$DATASET_DIR" ]; then
     echo "ERROR: $DATASET_DIR not found."
-    echo "Download and unpack from https://doi.org/10.5281/zenodo.5115233"
+    echo "Download and unpack from https://doi.org/10.5281/zenodo.5773255"
     exit 1
 fi
 
