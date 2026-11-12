@@ -4,7 +4,7 @@
 Sets up the two-level directory structure and downloads full PDB files
 for each entry in the MC-filtered chain list. The pruned MC files
 ({pdbid}_{chain}_pruned_mc.pdb) must be obtained separately from the
-Richardson Lab top2018 Zenodo deposit (doi:10.5281/zenodo.5115233) and
+Richardson Lab top2018 Zenodo deposit (doi:10.5281/zenodo.5777651) and
 placed in the corresponding entry directories.
 
 Usage:
@@ -96,7 +96,7 @@ def main() -> None:
     print(
         "\nNote: You must also place the pruned MC files "
         "({pdbid}_{chain}_pruned_mc.pdb) from the Richardson Lab "
-        "top2018 Zenodo deposit (doi:10.5281/zenodo.5115233) in "
+        "top2018 Zenodo deposit (doi:10.5281/zenodo.5777651) in "
         "the corresponding entry directories."
     )
 

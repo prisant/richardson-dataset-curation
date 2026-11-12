@@ -8,7 +8,7 @@
 #
 # Source data:
 #   The MC-filtered pruned files must be obtained from the Richardson Lab
-#   top2018 dataset (doi:10.5281/zenodo.5115233). Place the two-level
+#   top2018 dataset (doi:10.5281/zenodo.5777651). Place the two-level
 #   directory structure with {pdbid}.pdb and {pdbid}_{chain}_pruned_mc.pdb
 #   files in the working directory as top2018_pdbs_mc_filtered_hom70/.
 #
@@ -27,7 +27,7 @@ echo ""
 
 # 0. Download full PDB structures from RCSB
 echo "Step 0: Download PDB files from RCSB..."
-echo "(Pruned MC files must be placed manually from Zenodo doi:10.5281/zenodo.5115233)"
+echo "(Pruned MC files must be placed manually from Zenodo doi:10.5281/zenodo.5777651)"
 python get_top2018_mc.py -j "$JOBS"
 
 if [ ! -d "$DIR" ]; then
