@@ -12,8 +12,8 @@ The measurements were computed using [pydangle-biopython](https://github.com/pri
 
 The residues come from the top2018 dataset by the Richardson Lab at Duke University (Williams, Richardson, & Richardson, 2021). This is the mainchain-filtered (MC), 70% homology, 60% completeness subset. Mainchain-only quality filtering passes more residues than the full (MC+SC) filtering because sidechain quality is not required.
 
-- Williams, C. J., Richardson, D. C., & Richardson, J. S. (2021). The importance of residue-level filtering, and the Top2018 best-parts dataset of high-quality protein residues. *Protein Science*. doi:10.1002/pro.4239
-- Original dataset: doi:10.5281/zenodo.5115233
+- Williams, C. J., Richardson, D. C., & Richardson, J. S. (2021). The importance of residue-level filtering and the Top2018 best-parts dataset of high-quality protein residues. *Protein Science*, 31(1), 290–300. doi:10.1002/pro.4239
+- Original dataset: doi:10.5281/zenodo.5777651 (version 2.01; all versions: doi:10.5281/zenodo.4626149)
 
 ## Comparison with full-filtered sibling
 
@@ -25,7 +25,7 @@ The residues come from the top2018 dataset by the Richardson Lab at Duke Univers
 | Residues | 2,405,322 | 2,963,303 |
 | Includes chi1 | Yes | No |
 | Rama granularity | rama_category only | rama_category + rama5/4/3 |
-| Zenodo DOI | [10.5281/zenodo.19029946](https://doi.org/10.5281/zenodo.19029946) | This deposit |
+| Zenodo DOI | [10.5281/zenodo.19040026](https://doi.org/10.5281/zenodo.19040026) | This deposit |
 
 ## Preprocessing: "Ersatz" full-structure PDB files
 
@@ -161,6 +161,6 @@ CC-BY 4.0
 
 - pydangle-biopython: https://github.com/prisant/pydangle-biopython
 - top2018 full-filtered sibling: doi:10.5281/zenodo.19029946
-- top2018 dataset: doi:10.5281/zenodo.5115233
+- top2018 dataset: doi:10.5281/zenodo.5777651 (version 2.01; all versions: doi:10.5281/zenodo.4626149)
 - Williams et al. (2021): doi:10.1002/pro.4239
 - Williams et al. (2018): doi:10.1002/pro.3330
