@@ -1,6 +1,6 @@
 # pydangle top8000: Per-residue backbone geometry for 7,814 quality-filtered protein chains
 
-**Zenodo DOI:** [10.5281/zenodo.19051741](https://doi.org/10.5281/zenodo.19051741) (v2.0.0) | [all versions](https://doi.org/10.5281/zenodo.19041232)
+**Zenodo DOI:** [10.5281/zenodo.19051741](https://doi.org/10.5281/zenodo.19051741) (v2.0.0) | [all versions](https://doi.org/10.5281/zenodo.19041231)
 
 ## Summary
 
@@ -103,7 +103,7 @@ CC-BY 4.0
 
 - pydangle-biopython: https://github.com/prisant/pydangle-biopython
 - top2018 full-filtered sibling: doi:10.5281/zenodo.19029946
-- top2018 MC-filtered sibling: doi:10.5281/zenodo.19040026
+- top2018 MC-filtered sibling: doi:10.5281/zenodo.19040025
 - Richardson Lab reference_data: https://github.com/rlabduke/reference_data
 - Williams et al. (2018): doi:10.1002/pro.3330
 - Hintze et al. (2016): doi:10.1002/prot.25039
