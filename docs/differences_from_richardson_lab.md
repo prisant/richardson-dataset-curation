@@ -37,7 +37,7 @@ Reference material:
 | DC-2 | top2018 residues = the lab's pruned files | the lab's pruned files | Same selection | decided (v1.0) |
 | DC-3 | Mainchain B ≤ 30 (top100: ≤ 40), own residue | top8000: 1 < B < 30, MSE incl. SE | Differs at the edges | open |
 | DC-4 | Neighbour fields nulled at fragment ends, record kept | top8000: residue absent | Differs | decided (v1.0) |
-| DC-5 | pydangle-biopython | early ramalyze / cctbx; Dangle or Prekin earlier | Different tool | decided |
+| DC-5 | pydangle-biopython | cctbx (probably via ramalyze or omegalyze); Prekin or Dangle before Top8000 | Different tool | decided |
 | DC-6 | Peptide bond C–N ≤ 2.0 Å; isolated residues dropped | threshold unknown | Unknown | decided 2026-11-08 |
 | DC-7 | Altloc: first conformer (per-residue file order), one per residue | Top2018: first conformer, consistent; top8000: altloc residues dropped | Top2018: 12 values in 7 entries differ | decided 2026-11-09, revised 2026-11-10 |
 | DC-8 | Microheterogeneity: first standard-residue conformer | Top2018: standard conformer measured, modified name kept | Name only | decided 2026-11-09, revised 2026-11-10 |
@@ -87,7 +87,7 @@ Reference material:
 
 - **Status:** decided.
 - **Our choice:** pydangle-biopython (BioPython parser). Agrees with Java Dangle 1.07 except at altloc choice (DC-7), in the third decimal where BioPython's single-precision coordinates matter (DC-7), and at mismatched altloc labels across a bond (3rdo A−5: pydangle does not link it, Java Dangle does).
-- **Original:** [L] top8000: probably an early ramalyze; earlier datasets possibly Dangle or Prekin. [M] the 2013 lists' SQL reads a table named `dangle` (`get_srcdata.py`). [L] (M. G. Prisant, 2026-11-08) reference angles from Top8000 onward come from cctbx. [U] exact versions.
+- **Original:** [L] (M. G. Prisant, 2026-11-12) Top8000 and later: cctbx, probably called by ramalyze or omegalyze; before Top8000 (Top100, Top500): probably Prekin or Dangle. [M] the 2013 lists' SQL reads a table named `dangle` (`get_srcdata.py`). [U] exact versions.
 - **Difference / consequence:** see DC-6 to DC-10.
 
 ### DC-6. Peptide bonds and isolated residues

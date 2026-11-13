@@ -4,7 +4,7 @@
 
 This dataset uses a mainchain B-factor ≤ 40 filter, in contrast to the
 B ≤ 30 used for the top500 and top8000 datasets. This matches the
-original published methodology for the Top100 era (Word et al., 1999a).
+original published methodology for the Top100 era (Word et al., 1999a).[^b40]
 
 The original Top100 used B ≤ 40 because with only 100 structures, a
 stricter threshold would have sacrificed too many residues for adequate
@@ -163,3 +163,5 @@ All 13 trace to two root causes:
   have equal or near-equal occupancy.
 
 Neither represents a computational error.
+
+[^b40]: The B < 40 cutoff is stated in Word et al. (1999b), *J. Mol. Biol.* 285, 1711–1733, not in 1999a. Abstract, p. 1711: "packing and other structural features would not be analyzed for residues in 'b' alternate conformations or with B-factors of 40 or above." p. 1724: "B < 40 was chosen as a conservative cutoff criterion, which keeps more than 95 % of the atoms while rejecting those whose clashes are most likely to be artifacts of their mobility." (Table 3: "Omit B ≥ 40 atoms"; Figure 10 legend: "Rejecting all atoms with B > 40 loses only 5 % of the atoms.") The paper applies the cutoff to atoms in its contact and clash analysis and excludes B = 40; our filter tests mainchain atoms and keeps B = 40.00 (B ≤ 40).
