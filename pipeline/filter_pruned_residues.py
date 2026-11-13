@@ -28,9 +28,29 @@ Residue set (decided 2026-11-09):
                           dropped residue are kept.  Used by the v1.x
                           recipes.  See docs/differences_from_richardson_lab.md.
 
+Angles that use a filtered-out neighbour (decided 2026-11-12):
+    --neighbour-angles null  set the neighbour-dependent fields above to null
+                             at fragment starts and ends (default; the v1.0
+                             behaviour)
+    --neighbour-angles keep  keep every value as measured on the complete
+                             structure; only the residue's own mask decides
+                             whether it is kept.  This is the rule of the
+                             lab's Top8000 lists (get_srcdata.py filters each
+                             residue on its own B, occupancy and on phi, psi,
+                             omega, tau being defined, with no test on
+                             whether its neighbours passed; e.g. 16pk A6 is
+                             listed with phi -82.646 measured through A5,
+                             which fails the B filter).  Where phi or psi is
+                             null (e.g. a chain end or a real gap), the
+                             Ramachandran fields rama_category, rama5, rama4
+                             and rama3 are set to null: pydangle assigns them
+                             from residue identity alone, but a residue
+                             without phi and psi has no Ramachandran class
+                             (the lab requires phi and psi defined).
+
 Usage:
     python scripts/filter_pruned_residues.py INPUT.jsonl SRC_DIR [-s SUFFIX]
-        [--residues {all,std20+MSE}]
+        [--residues {all,std20+MSE}] [--neighbour-angles {null,keep}]
 
 Arguments:
     INPUT.jsonl  Raw pydangle JSONL output
@@ -193,6 +213,23 @@ def null_neighbor_dependent(
     return record
 
 
+def null_rama_without_phi_psi(record: dict) -> bool:
+    """Null the Ramachandran fields when phi or psi is null.
+
+    pydangle labels rama_category (and rama5/4/3) from residue identity even
+    when phi or psi could not be measured.  Returns True if anything was
+    nulled.
+    """
+    if record.get("phi") is not None and record.get("psi") is not None:
+        return False
+    changed = False
+    for col in _NEEDS_BOTH:
+        if record.get(col) is not None:
+            record[col] = None
+            changed = True
+    return changed
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
@@ -223,8 +260,17 @@ def main() -> None:
             "without changing any other field."
         ),
     )
+    parser.add_argument(
+        "--neighbour-angles", choices=("null", "keep"), default="null",
+        help=(
+            "null (default): null phi/psi/omega and the fields derived from "
+            "them where a neighbour was filtered out; keep: keep the values "
+            "measured on the complete structure (the lab's Top8000 rule)"
+        ),
+    )
     args = parser.parse_args()
     keep_names = RESIDUE_SETS[args.residues]
+    keep_neighbour_angles = args.neighbour_angles == "keep"
 
     if not args.input_jsonl.exists():
         print(f"Error: {args.input_jsonl} not found", file=sys.stderr)
@@ -243,12 +289,14 @@ def main() -> None:
     )
     print(f"Pruned file suffix: {args.suffix}", file=sys.stderr)
     print(f"Residue set: {args.residues}", file=sys.stderr)
+    print(f"Neighbour angles: {args.neighbour_angles}", file=sys.stderr)
 
     kept = 0
     skipped = 0
     no_mask = 0
     nulled_start = 0
     nulled_end = 0
+    nulled_rama = 0
     dropped_type: Counter[str] = Counter()
 
     # Compile filename normalization pattern
@@ -290,7 +338,10 @@ def main() -> None:
                 nulled_start += 1
             if is_end:
                 nulled_end += 1
-            record = null_neighbor_dependent(record, is_start, is_end)
+            if not keep_neighbour_angles:
+                record = null_neighbor_dependent(record, is_start, is_end)
+            elif null_rama_without_phi_psi(record):
+                nulled_rama += 1
 
             print(json.dumps(record, separators=(",", ":")))
             kept += 1
@@ -304,6 +355,11 @@ def main() -> None:
         f"fragment ends (no i+1): {nulled_end}",
         file=sys.stderr,
     )
+    if keep_neighbour_angles:
+        print(
+            f"Ramachandran fields nulled (phi or psi null): {nulled_rama}",
+            file=sys.stderr,
+        )
     if keep_names is not None:
         print(
             f"Dropped by residue set: {sum(dropped_type.values())} "
