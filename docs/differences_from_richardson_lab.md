@@ -25,7 +25,7 @@ Statements about our own pipeline come from the code in this repository and in p
 Reference material:
 
 - **top8000:** the lab's per-residue Ramachandran lists `Top8000_Rama_2013.zip` (written 2013-02-16 by `get_srcdata.py` from the lab's top8000 MySQL database; Silk on these lists reproduces all six archived rama8000 `.ndft` tables bin for bin), and the lab's 2011 chain files `top8000_chains_70.tgz`, the input of those lists. Analysis on branch `rama8000-reconciliation` (`e00fa7b`), directory `rama8000_reconciliation/`.
-- **top2018:** the lab's pruned files (Zenodo 10.5281/zenodo.5115233) and C. J. Williams' Top2018 SQLite database of validation and geometry measures (Zenodo 10.5281/zenodo.22085722).
+- **top2018:** the lab's pruned files (all-atom v2.0, Zenodo 10.5281/zenodo.5773255; mainchain v2.01, Zenodo 10.5281/zenodo.5777651) and C. J. Williams' Top2018 SQLite database of validation and geometry measures (Zenodo 10.5281/zenodo.22085722).
 - **top100, top500:** no per-residue reference list recovered; only the publications cited in each README.
 - **Publications:** Williams et al. 2018, *Protein Sci* 27:293–315 (WHM+18); Read et al. 2011, *Structure* 19:1395–1412 (RAA+11).
 

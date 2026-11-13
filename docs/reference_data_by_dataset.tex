@@ -1,0 +1,79 @@
+% Reference data available for each dataset (LaTeX form of reference_data_by_dataset.md).
+% Build: lualatex reference_data_by_dataset.tex
+\documentclass[10pt]{article}
+\usepackage[letterpaper,landscape,margin=0.6in]{geometry}
+\usepackage{libertinus}
+\usepackage{booktabs,tabularx,ragged2e}
+\usepackage{url}
+\urlstyle{tt}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+\DeclareUrlCommand\fn{\urlstyle{tt}}
+
+\begin{document}
+
+{\Large\bfseries Reference data available for each dataset}\par\smallskip
+{\small\itshape File: reference\_data\_by\_dataset.tex · Git: Michael G. Prisant 4c7b2f1 · Txd: 11/12/26 with local modifications!}\par\medskip
+
+{\small ``Lab'' means the Richardson Lab's own files; ``ours'' means what our pipeline uses now;
+``not located'' means a source document says the files exist but they have not been found on disk.
+Pipeline diagram: \fn{pipeline_block_diagram.pdf}.}
+
+\bigskip
+{\footnotesize
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}p{0.075\linewidth}LLLLLL@{}}
+\toprule
+Dataset & Chain list & Lab's coordinate files (as the lab used them) & Our coordinate files
+  & Lab's filter output & Lab's filter rules & Lab's reference results \\
+\midrule
+top100
+  & Reconstructed from the lab's \fn{top100H} files (100 entries, 108 chains)
+  & 100 FH files, Reduce 2.13.2: \fn{~/Desktop/MyProgs/PolarWork/top100H/}
+  & RCSB downloads, Reduce 4.16
+  & None
+  & Word et al.\ 1999b: atoms with $B \ge 40$ omitted (our filter: mainchain $B \le 40$)
+  & None located \\
+top500
+  & Reconstructed from the lab's kinemage-server list (494 entries, 523 chains)
+  & 500 FH files, Reduce 2.13.2 (per \fn{top500/README.md}): not located
+  & RCSB downloads, Reduce 4.16
+  & None
+  & Lovell et al.\ 2003: ``residues with $B < 30$''
+  & $\phi/\psi$ archive, 2006 (\fn{top500_issues.md}): not located \\
+top8000
+  & \fn{Top8000-best_hom70_pdb_chain_list.csv} (7,737 entries, 7,957 chains)
+  & 2011 chain files, Reduce 3.15.091106: \fn{~/Desktop/Data/top8000_chains_70_2011/} (sha256 4a6bb1b9\ldots)
+  & RCSB downloads, Reduce 4.16
+  & The filtered residue lists themselves (\fn{Top8000_Rama_2013.zip}); no masks
+  & \fn{get_srcdata.py} in \fn{Top8000_Rama_2013.zip}
+  & Filtered residue lists (\fn{Top8000_Rama_2013.zip}); \fn{.ndft} tables \\
+top2018\_full
+  & Top2018 all-atom chain list v2.0 (Zenodo 10.5281/zenodo.5773255)
+  & Pruned single-chain files (\fn{*_pruned_all.pdb}, kept residues only, Reduce 3.3 hinge flips); whole-entry files the lab started from: not held
+  & RCSB downloads, Reduce 3.3.160422 (4.16 for 4oan, 4uzg)
+  & Pruned files: our \fn{.mask} files are derived from them
+  & Williams et al.\ 2021; Top2018 database tables \fn{allatom_filters}, \fn{mc_filters}
+  & Top2018 database: \fn{~/Desktop/Data/williams_top2018_sqlite/top2018_build.db} \\
+top2018\_mc
+  & Top2018 mainchain chain list v2.01 (Zenodo 10.5281/zenodo.5777651)
+  & Pruned single-chain files (\fn{*_pruned_mc.pdb}); whole-entry files: not held
+  & RCSB downloads, Reduce 4.16
+  & Pruned files: our \fn{.mask} files are derived from them
+  & Williams et al.\ 2021; Top2018 database table \fn{mc_filters}
+  & Top2018 database (as above) \\
+\bottomrule
+\end{tabularx}
+}
+
+\bigskip
+{\bfseries Masks for top2018.}
+The lab did not supply mask files; it supplied the pruned chain files.
+\fn{build_ersatz_pdbs.py} derives our \fn{.mask} file for each chain from the residues
+present in the lab's pruned file, and keeps the file's \texttt{USER INC} records as the
+fragment boundaries. So for top2018 the lab's filter is already applied; we do not apply
+filter rules ourselves. The rules (Williams et al.\ 2021, and the database's per-residue
+filter flags) serve only to check the result.
+
+\end{document}
