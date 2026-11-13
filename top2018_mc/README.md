@@ -2,6 +2,10 @@
 
 **Zenodo DOI:** [10.5281/zenodo.19040026](https://doi.org/10.5281/zenodo.19040026)
 
+**Version:** 1.0.0, the current version.
+
+**Why 1.0.0 when the sibling datasets are at 2.0:** the sibling datasets' 2.0 releases (top100, top500, top8000, top2018_full; March 2026) added the side-chain torsion angles χ1–χ4. This dataset is filtered on mainchain quality only, so side-chain angles in it would come from unfiltered side chains, and it has none. Its JSONL has the same 17 fields as the siblings, without `chi1`–`chi4`. No 2.0 of this dataset exists.
+
 ## Summary
 
 This dataset contains per-residue backbone geometric measurements, Ramachandran classifications at multiple granularities, DSSP secondary structure assignments, peptide bond classification, and chirality for 2,963,303 quality-filtered protein residues from 13,677 mainchain-filtered chains in 13,308 high-resolution, low-redundancy protein structures.
