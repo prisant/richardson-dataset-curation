@@ -23,9 +23,9 @@ The residues come from the top2018 dataset by the Richardson Lab at Duke Univers
 | Chains | 12,125 | 13,677 |
 | Structures | 11,843 | 13,308 |
 | Residues | 2,405,322 | 2,963,303 |
-| Includes chi1 | Yes | No |
-| Rama granularity | rama_category only | rama_category + rama5/4/3 |
-| Zenodo DOI | [10.5281/zenodo.19040026](https://doi.org/10.5281/zenodo.19040026) | This deposit |
+| Includes chi1–chi4 | Yes | No |
+| Rama granularity | rama_category + rama5/4/3 | rama_category + rama5/4/3 |
+| Zenodo DOI | [10.5281/zenodo.19029946](https://doi.org/10.5281/zenodo.19029946) | This deposit |
 
 ## Preprocessing: "Ersatz" full-structure PDB files
 
