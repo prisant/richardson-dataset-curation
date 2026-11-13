@@ -62,7 +62,7 @@ to ensure full reproducibility.
 
 ## References
 
-- Williams, C. J., Richardson, D. C., & Richardson, J. S. (2021). The
+- Williams, C. J., Richardson, D. C., & Richardson, J. S. (2022). The
   importance of residue-level filtering, and the Top2018 best-parts
   dataset of high-quality protein residues. *Protein Science*.
   doi:10.1002/pro.4239

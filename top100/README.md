@@ -13,7 +13,7 @@ The measurements were computed using [pydangle-biopython](https://github.com/pri
 
 The Top100 is the original Richardson Lab quality-filtered protein structure reference dataset, curated at Duke University. It consists of 100 high-resolution (0.9–1.7 Å) protein structures selected for crystallographic quality. The Top100 was used for the foundational work on Asn/Gln sidechain amide flip correction using all-atom contact analysis with Probe and Reduce (Word et al., 1999a, 1999b). It was the first dataset to establish the methodology of adding explicit hydrogen atoms and using all-atom contacts to optimize sidechain orientations — a methodology that became central to the MolProbity validation pipeline.
 
-The Top100 was subsequently expanded to the Top500 (Lovell et al., 2000, 2003), which was used for the "penultimate" rotamer library and updated Ramachandran/Cbeta deviation validation. The Top500 was in turn superseded by the Top8000 (Hintze et al., 2016; Williams et al., 2018) and ultimately the Top2018 (Williams et al., 2021).
+The Top100 was subsequently expanded to the Top500 (Lovell et al., 2000, 2003), which was used for the "penultimate" rotamer library and updated Ramachandran/Cbeta deviation validation. The Top500 was in turn superseded by the Top8000 (Hintze et al., 2016; Williams et al., 2018) and ultimately the Top2018 (Williams et al., 2022).
 
 ### Key references
 
